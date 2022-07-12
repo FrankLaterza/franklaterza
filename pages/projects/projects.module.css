@@ -1,0 +1,81 @@
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: #111213ff;
+  color: #ffffffff;
+}
+
+.container h1 {
+  margin: 0rem; 
+}
+
+.main {
+  background-color: rgba(33, 34, 36, 0.75);
+  max-width: 1000px;
+  /* width: clac(50% + 4rem) !important; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: calc(60% + 5rem);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.undergraph {
+  width: 20rem;
+  margin: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(105, 105, 105);
+
+}
+
+.postBlurb{
+  width: 75%;
+  background-color: rgb(63, 63, 63); 
+  display: grid;
+  text-align: left;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 2rem;
+  /* padding: 2rem; */
+  grid-template-columns: repeat(auto-fit, minmax(calc(25% + 5rem), 1fr));
+  margin: 2rem;
+}
+
+.postBlurbInfo{ 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.postBlurbInfo h2{
+  margin: 0rem; 
+}
+
+
+/* --rich-black-fogra-39: #111213ff;
+
+--eerie-black: #212224ff;
+
+--quick-silver: #a1a1a1ff;
+
+--white: #ffffffff;
+
+--blue-crayola: #2f71e8ff;
+
+--cyan-process: #29b9f0ff; */

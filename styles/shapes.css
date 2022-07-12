@@ -1,0 +1,39 @@
+.container {
+  background-color: rgb(31, 31, 31);
+
+  
+} 
+
+.square {
+  width: 120;
+  height: 120;
+  background-color: '#264653';
+
+}
+/* rectangle {
+  width: 120 * 2;
+  height: 120;
+  backgroundColor: '#2a9d8f'
+}
+circle {
+  width: 120;
+  height: 120;
+  borderRadius: 120 / 2;
+  borderColor: '#e9c46a';
+  borderWidth: 5;
+}
+
+triangle {
+  width: 0;
+  height: 0;
+  
+  backgroundColor: 'transparent';
+  borderStyle: 'solid';
+  borderLeftWidth: 60;
+  borderRightWidth: 60;
+  borderBottomWidth: 120;
+  borderLeftColor: 'transparent';
+  borderRightColor: 'transparent';
+  borderBottomColor: '#e76f51';
+  transform: [{ rotate: '180deg' }]
+} */
