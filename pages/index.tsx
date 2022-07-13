@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <div className={styles.header}>
           <h1>
             Hey There, <br/>
-            I&aposm Frank Laterza!
+            Im Frank Laterza!
           </h1>
           <p className={styles.undergraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
