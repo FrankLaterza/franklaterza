@@ -3,7 +3,7 @@ title: "Mark Down Example"
 
 about: "any example of how to use the google drive api with node"
 
-socialImage: images/22-09-2021.jpg
+socialImage: images/flip_shirt.jpg
 
 date: "2021-09-22"
 

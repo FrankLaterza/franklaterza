@@ -59,22 +59,36 @@ export default function Projects ( {posts}: Props ) {
       </div>
       {/* project button */}
       {posts.map(({ slug, frontmatter }) => (
-      <div className={styles.postBlurb}>
-        <Image 
-          width={100}
-          height={100}
-          alt={frontmatter.title}
-          src={`/${frontmatter.socialImage}`}
-          />
 
-          <div className={styles.postBlurbInfo}>
+        /* main blurb */
+        <div key={slug}>
+        <Link href={`/projects/${slug}`}>
+          <div className={styles.postBlurb}>
+            {/* top */}
+            <div className={styles.postBlurbTop}>
+              <div className={styles.image}>
+                <Image 
+                  width= {75}
+                  height={75}
+                  alt={frontmatter.title}
+                  src={`/${frontmatter.socialImage}`}
+                  />
+              </div>
+              {/* titles */}
+              <div> 
+                <h2> {frontmatter.title} </h2>
+              </div>
+            </div>
+            {/* bottom info */}
+            <div className={styles.postBlurbBottom}>
+              <div>
+                about: {frontmatter.about} sdjfasdjkfhjslakd4
 
-            <h2> {frontmatter.title} </h2>
-            <p>
-              {frontmatter.about}
-            </p>
+              </div>
+            </div>
           </div>
-      </div>
+        </Link>
+        </div>
       ))}
 
     </div>

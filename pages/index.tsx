@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image'
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 //import styles from '../styles/shapes.css';
 import ME from '../images/prof_bush.jpg';
 import { NavBar } from '../components/navbar';
-import { ST } from 'next/dist/shared/lib/utils';
 import { randSVG } from '../lib/random_background'
 
 
@@ -22,7 +21,7 @@ const Home: NextPage = () => {
         <div className={styles.header}>
           <h1>
             Hey There, <br/>
-            I'm Frank Laterza!
+            I&aposm Frank Laterza!
           </h1>
           <p className={styles.undergraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -34,7 +33,7 @@ const Home: NextPage = () => {
 
           {/* image */}
           <div className={styles.image} >
-            <Image src={ME} alt="ME!"/>
+            <Image src={ME} alt='ME!'/>
           </div>
           <div>
             <h1>Who?</h1>
