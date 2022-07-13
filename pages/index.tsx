@@ -8,6 +8,7 @@ import { NavBar } from '../components/navbar';
 import { randSVG } from '../lib/random_background'
 
 
+
 const Home: NextPage = () => {
   return (
 
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
         <div className={styles.header}>
           <h1>
             Hey There, <br/>
-            Im Frank Laterza!
+            I&apos;m Frank Laterza!
           </h1>
           <p className={styles.undergraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -32,10 +33,10 @@ const Home: NextPage = () => {
         <div className={styles.aboutMe}> 
 
           {/* image */}
-          <div className={styles.image} >
-            <Image src={ME} alt='ME!'/>
+          <div className={styles.aboutMeText}>
+            <Image src={ME} width= {200} height={200}/>
           </div>
-          <div>
+          <div className={styles.aboutMeText}>
             <h1>Who?</h1>
             <p>
             Sed risus ultricies tristique nulla aliquet enim. Molestie 

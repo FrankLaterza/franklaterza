@@ -61,17 +61,17 @@ export default function Projects ( {posts}: Props ) {
       {posts.map(({ slug, frontmatter }) => (
 
         /* main blurb */
-        <div key={slug}>
-        <Link href={`/projects/${slug}`}>
-          <div className={styles.postBlurb}>
+          <Link href={`/projects/${slug}`}>
+          
+            <div key={slug} className={styles.postBlurb}>
             {/* top */}
             <div className={styles.postBlurbTop}>
               <div className={styles.image}>
                 <Image 
-                  width= {75}
-                  height={75}
-                  alt={frontmatter.title}
-                  src={`/${frontmatter.socialImage}`}
+                  width= {150}
+                  height={150}
+                  // alt={frontmatter.title}
+                  src={'/images/google_drive.png'}
                   />
               </div>
               {/* titles */}
@@ -86,9 +86,8 @@ export default function Projects ( {posts}: Props ) {
 
               </div>
             </div>
-          </div>
-        </Link>
-        </div>
+            </div>
+          </Link>
       ))}
 
     </div>
