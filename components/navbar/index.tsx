@@ -1,7 +1,7 @@
 import styles from './navbar.module.css'
 import { Hamburger } from './hamburger';
 import Link from 'next/link';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState, useEffect } from 'react';
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -35,15 +35,19 @@ function NavBar( ){
             </div>
     }
     else{
-        hamburger = <Hamburger/>;
+        hamburger = <Hamburger/>
     }
 
     return(
         // bar arossed
         <div className={styles.bar}> 
             {/* main */}
+            {useEffect(() => {
+            document.body.style.overflow = "auto";
+            })}
             <div className={styles.main}>
                 {/* name */}
+                
                 <div style={{display: 'flex', flexDirection: 'row', gap: '0.2rem'}}>
                     <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
                 </div>

@@ -77,9 +77,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    z-index:99; 
 }
-  
+
+
 .menuNav.showMenu {
     max-height: 30%;
     transition: max-height 150ms ease-in;
