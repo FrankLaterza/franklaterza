@@ -61,9 +61,10 @@ export default function Projects ( {posts}: Props ) {
       {posts.map(({ slug, frontmatter }) => (
 
         /* main blurb */
-          <Link href={`/projects/${slug}`}>
           
-            <div key={slug} className={styles.postBlurb}>
+          <div key={slug}>
+          <Link href={`/projects/${slug}`}>
+          <div className={styles.postBlurb}>
             {/* top */}
             <div className={styles.postBlurbTop}>
               <div className={styles.image}>
@@ -83,11 +84,11 @@ export default function Projects ( {posts}: Props ) {
             <div className={styles.postBlurbBottom}>
               <div>
                 about: {frontmatter.about} sdjfasdjkfhjslakd4
-
               </div>
             </div>
-            </div>
+          </div>
           </Link>
+          </div>
       ))}
 
     </div>
