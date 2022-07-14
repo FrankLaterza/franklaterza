@@ -16,15 +16,12 @@ function Hamburger () {
     }
     // break scroll while tab is open
     
-    if(navbarOpen){
-      useEffect(() => {document.body.style.overflow = 'hidden', 
-      document.body.style.position = 'fixed';});
+    
+    useEffect(() => {document.body.style.overflow = (navbarOpen) ? 'hidden' : '', 
+                     document.body.style.position = (navbarOpen) ? 'fixed' : ''});
 
-    }
-    else{
-      useEffect(() => {document.body.style.overflow = '', 
-      document.body.style.position = '';});
-    }
+
+    
 
 
 
