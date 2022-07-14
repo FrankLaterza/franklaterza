@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 //import styles from '../styles/shapes.css';
-import ME from '../images/prof_bush.jpg';
+import ME from '/public/images/prof_bush.jpg';
 import { NavBar } from '../components/navbar';
 import { randSVG } from '../lib/random_background'
 
