@@ -103,11 +103,29 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
   /* background-color: rgb(153, 153, 153); */
   color: rgb(255, 255, 255);
   text-align: left;
 }
+
+
+@media (max-width: 600px) {
+  .markDown {
+    display: flex;
+    /* min-width: 500px; */
+    /* width: 80%; */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    font-size: 1.2rem;
+    /* background-color: rgb(153, 153, 153); */
+    color: rgb(255, 255, 255);
+    text-align: left;
+  }
+}
+
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Mark Down Example"
+title: "Google Drive API with node.js"
 
 about: "any example of how to use the google drive api with node"
 
-socialImage: images/flip_shirt.jpg
+socialImage: images/google_drive.png
 
 date: "2021-09-22"
 
@@ -11,160 +11,28 @@ tags:
   - nextjs
 ---
 
-# An h1 header
+# Google Drive Api with node
 
-Paragraphs are separated by a blank line.
+This project was created to work with Google Drive API. The goal of the project was to update a local file with a folder from google drive. I am sharing this project with the world because it took me longer than I'd like to admit. These steps will be brief and will not go in-depth. The most difficult part was using the API in node js. Setting up the Google Drive API has many tutorials already, but I found nothing on this specific task.
 
-2nd paragraph. _Italic_, **bold**, and `monospace`. Itemized lists
-look like:
+## How To STEPS
 
-- this one
-- that one
-- the other one
+#### Set Up API
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+Once you get all node dependencies, follow this tutorial for setting up your google drive API [here](https://developers.google.com/drive/api/v3/enable-drive-api). Make sure to set up your OAuth screen and enable _ALL Google Drive API scopes_. Once that is complete create your credentials. Download your OAuth keys and save them to a file called `credentials.json`.
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
+#### Getting Token
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
+Now you will need to get your token. First, create an empty file called `token.json`. Then try running the script how it is. You may get an error claiming that it cannot read token.json so make sure to add `{}` inside `token.JSON file`. If that doesn't work, try uncommenting line 71 in `index.js`. This will ignore checking if is already a key.
 
-## An h2 header
+#### Get Folder Id
 
-Here's a numbered list:
+Once you get your token you will need to get the file id of the Google Drive folder you are trying to access. To list all available folder names and corresponding Ids, uncomment line 53 and comment outline 50. This will switch from running the main code and displaying all file Ids.
 
-1.  first item
-2.  second item
-3.  third item
+#### Comparing
 
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
+We are almost there! Now use that file and set it up like this `GDfolderId = 'your folder id here` on line 34. Then set up the file path like this `const local file path = 'C:/your/folder/path/goes/here` on line 37.
 
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
+#### Done!
 
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
-```
-define foobar() {
-    print "Welcome to flavor country!";
-}
-```
-
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it:
-
-```python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print i
-```
-
-### An h3 header
-
-Now a nested list:
-
-1.  First, get these ingredients:
-
-    - carrots
-    - celery
-    - lentils
-
-2.  Boil some water.
-
-3.  Dump everything in the pot and follow
-    this algorithm:
-
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
-
-    Do not bump wooden spoon or it will fall.
-
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).
-
-Here's a link to [a website](http://foo.bar), to a [local
-doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header). Here's a footnote [^1].
-
-[^1]: Footnote text goes here.
-
-Tables can look like this:
-
-size material color
-
----
-
-9 leather brown
-10 hemp canvas natural
-11 glass transparent
-
-Table: Shoes, their sizes, and what they're made of
-
-(The above is the caption for the table.) Pandoc also supports
-multi-line tables:
-
----
-
-keyword text
-
----
-
-red Sunsets, apples, and
-other red or reddish
-things.
-
-green Leaves, grass, frogs
-and other things it's
-not easy being.
-
----
-
-A horizontal rule follows.
-
----
-
-Here's a definition list:
-
-apples
-: Good for making applesauce.
-oranges
-: Citrus!
-tomatoes
-: There's no "e" in tomatoe.
-
-Again, text is indented 4 spaces. (Put a blank line between each
-term/definition pair to spread things out more.)
-
-Here's a "line block":
-
-| Line one
-| Line too
-| Line tree
-
-and images can be specified like so:
-
-![example image](example-image.jpg "An exemplary image")
-
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
-
-$$I = \int \rho R^{2} dV$$
-
-And note that you can backslash-escape any punctuation characters
-which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+The code should check all of your local file names and compare them to the drive file names. Then it will filter out the missing names and use the Google Drive file Id to download the missing files!!!! If you have any issues feel free to contact me!
