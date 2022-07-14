@@ -5,6 +5,7 @@ import { NavBar } from '../../components/navbar';
 import styles from './projects.module.css';
 import { randSVG } from '../../lib/random_background';
 import Link from 'next/link';
+import remarkGfm from 'remark-gfm'
 
 
 export async function getStaticPaths() {
@@ -38,14 +39,12 @@ export default function PostPage({ frontmatter, content }: any) {
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
       <NavBar/>
       <div className={styles.main}>
-      <div className={styles.markDown}>
-      <Link href={`/projects`}> 
-        <div className={styles.backBtn}>
-          Back
+        <div className={styles.markDown}>
+        <Link href={`/projects`}> 
+          <div className={styles.backBtn}>Back</div>
+        </Link> 
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
-      </Link> 
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </div>
       </div>
     </div>
   );

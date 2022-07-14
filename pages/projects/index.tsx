@@ -57,39 +57,39 @@ export default function Projects ( {posts}: Props ) {
           sed do eiusmod tempor 
         </p>
       </div>
-      {/* project button */}
-      {posts.map(({ slug, frontmatter }) => (
-
-        /* main blurb */
-          
+      {/* main blurb */}
+      <div className={styles.postMain}>
+        {posts.map(({ slug, frontmatter }) => (
           <div key={slug}>
-          <Link href={`/projects/${slug}`}>
-          <div className={styles.postBlurb}>
-            {/* top */}
-            <div className={styles.postBlurbTop}>
-              <div className={styles.image}>
-                <Image 
-                  width= {200}
-                  height={200}
-                  // alt={frontmatter.title}
-                  src={'/images/google_drive.png'}
-                  />
+            <Link href={`/projects/${slug}`}>
+              {/* project button */}
+              <div className={styles.postBlurbBtn}>
+                {/* top */}
+                <div className={styles.postBlurbTop}>
+                  <div className={styles.image}>
+                    <Image 
+                      width= {200}
+                      height={200}
+                      // alt={frontmatter.title}
+                      src={'/images/google_drive.png'}
+                      />
+                  </div>
+                  {/* titles */}
+                  <div className={styles.title}>
+                    <h1> {frontmatter.title} </h1>
+                  </div>
+                </div>
+                {/* bottom info */}
+                <div className={styles.postBlurbBottom}>
+                  <div>
+                    <b>About: </b>{frontmatter.about}
+                  </div>
+                </div>
               </div>
-              {/* titles */}
-              <div> 
-                <h2> {frontmatter.title} </h2>
-              </div>
-            </div>
-            {/* bottom info */}
-            <div className={styles.postBlurbBottom}>
-              <div>
-                about: {frontmatter.about} sdjfasdjkfhjslakd4
-              </div>
-            </div>
+            </Link>
           </div>
-          </Link>
-          </div>
-      ))}
+        ))}
+      </div>
 
     </div>
 

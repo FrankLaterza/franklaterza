@@ -17,7 +17,7 @@
 
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
-  width: 60%;
+  width: 50%;
   max-width: 1000px;
   /* width: clac(50% + 4rem) !important; */
   display: flex;
@@ -54,8 +54,16 @@
 
 }
 
-.postBlurb{
+.postMain {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+
+}
+
+.postBlurbBtn{
   border-radius: 1rem;
+  width: 100%;
   background-color: rgb(38, 37, 43);  
   border-style: solid;
   transition: border-color 150ms ease-in-out;
@@ -63,53 +71,60 @@
   color: rgb(238, 238, 238);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   margin-bottom: 3rem;
-  padding: 2rem;
-  text-align: center; 
+  padding: 2rem; 
+  font-size: 1.5rem;
+  text-align: left;
   cursor: pointer;
 }
 
-/* @media (max-width: 600px){
-  .postBlurb{
-
-    width: 80%;
+@media (max-width: 700px) {
+  .postBlurbBtn{
+    align-items: center;
+    text-align: center ;
+    flex-direction: column; 
+    font-size: 1.2rem;
   }
-} */
+}
 
-.postBlurb:hover {
+.postBlurbBtn:hover {
   border-style: solid;
   border-color: #2f71e8ff
 }
 
-
-
-.postBlurbTop { 
+.postBlurbTop {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: left  ;
-  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: flex-start;
   gap: 1rem;
-  
 }
 
-/* @media (max-width: 800px) {
-  .postBlurbTop { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+@media (max-width: 700px) {
+  .postBlurbTop {
+    flex-direction: column; 
   }
-} */
+}
+
+.title{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  /* this locks the image size */
+  width: calc(100% - 200px);
+}
+
+@media (max-width: 700px) {
+  .title {
+    width: 100%;
+  }
+}
+
 .postBlurbBottom { 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: left;
 
 }
 
