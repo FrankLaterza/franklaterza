@@ -24,7 +24,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 3rem;
 }
+
+@media (max-width: 700px) {
+  .main {
+    /* background-color: rgba(33, 34, 36, 0.75); */
+    width: 80%;
+
+  }
+
+}
+
+
 
 .header {
   width: calc(60% + 5rem);
@@ -47,8 +59,7 @@
 
 .postBlurb{
   border-radius: 1rem;
-  background-color: rgb(38, 37, 43);
-
+  background-color: rgb(38, 37, 43);  
   border-style: solid;
   transition: border-color 150ms ease-in-out;
   border-color: rgba(255, 255, 255, 0);
@@ -57,11 +68,18 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 3rem;
+  margin-top: 3rem;
   padding: 2rem;
   text-align: center; 
   cursor: pointer;
 }
+
+/* @media (max-width: 600px){
+  .postBlurb{
+
+    width: 80%;
+  }
+} */
 
 .postBlurb:hover {
   border-style: solid;
