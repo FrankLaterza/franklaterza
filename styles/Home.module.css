@@ -9,16 +9,14 @@
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
-  background-color: rgb(19, 22, 25);  
+  background-color: #111213ff;
   color: #ffffffff;
 }
-
-
-
 
 .container h1 {
   margin: 0rem; 
 }
+
 
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
@@ -33,7 +31,7 @@
   align-items: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .main {
     /* background-color: rgba(33, 34, 36, 0.75); */
     width: 100%;
@@ -49,7 +47,7 @@
 }
 
 .header {
-  width: 60%;
+  width: 80%;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -75,14 +73,14 @@
   justify-content: center;
   text-align: left;
   flex-wrap: wrap;
-  gap: 2rem;
+  
   /* padding: 2rem; */
   /* grid-template-columns: repeat(auto-fit, minmax(calc(30% + 7rem), 1fr)); */
-  /* gap: 1rem; */
+  gap: 1rem;
 }
 
 .aboutMeText {
-  width: 45%;
+  width: 50%;
   padding: 1rem;
   max-height: fit-content;
   /* border-radius: 50%;
@@ -94,7 +92,7 @@
   .aboutMeText { 
     width: 100%;
     text-align: left;
-    padding: 1rem;
+    padding: 2rem;
   }
 }
 
@@ -102,7 +100,7 @@
   margin-top: 2rem;
   max-width: 1000px;
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

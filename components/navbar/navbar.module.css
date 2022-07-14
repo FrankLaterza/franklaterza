@@ -1,11 +1,32 @@
-.navbar {
-    background-color: rgb(37, 37, 41);
+.bar {
+    background-color: rgb(38, 37, 43);
     width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+
+
 }
+
+
+.main {
+    max-width: 1000px;
+    width: 100%;
+    max-width: 1080px;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
 
 .navlink {
     font-size: 1rem;    
@@ -24,3 +45,28 @@
 
 }
 
+.contact {
+    font-size: 1rem;    
+    background-color: #2f71e8ff;
+    border-radius: 0.8rem;
+    
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    /* border:solid; */
+
+}
+
+
+/* --rich-black-fogra-39: #111213ff;
+
+--eerie-black: #212224ff;
+
+--quick-silver: #a1a1a1ff;
+
+--white: #ffffffff;
+
+--blue-crayola: #2f71e8ff;
+
+--cyan-process: #29b9f0ff; */

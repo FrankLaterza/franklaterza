@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         <div className={styles.header}>
           <h1>
             Hey There, <br/>
-            I&apos;m Frank Laterza!
+            I am Frank Laterza!
           </h1>
           <p className={styles.undergraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -33,8 +33,8 @@ const Home: NextPage = () => {
         <div className={styles.aboutMe}> 
 
           {/* image */}
-          <div className={styles.aboutMeText}>
-            <Image src={ME} width= {200} height={200}/>
+          <div className={styles.image}>
+            <Image src={ME} width= {300} height={300}/>
           </div>
           <div className={styles.aboutMeText}>
             <h1>Who?</h1>

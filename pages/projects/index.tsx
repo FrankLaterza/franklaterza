@@ -68,8 +68,8 @@ export default function Projects ( {posts}: Props ) {
             <div className={styles.postBlurbTop}>
               <div className={styles.image}>
                 <Image 
-                  width= {150}
-                  height={150}
+                  width= {200}
+                  height={200}
                   // alt={frontmatter.title}
                   src={'/images/google_drive.png'}
                   />
