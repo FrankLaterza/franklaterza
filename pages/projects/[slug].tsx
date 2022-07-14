@@ -40,9 +40,9 @@ export default function PostPage({ frontmatter, content }: any) {
       <div className={styles.main}>
       <div className={styles.markDown}>
       <Link href={`/projects`}> 
-        <button style={{padding: '1rem', margin: '1rem'} }>
-          back
-        </button>
+        <div className={styles.backBtn}>
+          Back
+        </div>
       </Link> 
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>

@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 
           {/* image */}
           <div className={styles.image}>
-            <Image src={ME} width= {300} height={300}/>
+            <Image src={ME} width= {300} height={320}/>
           </div>
           <div className={styles.aboutMeText}>
             <h1>Who?</h1>

@@ -98,6 +98,16 @@
 
 }
 
+.backBtn{
+  height: auto;
+  width: auto;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  background-color: rgb(113, 111, 218);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 
 .markDown {
   display: flex;
