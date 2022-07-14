@@ -1,4 +1,5 @@
 import styles from './navbar.module.css'
+import { Hamburger } from './hamburger';
 import Link from 'next/link';
 import React, { useLayoutEffect, useState } from 'react';
 
@@ -18,24 +19,24 @@ function useWindowSize() {
 
 
 function NavBar( ){
+
+    // detects screen size
     const [width, height] = useWindowSize();
     let hamburger;
     if (width > 800) {      
         hamburger = 
             <div className={styles.main}>
-                <div className={styles.navbar}>
-                <Navlink name='About Me' link='/'/> 
-                <Navlink name='Projects' link='/projects'/>
-                <Navlink name='Interactive' link='/interactive'/>
+                <div className={styles.navBar}>
+                    <Navlink name='About Me' link='/'/> 
+                    <Navlink name='Projects' link='/projects'/>
+                    <Navlink name='Interactive' link='/interactive'/>
+                    <Navlink name='Contact' link='/contact'/>
                 </div>
-                <div className={styles.contact}>Contact</div>
             </div>
     }
     else{
-        hamburger
+        hamburger = <Hamburger/>;
     }
-    
-
 
     return(
         // bar arossed
@@ -43,8 +44,8 @@ function NavBar( ){
             {/* main */}
             <div className={styles.main}>
                 {/* name */}
-                <div className={styles.myName}>
-                    <b>Frank</b> <span style={{color: 'grey'}}>Laterza</span>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '0.2rem'}}>
+                    <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
                 </div>
 
                 {/* renderes the hamburger */}
@@ -58,7 +59,7 @@ function NavBar( ){
 function Navlink( props: {name: string, link: string} ) {
     return (
     <Link href={props.link}>        
-        <a className={styles.navlink}>
+        <a className={styles.navLink}>
             {props.name}
         </a>
     </Link>
@@ -67,4 +68,4 @@ function Navlink( props: {name: string, link: string} ) {
 
 
 
-export { NavBar }
+export { NavBar, Navlink }
