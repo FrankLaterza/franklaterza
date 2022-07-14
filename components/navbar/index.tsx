@@ -42,9 +42,6 @@ function NavBar( ){
         // bar arossed
         <div className={styles.bar}> 
             {/* main */}
-            {useEffect(() => {
-            document.body.style.overflow = "auto";
-            })}
             <div className={styles.main}>
                 {/* name */}
                 
