@@ -15,16 +15,8 @@ function Hamburger () {
       
     }
     // break scroll while tab is open
-    
-    
     useEffect(() => {document.body.style.overflow = (navbarOpen) ? 'hidden' : '', 
-                     document.body.style.position = (navbarOpen) ? 'fixed' : ''});
-
-
-    
-
-
-
+                     document.body.style.position = (navbarOpen) ? 'fixed' : ''},[navbarOpen]);
     return (
       <nav className={styles.navBar}>
 

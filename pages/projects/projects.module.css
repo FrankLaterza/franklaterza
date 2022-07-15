@@ -154,7 +154,7 @@
 }
 
 .codeBlock {
-  /* overflow-x: scroll; */
+  width: 100%;
   overflow-x: auto;
   font-size: 1rem;
 }
