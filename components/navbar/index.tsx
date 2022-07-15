@@ -43,7 +43,6 @@ function NavBar( ){
         // bar arossed
         <div className={styles.bar}> 
             {/* get meta tags */}
-            <MetaTags/>
             {/* main */}
             <div className={styles.main}>
                 {/* name */}
