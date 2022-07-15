@@ -29,8 +29,7 @@
 @media (max-width: 700px) {
   .main {
     /* background-color: rgba(33, 34, 36, 0.75); */
-    width: 100%;
-    margin: 3rem  ;
+    width: 90%;
 
   }
 
@@ -130,9 +129,10 @@
 }
 
 .backBtn{
-  height: auto;
-  width: auto;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   border-radius: 0.7rem;
   background-color: rgb(113, 111, 218);
   margin-top: 1rem;
@@ -151,13 +151,11 @@
   /* background-color: rgb(153, 153, 153); */
   color: rgb(255, 255, 255);
   text-align: left;
-  overflow: auto;
-  
 }
 
 .codeBlock {
   /* overflow-x: scroll; */
-  overflow-x: scroll;
+  overflow-x: auto;
   font-size: 1rem;
 }
 

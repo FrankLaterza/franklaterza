@@ -8,7 +8,6 @@ import matter from 'gray-matter';
 //import { getAllPostsWithFrontMatter } from '../../lib/utils'
 import { randSVG } from '../../lib/random_background';
 
-
 interface Props {
   posts: {
     slug: string;

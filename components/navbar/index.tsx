@@ -23,7 +23,7 @@ function NavBar( ){
     // detects screen size
     const [width, height] = useWindowSize();
     let hamburger;
-    if (width > 800) {      
+    if (width > 900) {      
         hamburger = 
             <div className={styles.main}>
                 <div className={styles.navBar}>

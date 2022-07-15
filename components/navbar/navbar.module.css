@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-
+    overflow: hidden;
 
 }
 
@@ -29,7 +29,7 @@
 }   
 
 .navLink {
-    font-size: 1.2rem;    
+    font-size: 1rem;    
     width: 12rem; 
     height: 100%;
     color: white;
