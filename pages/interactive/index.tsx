@@ -6,7 +6,6 @@ import { randSVG } from '../../lib/random_background';
 export default function Interactive() {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
-      <NavBar/>
       hello <br/>
       <br/>
       <br/>

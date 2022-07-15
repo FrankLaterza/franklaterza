@@ -41,9 +41,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 export default function Projects ( {posts}: Props ) {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
-    {/* navigatoin bar */}
-    <NavBar/>
-
     {/* main body */}
     <div className={styles.main}>
       {/* header */}

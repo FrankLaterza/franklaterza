@@ -7,7 +7,6 @@ import { randSVG } from '../../lib/random_background';
 export default function Projects () {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
-    <NavBar/>
   </div>
   );
 }

@@ -11,8 +11,6 @@ const Home: NextPage = () => {
   return (
 
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
-      {/* nav bar */}
-      <NavBar/>
       {/* main body */}
       <div className={styles.main}>
         {/* header */}

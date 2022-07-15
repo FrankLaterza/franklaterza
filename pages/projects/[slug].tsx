@@ -58,7 +58,6 @@ const CodeBlock = {
 export default function PostPage({ frontmatter, content }: any) {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
-      <NavBar/>
       <div className={styles.main}>
         <div className={styles.markDown}>
           <Link href={`/projects`}> 
