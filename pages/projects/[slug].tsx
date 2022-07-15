@@ -6,7 +6,9 @@ import styles from './projects.module.css';
 import { randSVG } from '../../lib/random_background';
 import Link from 'next/link';
 import remarkGfm from 'remark-gfm'
-
+import rehypeRaw from 'rehype-raw';
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export async function getStaticPaths() {
 
@@ -34,6 +36,29 @@ export async function getStaticProps({ params: { slug }}: any ) {
     };
 }
 
+const CodeBlock = {
+  code({ node, inline, className, children, ...props }: any) {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+        <SyntaxHighlighter
+          style={atomDark}
+          language={match[1]}
+          wrapLine={true}
+          PreTag="div"
+          {...props}
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+    
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
+};
+
+
 export default function PostPage({ frontmatter, content }: any) {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
@@ -43,7 +68,9 @@ export default function PostPage({ frontmatter, content }: any) {
         <Link href={`/projects`}> 
           <div className={styles.backBtn}>Back</div>
         </Link> 
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[remarkGfm]} components={CodeBlock}>
+          {content}
+        </ReactMarkdown>
         </div>
       </div>
     </div>

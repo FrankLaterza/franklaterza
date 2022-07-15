@@ -9,7 +9,7 @@
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
-  background-color: rgb(20, 20, 26);
+  background-color: rgb(24, 24, 27);
   color: #ffffffff;
 }
 
@@ -92,7 +92,7 @@
 
   border: solid;
   border-width: 1rem;
-  border-color: rgb(25, 25, 31);     
+  border-color: rgb(18, 18, 21);  
   border-radius: 1rem;
 
 }
