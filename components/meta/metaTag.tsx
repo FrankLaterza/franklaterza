@@ -8,7 +8,7 @@ function MetaTags (){
         title="Frank Laterza's Portfolio!"
         name="Frank's website"
         />
-        <meta name="theme-color" content='rgb(24, 24, 27)'/>
+        <meta name="theme-color" content="#18181"/>
     </Head>
     )
 

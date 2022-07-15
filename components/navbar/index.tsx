@@ -2,6 +2,7 @@ import styles from './navbar.module.css'
 import { Hamburger } from './hamburger';
 import Link from 'next/link';
 import React, { useLayoutEffect, useState, useEffect } from 'react';
+import { MetaTags } from '../../components/meta/metaTag';
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -41,6 +42,8 @@ function NavBar( ){
     return(
         // bar arossed
         <div className={styles.bar}> 
+            {/* get meta tags */}
+            <MetaTags/>
             {/* main */}
             <div className={styles.main}>
                 {/* name */}
