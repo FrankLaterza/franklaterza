@@ -1,5 +1,5 @@
 .bar {
-    background-color: rgb(38, 37, 43);
+    background-color: rgb(25, 25, 31);  
     width: 100%;
     height: 4rem;
     display: flex;
@@ -29,7 +29,7 @@
 }   
 
 .navLink {
-    font-size: 1rem;    
+    font-size: 1.2rem;    
     width: 12rem; 
     height: 100%;
     color: white;
@@ -65,7 +65,7 @@
 
 .menuNav {
     position: fixed;
-    background: #212224ff;
+    background-color: rgb(25, 25, 31);     
     top: 4rem;
     right: 0;
     bottom: 0;

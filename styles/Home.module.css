@@ -9,7 +9,7 @@
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
-  background-color: #111213ff;
+  background-color: rgb(20, 20, 26);
   color: #ffffffff;
 }
 
@@ -87,6 +87,15 @@
   border-width: 3; */
 }
 
+
+.image {
+
+  border: solid;
+  border-width: 1rem;
+  border-color: rgb(25, 25, 31);     
+  border-radius: 1rem;
+
+}
 
 @media (max-width: 1500px) {
   .aboutMeText { 

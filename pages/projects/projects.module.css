@@ -7,7 +7,7 @@
   text-align: center;
   justify-content: center;
   font-size: 1.5rem;
-  background-color: #111213ff;
+  background-color: rgb(21, 21, 26);
   color: #ffffffff;
 }
 
@@ -64,7 +64,7 @@
 .postBlurbBtn{
   border-radius: 1rem;
   width: 100%;
-  background-color: rgb(38, 37, 43);  
+  background-color: rgb(25, 25, 31);     
   border-style: solid;
   transition: border-color 150ms ease-in-out;
   border-color: rgba(255, 255, 255, 0);
