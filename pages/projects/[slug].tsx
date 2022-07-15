@@ -43,7 +43,6 @@ const CodeBlock = {
       <SyntaxHighlighter 
           language="javascript" 
           style={atomDark}
-          className={styles.codeBlock}
           PreTag="div"
           {...props}
         >
@@ -63,16 +62,16 @@ export default function PostPage({ frontmatter, content }: any) {
       <NavBar/>
       <div className={styles.main}>
         <div className={styles.markDown}>
-        <Link href={`/projects`}> 
-          <div className={styles.backBtn}>Back</div>
-        </Link> 
-        <ReactMarkdown 
-          className={styles.codeBlock}
-          components={CodeBlock}
-          remarkPlugins={[remarkGfm]}
-        >
-          {content}
-        </ReactMarkdown>
+          <Link href={`/projects`}> 
+            <div className={styles.backBtn}>Back</div>
+          </Link>
+          <ReactMarkdown 
+            className={styles.codeBlock}
+            components={CodeBlock}
+            remarkPlugins={[remarkGfm]}
+          >
+            {content}
+          </ReactMarkdown>
         </div>
       </div>
     </div>

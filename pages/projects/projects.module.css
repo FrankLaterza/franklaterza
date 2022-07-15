@@ -153,11 +153,6 @@
   text-align: left;
 }
 
-.codeBlock {
-  width: 100%;
-  overflow-x: auto;
-  font-size: 1rem;
-}
 
 @media (max-width: 600px) {
   .markDown {
@@ -167,13 +162,26 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 2rem;
     /* background-color: rgb(153, 153, 153); */
     color: rgb(255, 255, 255);
     text-align: left;
   }
 }
 
+.codeBlock {
+  width: 100%;
+  overflow-x: auto;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {  
+  .codeBlock {
+    width: 100%;
+    overflow-x: auto;
+    font-size: 1rem;
+  }
+}
 
 
 
