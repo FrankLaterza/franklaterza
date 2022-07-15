@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css';
 import ME from '/public/images/prof_bush.jpg';
 import { NavBar } from '../components/navbar';
 import { randSVG } from '../lib/random_background'
+import { MetaTags } from '../components/meta/metaTag';
 
 
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
       {/* nav bar */}
+      <MetaTags/>
       <NavBar/>
 
       {/* main body */}
