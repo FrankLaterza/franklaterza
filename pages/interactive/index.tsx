@@ -20,8 +20,8 @@ function Wheel ({list}: any) {
   const handleClick = (event: any) => {
     const max = 10 * 360  , min = 5 * 360;
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
-    event.currentTarget.style.transform = `rotate(${randRotation}deg)`;
-    console.log(randRotation, angle, Math.floor(randRotation/angle) % 3, colorList[(Math.floor(randRotation/angle)) % 3])
+    event.currentTarget.style.transform = `rotate(-${randRotation}deg)`;
+    console.log(randRotation, angle, Math.floor(randRotation/angle) % 4, colorList[(Math.floor(randRotation/angle)) % 4])
   };
 
   return (
