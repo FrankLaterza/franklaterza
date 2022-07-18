@@ -6,27 +6,36 @@ import React, { Component, useState } from "react";
 
 
 
-const colorList = ['red', 'blue', 'green', 'yellow']
+// const [winner, setWinner] = useState([''])
 
-function Wheel ({list}: any) {
+// function handleWinner(w: string) {
+//   setWinner([w]);
+// }
+
+
+
+const colorList = ['red', 'blue', 'green', 'gold']
+
+function Wheel ({list, setWinner}: any) {
   
   // gets half the agngle
   const angle = 360/list.length;
-  
+  const angleHalf = angle/2;
   // solve right triangle
   // height is 50 because half of 100
-  const side = Math.tan((angle/2) * Math.PI / 180) * 50;
+  const side = Math.tan((angleHalf) * Math.PI / 180) * 50;
   
   const handleClick = (event: any) => {
     const max = 10 * 360  , min = 5 * 360;
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
     event.currentTarget.style.transform = `rotate(-${randRotation}deg)`;
-    console.log(randRotation, angle, Math.floor(randRotation/angle) % 4, colorList[(Math.floor(randRotation/angle)) % 4])
+    setWinner(Math.floor((randRotation+angleHalf)/angle) % list.length)
+    console.log(colorList[Math.floor((((randRotation+angleHalf)/angle) % list.length) % colorList.length)])
   };
 
   return (
     <div onClick={handleClick} className={styles.wheel} style={{backgroundColor: `${colorList[0]}`}}>
-      {list.map((element: any, index: any) => (
+      {list.map((element: any, index: number) => (
         <div
         key={element}
         style={{
@@ -35,11 +44,10 @@ function Wheel ({list}: any) {
           height: '100%',
           color: 'white',
           textAlign: 'left',
-          background: `${colorList[index % 4] }`,
+          background: `${colorList[index % colorList.length] }`,
           shapeOutside: `polygon(${50-side}% 0%, 50% 50%, ${50+side}% 0%)`,
           clipPath: `polygon(${50-side}% 0%, 50% 50%, ${50+side}% 0%)`,
           transform: `rotate(${angle*index}deg)`,
-          
         }}
         >
           <div className={styles.wheelText}>
@@ -82,6 +90,18 @@ export default function Interactive() {
     
   }
 
+
+  const [winner, setWinner] = useState(0)
+
+  function handleWinner(w: number) {
+    setTimeout(() => {
+      setWinner(w);
+    }, 5000);
+  }
+
+
+
+
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
@@ -106,12 +126,14 @@ export default function Interactive() {
                   <button onClick={() => removeChoice(index)}>remove</button> : null}
                 </div>
               </div>
-          ))}
+            ))}
           </div>
-
-          <Wheel list={choiceList} />
+          <div className={styles.wheelContainer}>
+          <div className={styles.pointer}></div>
+          <Wheel list={choiceList} setWinner={handleWinner}></Wheel>
+          </div>
+          <div>{choiceList[winner].choice}</div>
         </div>
-        <button>SPIN!!!</button>
       </div>
     </div>
   );

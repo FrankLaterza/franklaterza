@@ -9,6 +9,7 @@
   font-size: 1.5rem;
   background-color: #111213ff;
   color: #ffffffff;
+  /* overflow: hidden; */
 }
 
 .container h1 {
@@ -92,6 +93,14 @@
   text-align: center;
 }
 
+.wheelContainer {
+  display: flex;
+  
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
 
 .wheel {
   position: relative;
@@ -106,8 +115,19 @@
   border-color: white;
   background-color: white;
   overflow: hidden;
-  transition: 2s ease all
+  transition: 5s ease all
 }
+
+.pointer {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index:1;
+  background: white;
+  clip-path: polygon(50% 50%, 20% 0%, 80% 0);
+}
+
+
 /* .wheel:hover {
   transform: rotate(500deg);
   transition: 1s ease all;
