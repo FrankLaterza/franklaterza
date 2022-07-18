@@ -24,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 .header {
@@ -45,71 +46,124 @@
 
 }
 
-.postBlurb{
-  border-radius: 1rem;
-  background-color: rgb(38, 37, 43);
 
-  border-style: solid;
-  transition: border-color 150ms ease-in-out;
-  border-color: rgba(255, 255, 255, 0);
-  color: rgb(238, 238, 238);
+.box {
+  
+  margin-top: 5rem;
+  background-color: rgb(39, 43, 49);
+  display: flex;
+  padding: 2rem;
+  gap: 5rem;
+  flex-direction: reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+
+}
+
+.choiceBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  margin: 3rem;
-  padding: 2rem;
-  text-align: center; 
-  cursor: pointer;
-}
+  text-align: center;
 
-.postBlurb:hover {
-  border-style: solid;
-  border-color: #2f71e8ff
 }
 
 
+.choice {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: center;
 
-.postBlurbTop { 
+}
+
+.firstDivision{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.secondDivision{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: left  ;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
+  text-align: center;
 }
 
-/* @media (max-width: 800px) {
-  .postBlurbTop { 
+
+.wheel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  border: solid;
+  border-color: white;
+  background-color: white;
+  overflow: hidden;
+  transition: 5s ease all
+}
+/* .wheel:hover {
+  transform: rotate(500deg);
+  transition: 1s ease all;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  border: solid;
+  border-color: white;
+  background-color: white;
+  overflow: hidden;
+
+} */
+
+
+.wheelText {
+
+  color: white;
+  transform: translate(0px, 190px) rotate(90deg);
+}
+
+@media (max-width: 600px) {
+
+
+  .wheel {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    border: solid;
+    border-color: white;
+    background-color: white;
+    overflow: hidden;
+  
   }
-} */
-.postBlurbBottom { 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  .wheelText {
+  
+    color: white;
+    font-size: 1rem;
+    transform: translate(0px, 145px) rotate(90deg);
+  }
+}  
+
+.spinWheel {
+
+  background-color: red;
 
 }
-
-
-.markDown {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem;
-  /* background-color: rgb(153, 153, 153); */
-  color: rgb(255, 255, 255);
-  text-align: left;
-}
-
-
 
 /* --rich-black-fogra-39: #111213ff;
 
