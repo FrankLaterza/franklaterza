@@ -28,6 +28,7 @@ function Wheel ({list}: any) {
     <div onClick={handleClick} className={styles.wheel} style={{backgroundColor: `${colorList[0]}`}}>
       {list.map((element: any, index: any) => (
         <div
+        key={element}
         style={{
           position: 'absolute',
           width: '100%',
@@ -89,8 +90,8 @@ export default function Interactive() {
           <div className={styles.choiceBox}>
             {/* list all the choices */}
             {choiceList.map((element, index) => (
-              <div className={styles.choice}>
-                <div key={index} className={styles.firstDivision}>
+              <div key={index} className={styles.choice}>
+                <div className={styles.firstDivision}>
                   { /* input box */}
                   <input name='choice' type='text' id='choice'
                   value={element.choice}
