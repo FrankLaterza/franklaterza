@@ -15,6 +15,7 @@ import React, { Component, useState } from "react";
 
 
 const colorList = ['red', 'blue', 'green', 'gold']
+let lastRotation: number = 0;
 
 function Wheel ({list, setWinner}: any) {
   
@@ -25,10 +26,13 @@ function Wheel ({list, setWinner}: any) {
   // height is 50 because half of 100
   const side = Math.tan((angleHalf) * Math.PI / 180) * 50;
   
+
   const handleClick = (event: any) => {
     const max = 10 * 360  , min = 5 * 360;
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
-    event.currentTarget.style.transform = `rotate(-${randRotation}deg)`;
+    lastRotation = lastRotation + randRotation;
+    console.log(lastRotation, randRotation);
+    event.currentTarget.style.transform = `rotate(-${lastRotation}deg)`;
     setWinner(Math.floor((randRotation+angleHalf)/angle) % list.length)
     console.log(colorList[Math.floor((((randRotation+angleHalf)/angle) % list.length) % colorList.length)])
   };
@@ -90,7 +94,6 @@ export default function Interactive() {
     
   }
 
-
   const [winner, setWinner] = useState(0)
 
   function handleWinner(w: number) {
@@ -106,34 +109,41 @@ export default function Interactive() {
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
         <div className={styles.box}>
-          {/* choice box */}
-          <div className={styles.choiceBox}>
-            {/* list all the choices */}
-            {choiceList.map((element, index) => (
-              <div key={index} className={styles.choice}>
-                <div className={styles.firstDivision}>
-                  { /* input box */}
-                  <input name='choice' type='text' id='choice'
-                  value={element.choice}
-                  onChange={(e) => handleChange(e, index)}
-                  />
-                  {/* if the last button */}
-                  {(choiceList.length - 1 === index && index < 10 && choiceList.length > 0) ? 
-                    <button onClick={addChoice}>add</button> : null} 
+          <div className={styles.game}>
+            {/* choice box */}
+            <div className={styles.choiceBox}>
+              {/* list all the choices */}
+              {choiceList.map((element, index) => (
+                <div key={index} className={styles.choice}>
+                  <div className={styles.firstDivision}>
+                    { /* input box */}
+                    <input name='choice' type='text' id='choice'
+                    value={element.choice}
+                    onChange={(e) => handleChange(e, index)}
+                    />
+                    {/* if the last button */}
+                    {(choiceList.length - 1 === index && index < 10 && choiceList.length > 0) ? 
+                      <button onClick={addChoice}>add</button> : null} 
+                  </div>
+                  <div className={styles.secondDivision}>
+                    {(choiceList.length > 1) ? 
+                    <button onClick={() => removeChoice(index)}>remove</button> : null}
+                  </div>
                 </div>
-                <div className={styles.secondDivision}>
-                  {(choiceList.length > 1) ? 
-                  <button onClick={() => removeChoice(index)}>remove</button> : null}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* wheel */}
+            <div className={styles.wheelContainer}>
+              <div className={styles.pointer}></div>
+              <Wheel list={choiceList} setWinner={handleWinner}></Wheel>
+            </div>
           </div>
-          <div className={styles.wheelContainer}>
-          <div className={styles.pointer}></div>
-          <Wheel list={choiceList} setWinner={handleWinner}></Wheel>
+          <div>
+            <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/>
+            <b>Winner: </b> {choiceList[winner].choice}
           </div>
-          <div>{choiceList[winner].choice}</div>
         </div>
+
       </div>
     </div>
   );
