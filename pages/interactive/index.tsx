@@ -30,15 +30,16 @@ function Wheel ({list, setWinner}: any) {
   const handleClick = (event: any) => {
     const max = 10 * 360  , min = 5 * 360;
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
+    const offset = lastRotation % 360;
     lastRotation = lastRotation + randRotation;
     console.log(lastRotation, randRotation);
     event.currentTarget.style.transform = `rotate(-${lastRotation}deg)`;
-    setWinner(Math.floor((randRotation+angleHalf)/angle) % list.length)
-    console.log(colorList[Math.floor((((randRotation+angleHalf)/angle) % list.length) % colorList.length)])
+    setWinner(Math.floor((randRotation+angleHalf+offset)/angle) % list.length)
+    console.log(colorList[Math.floor((((randRotation+angleHalf+offset)/angle) % list.length) % colorList.length)])
   };
 
   return (
-    <div onClick={handleClick} className={styles.wheel} style={{backgroundColor: `${colorList[0]}`}}>
+    <div onClick={handleClick} className={styles.wheel} style={{}}>
       {list.map((element: any, index: number) => (
         <div
         key={element}
@@ -48,6 +49,7 @@ function Wheel ({list, setWinner}: any) {
           height: '100%',
           color: 'white',
           textAlign: 'left',
+          zIndex: '88',
           background: `${colorList[index % colorList.length] }`,
           shapeOutside: `polygon(${50-side}% 0%, 50% 50%, ${50+side}% 0%)`,
           clipPath: `polygon(${50-side}% 0%, 50% 50%, ${50+side}% 0%)`,
@@ -72,8 +74,9 @@ export default function Interactive() {
   const maxBtn = 10;
   
   const [choiceList, setChoiceList] = useState([
-    {choice: 'choice 1' }
-    
+    {choice: ''},
+    {choice: ''},
+    {choice: ''}
   ])
   
   function addChoice () {
@@ -102,9 +105,6 @@ export default function Interactive() {
     }, 5000);
   }
 
-
-
-
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
@@ -126,7 +126,7 @@ export default function Interactive() {
                       <button onClick={addChoice}>add</button> : null} 
                   </div>
                   <div className={styles.secondDivision}>
-                    {(choiceList.length > 1) ? 
+                    {(choiceList.length > 3) ? 
                     <button onClick={() => removeChoice(index)}>remove</button> : null}
                   </div>
                 </div>
@@ -140,10 +140,9 @@ export default function Interactive() {
           </div>
           <div>
             <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/>
-            <b>Winner: </b> {choiceList[winner].choice}
+            <b>Winner: </b> {(choiceList.length === 0) ? 'null' :  choiceList[winner].choice} 
           </div>
         </div>
-
       </div>
     </div>
   );
