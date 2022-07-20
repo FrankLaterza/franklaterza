@@ -1,8 +1,6 @@
-import Link from 'next/link';
-import { NavBar } from '../../components/navbar';
 import styles from './interactive.module.css'
 import { randSVG } from '../../lib/random_background';
-import React, { Component, useState } from "react";
+import React, { useRef, useState } from "react";
 
 
 
@@ -13,11 +11,11 @@ import React, { Component, useState } from "react";
 // }
 
 
-
+// disgusting lazy global variable
+// fix 
 const colorList = ['red', 'blue', 'green', 'gold']
-let lastRotation: number = 0;
 
-function Wheel ({list, setWinner}: any) {
+function Wheel ({list, setWinner, lastRotation}: any) {
   
   // gets half the agngle
   const angle = 360/list.length;
@@ -30,12 +28,12 @@ function Wheel ({list, setWinner}: any) {
   const handleClick = (event: any) => {
     const max = 10 * 360  , min = 5 * 360;
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
-    const offset = lastRotation % 360;
-    lastRotation = lastRotation + randRotation;
-    console.log(lastRotation, randRotation);
-    event.currentTarget.style.transform = `rotate(-${lastRotation}deg)`;
-    setWinner(Math.floor((randRotation+angleHalf+offset)/angle) % list.length)
-    console.log(colorList[Math.floor((((randRotation+angleHalf+offset)/angle) % list.length) % colorList.length)])
+    const offset = lastRotation.current % 360;
+    lastRotation.current = lastRotation.current + randRotation;
+    console.log(lastRotation.current, randRotation);
+    event.currentTarget.style.transform = `rotate(-${lastRotation.current}deg)`;
+    const winnerIndex = Math.floor((randRotation+angleHalf+offset)/angle) % list.length
+    setWinner(winnerIndex);
   };
 
   return (
@@ -71,8 +69,10 @@ const setOnceSVG = randSVG()
 
 export default function Interactive() {
   
-  const maxBtn = 10;
+
   
+  let lastRotation = useRef(0);
+
   const [choiceList, setChoiceList] = useState([
     {choice: ''},
     {choice: ''},
@@ -97,14 +97,14 @@ export default function Interactive() {
     
   }
 
-  let winnerName = '';
+  const [winnerColor, setWinnerColor] = useState('white')
 
-  const [winner, setWinner] = useState(0)
+  const [winner, setWinner] = useState('')
 
-  function handleWinner(w: number) {
+  function handleWinner(winnerIndex: number) {
     setTimeout(() => {
-      winnerName=choiceList[winner].choice;
-      setWinner(w);
+      setWinnerColor(colorList[winnerIndex % 4]);
+      setWinner(choiceList[winnerIndex].choice);
     }, 5000);
   }
 
@@ -138,12 +138,12 @@ export default function Interactive() {
             {/* wheel */}
             <div className={styles.wheelContainer}>
               <div className={styles.pointer}></div>
-              <Wheel list={choiceList} setWinner={handleWinner}></Wheel>
+              <Wheel list={choiceList} setWinner={handleWinner} lastRotation={lastRotation}></Wheel>
             </div>
           </div>
           <div>
-            <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/>
-            <b>Winner: </b> {winnerName} 
+            {/* <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/> */}
+            <b>Winner: </b> <span style={{color: `${winnerColor}`}}>{winner}</span> 
           </div>
         </div>
       </div>
