@@ -1,11 +1,11 @@
 .bar {
-    background-color: rgb(18, 18, 21);  
+    background-color: rgb(35, 35, 35);  
     width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     overflow: hidden;
 
 }

@@ -6,6 +6,10 @@ import styles from '../styles/Home.module.css';
 import ME from '/public/images/prof_bush.jpg';
 import { NavBar } from '../components/navbar';
 import { randSVG } from '../lib/random_background'
+import { AiFillCloseCircle } from "react-icons/ai"
+import { AiFillMinusCircle } from "react-icons/ai" 
+import { AiFillPlusCircle } from "react-icons/ai"
+
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +33,13 @@ const Home: NextPage = () => {
 
           {/* image */}
           <div className={styles.image}>
+            <div className={styles.icons}>
+            <AiFillCloseCircle style={{ color: 'rgb(217, 68, 68)', width: "1rem", height: "1rem" }}/>
+            <AiFillMinusCircle style={{ color: 'rgb(217, 130, 68)', width: "1rem", height: "1rem" }}/>
+            <AiFillPlusCircle style={{ color: 'rgb(88, 217, 68)', width: "1rem", height: "1rem" }}/>
+            </div>
             <Image src={ME} width= {300} height={320}/>
+            
           </div>
           <div className={styles.aboutMeText}>
             <h1>Who?</h1>
