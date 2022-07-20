@@ -97,10 +97,13 @@ export default function Interactive() {
     
   }
 
+  let winnerName = '';
+
   const [winner, setWinner] = useState(0)
 
   function handleWinner(w: number) {
     setTimeout(() => {
+      winnerName=choiceList[winner].choice;
       setWinner(w);
     }, 5000);
   }
@@ -140,7 +143,7 @@ export default function Interactive() {
           </div>
           <div>
             <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/>
-            <b>Winner: </b> {(choiceList.length === 0) ? 'null' :  choiceList[winner].choice} 
+            <b>Winner: </b> {winnerName} 
           </div>
         </div>
       </div>
