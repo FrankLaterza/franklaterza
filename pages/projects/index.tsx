@@ -7,6 +7,9 @@ import Image from 'next/image'
 import matter from 'gray-matter';
 //import { getAllPostsWithFrontMatter } from '../../lib/utils'
 import { randSVG } from '../../lib/random_background';
+import { Bolts } from '../../components/misc/bolts'; 
+
+
 
 interface Props {
   posts: {
@@ -45,6 +48,7 @@ export default function Projects ( {posts}: Props ) {
     <div className={styles.main}>
       {/* header */}
       <div className={styles.header}>
+        <Bolts/>
         <h1>
           Projects! <br/>
         </h1>
@@ -60,6 +64,7 @@ export default function Projects ( {posts}: Props ) {
             <Link href={`/projects/${slug}`}>
               {/* project button */}
               <div className={styles.postBlurbBtn}>
+                <Bolts/>
                 {/* top */}
                 <div className={styles.postBlurbTop}>
                   <div className={styles.image}>
@@ -67,7 +72,7 @@ export default function Projects ( {posts}: Props ) {
                       width= {200}
                       height={200}
                       // alt={frontmatter.title}
-                      src={'/images/google_drive.png'}
+                      src={frontmatter.socialImage}
                       />
                   </div>
                   {/* titles */}

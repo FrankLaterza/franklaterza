@@ -1,7 +1,7 @@
 import styles from './interactive.module.css'
 import { randSVG } from '../../lib/random_background';
 import React, { useRef, useState } from "react";
-
+import { Bolts } from '../../components/misc/bolts'; 
 
 
 // const [winner, setWinner] = useState([''])
@@ -109,11 +109,14 @@ export default function Interactive() {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
+
         <div className={styles.box}>
+          
           <div className={styles.game}>
             {/* choice box */}
             <div className={styles.choiceBox}>
               {/* list all the choices */}
+              <h3> Choices: </h3>
               {choiceList.map((element, index) => (
                 <div key={index} className={styles.choice}>
                   <div className={styles.firstDivision}>
@@ -139,9 +142,9 @@ export default function Interactive() {
               <Wheel list={choiceList} setWinner={handleWinner} lastRotation={lastRotation}></Wheel>
             </div>
           </div>
-          <div>
+          <div className={styles.winner}>
             {/* <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/> */}
-            <b>Winner: </b> <span style={{color: `${winnerColor}`}}>{winner}</span> 
+            <h2><b>Winner: <br/></b> <span style={{color: `${winnerColor}`}}>{winner}</span></h2>
           </div>
         </div>
       </div>

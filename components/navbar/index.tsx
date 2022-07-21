@@ -1,7 +1,7 @@
 import styles from './navbar.module.css'
 import { Hamburger } from './hamburger';
 import Link from 'next/link';
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -23,15 +23,17 @@ function NavBar( ){
     // detects screen size
     const [width, height] = useWindowSize();
     let hamburger;
-    if (width > 900) {      
+    if (width > 970) {      
         hamburger = 
             <div className={styles.main}>
                 <div className={styles.navBar}>
                     <Navlink name='About Me' link='/'/> 
                     <Navlink name='Projects' link='/projects'/>
-                    <Navlink name='Interactive' link='/interactive'/>
-                    <Navlink name='Contact' link='/contact'/>
+                    <Navlink name='Interactive' link='/interactive/wheel'/>
                 </div>
+                <div className={styles.contact}>
+                        <Navlink name='Contact' link='/contact'/>
+                    </div>
             </div>
     }
     else{

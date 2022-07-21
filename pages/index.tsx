@@ -10,6 +10,9 @@ import { AiFillCloseCircle } from "react-icons/ai"
 import { AiFillMinusCircle } from "react-icons/ai" 
 import { AiFillPlusCircle } from "react-icons/ai"
 import Squiggle from '/public/images/squiggle.png'
+import { Bolts } from '../components/misc/bolts'; 
+
+
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +22,7 @@ const Home: NextPage = () => {
       <div className={styles.main}>
         {/* header */}
         <div className={styles.header}>
+          <Bolts/>
           <h1>
             Hey There, <br/>
             I am Frank Laterza!
@@ -33,7 +37,7 @@ const Home: NextPage = () => {
 
           {/* image */}
           <div className={styles.image}>
-            <div className={styles.icons}>
+            <div className={styles.iconsImage}>
             <AiFillCloseCircle style={{ color: 'rgb(217, 68, 68)', width: "1rem", height: "1rem" }}/>
             <AiFillMinusCircle style={{ color: 'rgb(217, 130, 68)', width: "1rem", height: "1rem" }}/>
             <AiFillPlusCircle style={{ color: 'rgb(88, 217, 68)', width: "1rem", height: "1rem" }}/>
@@ -45,6 +49,7 @@ const Home: NextPage = () => {
             <Image src={Squiggle} width= {600} height={200}/>
           </div> */}
           <div className={styles.aboutMeText}>
+            <Bolts/>
             <h1>Who?</h1>
             <p>
             Sed risus ultricies tristique nulla aliquet enim. Molestie 
@@ -57,6 +62,7 @@ const Home: NextPage = () => {
 
         {/* body */}
         <div className={styles.body}>
+          <Bolts/>
           <h1>What I Do</h1>
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 

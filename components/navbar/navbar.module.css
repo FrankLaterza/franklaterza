@@ -15,7 +15,7 @@
     max-width: 1080px;
     height: 4rem;
     display: flex;
-    justify-content: centers;
+    justify-content: space-between;
     align-items: center;
     padding: 2rem;
 }
@@ -54,9 +54,12 @@
 }
 
 .contact {
-    font-size: 1rem;    
-    background-color: #2f71e8ff;
-    border-radius: 0.8rem;
+    width: fit-content;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.7rem;
+    background-color: rgb(83, 86, 232);
+
     
     /* padding: 0.5rem; */
         /* padding-left: 1rem;
@@ -73,12 +76,14 @@
 
 .menuNav {
     position: fixed;
-    background-color: rgb(23, 23, 27);     
+    background-color: rgb(57, 57, 57);
+    border: hidden;
+    border-color: white;
     top: 4rem;
     right: 0;
     bottom: 0;
     max-height: 0;
-    transition: max-height 150ms ease-out;
+    transition: max-height 200ms ease-out;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -91,8 +96,9 @@
 
 .menuNav.showMenu {
     max-height: 30%;
-    transition: max-height 150ms ease-in;
+    transition: max-height 200ms ease-in;
     display: flex;
+    border: solid;
     flex-direction: column;
     justify-content: center;
     align-items: center;

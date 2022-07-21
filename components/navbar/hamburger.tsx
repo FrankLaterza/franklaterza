@@ -26,10 +26,10 @@ function Hamburger () {
           : (<FiMenu style={{ color: 'rgb(0,0,0)', width: "2rem", height: "2rem" }} />)
         }
       </button>
-        <div className={`${styles.menuNav} ${navbarOpen ? `${styles.showMenu}` : ""}`}>
+        <div onClick={handleToggle} className={`${styles.menuNav} ${navbarOpen ? `${styles.showMenu}` : ""}`}>
           <Navlink name='About Me' link='/'/> 
           <Navlink name='Projects' link='/projects'/>
-          <Navlink name='Interactive' link='/interactive'/>
+          <Navlink name='Interactive' link='/interactive/wheel'/>
           <Navlink name='Contact' link='/contact'/>
         </div>
       </nav>
