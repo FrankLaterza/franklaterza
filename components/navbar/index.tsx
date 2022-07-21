@@ -43,16 +43,18 @@ function NavBar( ){
         <div className={styles.bar}> 
             {/* get meta tags */}
             {/* main */}
-            <div className={styles.main}>
-                {/* name */}
-                
-                <div style={{display: 'flex', flexDirection: 'row', gap: '0.2rem'}}>
-                    <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
+            <div className={styles.barLine} >
+                <div className={styles.main}>
+                    {/* name */}
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '0rem'}}>
+                        <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
+                    </div>
+
+                    {/* renderes the hamburger */}
+                    {hamburger}
+
                 </div>
-
-                {/* renderes the hamburger */}
-                {hamburger}
-
+                <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas>
             </div>
         </div>
     );

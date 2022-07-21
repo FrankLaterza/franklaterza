@@ -11,6 +11,7 @@
   font-size: 1.5rem;
   background-color: rgb(57, 57, 57);
   color: #ffffffff;
+  
 }
 
 .container h1 {
@@ -22,7 +23,7 @@
   /* background-color: rgba(33, 34, 36, 0.75); */
   width: 50%;
   max-width: 1000px;
-  
+  gap: 4rem;
   /* width: clac(50% + 4rem) !important; */
   display: flex;
   align-items: center;
@@ -34,7 +35,7 @@
 @media (max-width: 700px) {
   .main {
     /* background-color: rgba(33, 34, 36, 0.75); */
-    width: 100%;
+    width: 90%;
     max-width: 1000px;
     align-items: center;
     justify-content: center;
@@ -47,18 +48,25 @@
 }
 
 .header {
+  border: solid;
+  color: black;
+  background-color: rgb(197, 202, 255);
+  border-radius: 1rem;  
+  border-width: 0.25rem;
   width: 80%;
+  padding: 1rem;
   margin-top: 2rem;
   display: flex;
+  width: fit-content;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  
 }
 
 .undergraph {
   width: 20rem;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
+  
   font-size: 1rem;
   text-align: center;
   color: rgb(105, 105, 105);
@@ -72,6 +80,7 @@
   justify-items: center;
   justify-content: center;
   text-align: left;
+  position: relative;
   flex-wrap: wrap;
   
   /* padding: 2rem; */
@@ -83,16 +92,20 @@
   width: 50%;
   padding: 1rem;
   /* backdrop-filter: blur(5px); */
-  
+  position: relative;
   max-height: fit-content;
-  border-radius: 1rem;
-  border-width: 3;
+  border: solid;
+  color: black;
+  background-color: rgb(231, 187, 153);
+  border-radius: 1rem;  
+  border-width: 0.25rem;
 }
 
 
 .image {
   display: flex;
   flex-direction: column;
+  z-index: 1;
   border: solid;
   border-width: 0.4rem;
   border-color: rgb(230, 226, 174);  
@@ -111,6 +124,12 @@
   flex-direction: row;
 }
 
+.squiggle{
+  position: absolute;
+  z-index: 0;
+  transform: rotate(-45deg);
+}
+
 @media (max-width: 1500px) {
   .aboutMeText { 
     width: 100%;
@@ -120,7 +139,11 @@
 }
 
 .body {
-  margin-top: 2rem;
+  border: solid;
+  color: black;
+  background-color: rgb(209, 230, 206);
+  border-radius: 1rem;  
+  border-width: 0.25rem;
   max-width: 1000px;
   font-size: 1.5rem;
   padding: 2rem;
