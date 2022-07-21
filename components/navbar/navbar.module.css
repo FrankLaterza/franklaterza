@@ -1,13 +1,12 @@
 .bar {
-    background-color: rgb(35, 35, 35);  
+    background-color: rgb(57, 57, 57);
     width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(255, 255, 255);
+    color: white;
     overflow: hidden;
-
 }
 
 .main {
@@ -16,7 +15,7 @@
     max-width: 1080px;
     height: 4rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: centers;
     align-items: center;
     padding: 2rem;
 }
@@ -42,6 +41,15 @@
 .navlink:hover{
     /* background-color: #18dcff; */
     color: #4b4b4b;
+
+}
+
+.barLine{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
