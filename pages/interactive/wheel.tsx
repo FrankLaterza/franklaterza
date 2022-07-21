@@ -111,7 +111,7 @@ export default function Interactive() {
       <div className={styles.main}>
 
         <div className={styles.box}>
-          
+          <Bolts/>
           <div className={styles.game}>
             {/* choice box */}
             <div className={styles.choiceBox}>

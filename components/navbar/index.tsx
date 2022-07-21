@@ -23,9 +23,13 @@ function NavBar( ){
     // detects screen size
     const [width, height] = useWindowSize();
     let hamburger;
-    if (width > 970) {      
+    if (width > 800) {      
         hamburger = 
             <div className={styles.main}>
+                {/* name */}
+                <div className={styles.name}>
+                    <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
+                </div>
                 <div className={styles.navBar}>
                     <Navlink name='About Me' link='/'/> 
                     <Navlink name='Projects' link='/projects'/>
@@ -46,16 +50,12 @@ function NavBar( ){
             {/* get meta tags */}
             {/* main */}
             <div className={styles.barLine} >
-                <div className={styles.main}>
-                    {/* name */}
-                    <div style={{display: 'flex', flexDirection: 'row', gap: '0rem'}}>
-                        <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
-                    </div>
+                
 
                     {/* renderes the hamburger */}
                     {hamburger}
 
-                </div>
+                
                 <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas>
             </div>
         </div>

@@ -18,21 +18,27 @@ function Hamburger () {
     useEffect(() => {document.body.style.overflow = (navbarOpen) ? 'hidden' : '', 
                      document.body.style.position = (navbarOpen) ? 'fixed' : ''},[navbarOpen]);
     return (
-      <nav className={styles.navBar}>
-
-      <button onClick={handleToggle}>
-        {navbarOpen ? 
-          (<MdClose style={{ color: 'rgb(0,0,0)', width: "2rem", height: "2rem" }} />)
-          : (<FiMenu style={{ color: 'rgb(0,0,0)', width: "2rem", height: "2rem" }} />)
-        }
-      </button>
-        <div onClick={handleToggle} className={`${styles.menuNav} ${navbarOpen ? `${styles.showMenu}` : ""}`}>
-          <Navlink name='About Me' link='/'/> 
-          <Navlink name='Projects' link='/projects'/>
-          <Navlink name='Interactive' link='/interactive/wheel'/>
-          <Navlink name='Contact' link='/contact'/>
+      <div className={styles.main}>
+        {/* name */}
+        <div className={styles.name}>
+            <b>Frank </b> <span style={{color: 'grey'}}>Laterza</span>
         </div>
-      </nav>
+        <nav className={styles.burger}>
+
+        <button onClick={handleToggle}>
+          {navbarOpen ? 
+            (<MdClose style={{ color: 'rgb(0,0,0)', width: "2rem", height: "2rem" }} />)
+            : (<FiMenu style={{ color: 'rgb(0,0,0)', width: "2rem", height: "2rem" }} />)
+          }
+        </button>
+          <div onClick={handleToggle} className={`${styles.menuNav} ${navbarOpen ? `${styles.showMenu}` : ""}`}>
+            <Navlink name='About Me' link='/'/> 
+            <Navlink name='Projects' link='/projects'/>
+            <Navlink name='Interactive' link='/interactive/wheel'/>
+            <Navlink name='Contact' link='/contact'/>
+          </div>
+        </nav>
+      </div>
     )
 
 

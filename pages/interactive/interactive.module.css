@@ -10,7 +10,8 @@
   justify-content: center;
   font-size: 1.5rem;
   background-color: rgb(57, 57, 57);
-  color: #ffffffff;
+  color: white;
+  cursor:default;
   /* overflow: hidden; */
 }
 
@@ -73,7 +74,7 @@
   border: solid;
   color: white;
   border-color: white;
-  background-color: rgb(56, 57, 61);
+  background-color: rgb(57, 57, 57);
   border-radius: 1rem;  
   border-width: 0.25rem;
 }
@@ -141,7 +142,7 @@
   border: solid;
   border-color: white;
   overflow: hidden;
-  transition: 5s ease all
+  transition: 5s ease all;
 }
 
 
@@ -149,8 +150,8 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  z-index: 1;
-  background: white;
+  z-index: 5;
+  background-color: white;
   clip-path: polygon(50% 50%, 20% 0%, 80% 0);
 }
 
@@ -163,29 +164,9 @@
   word-break:break-all;
 }
 
-
-/* .wheel:hover {
-  transform: rotate(500deg);
-  transition: 1s ease all;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  width: 400px;
-  height: 400px;
-  border-radius: 200px;
-  border: solid;
-  border-color: white;
-  background-color: white;
-  overflow: hidden;
-
-} */
-
-
 .wheelText {
 
-  color: white;
+  color: white; 
   transform: translate(0px, 190px) rotate(90deg);
 }
 
@@ -215,11 +196,6 @@
   }
 }  
 
-.spinWheel {
-
-  
-
-}
 
 /* --rich-black-fogra-39: #111213ff;
 
