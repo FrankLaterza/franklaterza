@@ -1,4 +1,4 @@
-import { AiOutlineMinusCircle } from "react-icons/Ai"
+import { AiOutlineMinusCircle } from "react-icons/ai"
 
 // make sure parent has position: relative;
 function Bolts (){
