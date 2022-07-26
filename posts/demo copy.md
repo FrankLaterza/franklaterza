@@ -3,9 +3,9 @@ title: "markdown demo"
 
 about: "this shows how to use remark"
 
-socialImage: /images/donkey.jpg
+socialImage: /images/smile.jpg.jpg
 
-date: "2022-01-02"
+date: "2022-01-03"
 
 tags:
   - nextjs

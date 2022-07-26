@@ -50,12 +50,8 @@ function NavBar( ){
             {/* get meta tags */}
             {/* main */}
             <div className={styles.barLine} >
-                
-
                     {/* renderes the hamburger */}
                     {hamburger}
-
-                
                 <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas>
             </div>
         </div>

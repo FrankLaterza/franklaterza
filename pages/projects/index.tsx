@@ -8,6 +8,7 @@ import matter from 'gray-matter';
 //import { getAllPostsWithFrontMatter } from '../../lib/utils'
 import { randSVG } from '../../lib/random_background';
 import { Bolts } from '../../components/misc/bolts'; 
+import { connected } from 'process';
 
 
 
@@ -27,11 +28,18 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       const slug = fileName.replace('.md', '');
       const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
       const { data: frontmatter } = matter(readFile);
+      // remove the dashes and convert to number
+      console.log(frontmatter.date)
       return {
         slug,
         frontmatter,
       };
   });
+
+  posts.sort((function (a,b) {
+    return Number(a.frontmatter.date.split('-').join('') - Number(b.frontmatter.date.split('-').join('')));
+  }
+  ));
 
   return {
     props: {
@@ -91,9 +99,7 @@ export default function Projects ( {posts}: Props ) {
           </div>
         ))}
       </div>
-
     </div>
-
   </div>
   );
 }
