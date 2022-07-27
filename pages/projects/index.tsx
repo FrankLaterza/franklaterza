@@ -61,8 +61,7 @@ export default function Projects ( {posts}: Props ) {
           Projects! <br/>
         </h1>
         <p className={styles.undergraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor 
+          Press on a project to learn more!
         </p>
       </div>
       {/* main blurb */}

@@ -17,6 +17,7 @@ import { Bolts } from '../components/misc/bolts';
 const Home: NextPage = () => {
   return (
 
+
     <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
       {/* main body */}
       <div className={styles.main}>
@@ -28,8 +29,9 @@ const Home: NextPage = () => {
             I am Frank Laterza!
           </h1>
           <p className={styles.undergraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor 
+            Welcome to my portfolio website where I keep 
+            all 
+            
           </p>
         </div>
         {/* about me */}
