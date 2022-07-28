@@ -30,7 +30,8 @@ const Home: NextPage = () => {
           </h1>
           <p className={styles.undergraph}>
             Welcome to my portfolio website where I keep 
-            all 
+            all my projects!
+            
             
           </p>
         </div>

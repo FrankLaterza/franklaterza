@@ -46,6 +46,8 @@
   border-width: 0.25rem;
   width: 80%;
   padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-top: 2rem;
   display: flex;
   width: fit-content;
@@ -53,12 +55,10 @@
   align-items: center;
   text-align: center;
   position: relative;
-  
 }
 
 .undergraph {
-  width: 20rem;
-  
+  width: 80%;
   font-size: 1rem;
   text-align: center;
   color: rgb(0, 0, 0);

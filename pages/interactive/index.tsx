@@ -10,10 +10,7 @@ export default function Interactive() {
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
-              
         welcome to the interactive page
-        
-        
       </div>
     </div>
   );

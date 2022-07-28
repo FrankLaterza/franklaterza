@@ -110,6 +110,17 @@ export default function Interactive() {
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
 
+        {/* header */}
+        <div className={styles.header}>
+          <Bolts/>
+          <h1>
+            Spin The Wheel
+          </h1>
+          <p className={styles.undergraph}>
+            enter your choices and spin the wheel!
+            
+          </p>
+        </div>
         <div className={styles.box}>
           <Bolts/>
           <div className={styles.game}>

@@ -40,24 +40,31 @@
 }
 
 .header {
-  width: calc(60% + 5rem);
+  border: solid;
+  color: black;
+  background-color: rgb(197, 202, 255);
+  border-radius: 1rem;  
+  border-width: 0.25rem;
+  width: 80%;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-top: 2rem;
   display: flex;
+  width: fit-content;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  
 }
 
 .undergraph {
-  width: 20rem;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
+  width: 80%;
   font-size: 1rem;
   text-align: center;
-  color: rgb(105, 105, 105);
-
+  color: rgb(0, 0, 0);
 }
-
 
 .box {
   

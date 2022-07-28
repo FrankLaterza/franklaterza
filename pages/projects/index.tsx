@@ -58,7 +58,7 @@ export default function Projects ( {posts}: Props ) {
       <div className={styles.header}>
         <Bolts/>
         <h1>
-          Projects! <br/>
+          My Projects! <br/>
         </h1>
         <p className={styles.undergraph}>
           Press on a project to learn more!
