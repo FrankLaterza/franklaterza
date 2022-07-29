@@ -35,7 +35,7 @@ function Hamburger () {
             <Navlink name='About Me' link='/'/> 
             <Navlink name='Projects' link='/projects'/>
             <Navlink name='Interactive' link='/interactive/wheel'/>
-            <Navlink name='Contact' link='/contact'/>
+            <Navlink name='Links' link='/contact'/>
           </div>
         </nav>
       </div>

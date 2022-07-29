@@ -7,7 +7,7 @@
   text-align: center;
   justify-content: center;
   font-size: 1.5rem;
-  background-color: #111213ff;
+  background-color: rgb(57, 57, 57);
   color: #ffffffff;
 }
 
@@ -17,7 +17,8 @@
 
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
-  width: 60%;
+  width: 50%;
+  height: calc(100vh - 4rem);
   max-width: 1000px;
   /* width: clac(50% + 4rem) !important; */
   display: flex;
@@ -26,99 +27,63 @@
   justify-content: center;
 }
 
-.header {
-  width: calc(60% + 5rem);
-  margin-top: 2rem;
+@media (max-width: 1300px) {
+  .main {    
+    margin-top: 2rem;
+    width: 90%;
+    height: fit-content;
+  }
+}
+
+
+
+.body {
+  border: solid;
+  color: black;
+  background-color: rgb(133, 158, 233);
+  border-radius: 1rem;  
+  border-width: 0.25rem;
+  width: 100%;
+  font-size: 1.5rem;
+  position: relative;
+  padding: 2rem;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-}
-
-.undergraph {
-  width: 20rem;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  text-align: center;
-  color: rgb(105, 105, 105);
-
-}
-
-.postBlurb{
-  border-radius: 1rem;
-  background-color: rgb(38, 37, 43);
-
-  border-style: solid;
-  transition: border-color 150ms ease-in-out;
-  border-color: rgba(255, 255, 255, 0);
-  color: rgb(238, 238, 238);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-items: center;
   justify-content: center;
-  margin: 3rem;
+  text-align: left;
+}
+.body p{
+  font-size: 1.5rem;
+}
+
+
+
+.button {
+  position: relative;
+  border-radius: 1rem;
+  font-size: 3.5rem;
+  width: 75%;
+  background-color: rgb(209, 206, 201);  
+  border-style: solid;
+  border-width: 0.25rem;
+  border-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 2rem;
-  text-align: center; 
+  text-align: left;
   cursor: pointer;
 }
 
-.postBlurb:hover {
-  border-style: solid;
-  border-color: #2f71e8ff
-}
-
-
-
-.postBlurbTop { 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: left  ;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
-}
-
-/* @media (max-width: 800px) {
-  .postBlurbTop { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+@media (max-width: 1300px) {
+  .button {    
+    justify-content: center;
+    width: 90%;
   }
-} */
-.postBlurbBottom { 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-
 }
-
-
-.markDown {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem;
-  /* background-color: rgb(153, 153, 153); */
-  color: rgb(255, 255, 255);
-  text-align: left;
-}
-
-
-
-/* --rich-black-fogra-39: #111213ff;
-
---eerie-black: #212224ff;
-
---quick-silver: #a1a1a1ff;
-
---white: #ffffffff;
-
---blue-crayola: #2f71e8ff;
-
---cyan-process: #29b9f0ff; */
