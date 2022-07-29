@@ -91,8 +91,7 @@
 
 .aboutMeText {
   width: 50%;
-
-  padding: 1rem;
+  padding: 2rem;
   padding-top: 2rem;
   /* backdrop-filter: blur(5px); */
   position: relative;
@@ -103,7 +102,6 @@
   border-radius: 1rem;  
   border-width: 0.25rem;
 }
-
 
 .image {
   display: flex;
@@ -157,6 +155,7 @@
   justify-items: center;
   justify-content: center;
   text-align: left;
+  margin-bottom: 3rem;
 }
 .body p{
   font-size: 1.5rem;

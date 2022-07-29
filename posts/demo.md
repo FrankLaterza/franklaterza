@@ -3,7 +3,7 @@ title: "markdown demo"
 
 about: "this shows how to use remark"
 
-socialImage: /images/donkey.jpg
+socialImage: /images/me/donkey.jpg
 
 date: "2022-01-02"
 

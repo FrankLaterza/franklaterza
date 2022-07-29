@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 //import styles from '../styles/shapes.css';
-import ME from '/public/images/prof_bush.jpg';
+import ME from '/public/images/me/prof_bush.jpg';
 import { NavBar } from '../components/navbar';
 import { randSVG } from '../lib/random_background'
 import { AiFillCloseCircle } from "react-icons/ai"
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   return (
 
 
-    <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")` }} >
+    <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")`}} >
       {/* main body */}
       <div className={styles.main}>
         {/* header */}
@@ -31,8 +31,6 @@ const Home: NextPage = () => {
           <p className={styles.undergraph}>
             Welcome to my portfolio website where I keep 
             all my projects!
-            
-            
           </p>
         </div>
         {/* about me */}
@@ -55,10 +53,9 @@ const Home: NextPage = () => {
             <Bolts/>
             <h1>Who?</h1>
             <p>
-            Sed risus ultricies tristique nulla aliquet enim. Molestie 
-            nunc non blandit massa enim nec dui nunc. Amet consectetur 
-            adipiscing elit pellentesque habitant morbi tristique senectus 
-            et. Consequat mauris nunc congue nisi vitae suscipit tellus 
+            I am a 2nd-year computer engineering student at the 
+            University of Central Florida. I have a passion for 
+            mathematics and computer science 
             </p>
           </div>
         </div>
@@ -68,20 +65,10 @@ const Home: NextPage = () => {
           <Bolts/>
           <h1>What I Do</h1>
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/><br/>
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor <br/><br/>
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat cupidatat non proident <br/><br/>
-          sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/><br/>
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor <br/><br/>
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat cupidatat non proident <br/><br/>
-          sunt in culpa qui officia deserunt mollit anim id est laborum.
+            My skills range from 3d modeling, designing electronics, and computer programming. I currently 
+            work as a sub contractor with a small company 
+            called Sparrow Design. At Sparrow Design we create 
+            solutions for clients.
           </p>
         </div>
 

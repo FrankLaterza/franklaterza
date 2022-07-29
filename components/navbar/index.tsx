@@ -36,7 +36,7 @@ function NavBar( ){
                     <Navlink name='Interactive' link='/interactive/wheel'/>
                 </div>
                 <div className={styles.contact}>
-                        <Navlink name='Contact' link='/contact'/>
+                        <Navlink name='Links' link='/links'/>
                     </div>
             </div>
     }

@@ -3,7 +3,7 @@ title: "Google Drive API with node.js"
 
 about: "any example of how to use the google drive api with node"
 
-socialImage: /images/google_drive.png
+socialImage: /images/logo/google_drive.png
 
 date: "2022-01-01"
 
