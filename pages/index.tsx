@@ -65,10 +65,10 @@ const Home: NextPage = () => {
           <Bolts/>
           <h1>What I Do</h1>
           <p>
-            My skills range from 3d modeling, designing electronics, and computer programming. I currently 
-            work as a sub contractor with a small company 
-            called Sparrow Design. At Sparrow Design we create 
-            solutions for clients.
+            My skills range from 3d modeling, PCB design, 
+            and computer programming. I currently work as a 
+            sub contractor with a small company called 
+            Sparrow Design. 
           </p>
         </div>
 
