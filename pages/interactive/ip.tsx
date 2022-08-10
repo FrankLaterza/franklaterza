@@ -44,14 +44,16 @@ export default function Ip() {
         </div>
 
         <div className={styles.box}>
-            
-            <div><b>Country:</b> {data.country_name}</div>
-            <div><b>State:</b> {data.state}</div>
-            <div><b>City:</b> {data.city}</div>
-            <div><b>Zip:</b> {data.postal}</div>
-            <div><b>Latitude:</b> {data.latitude}</div>
-            <div><b>Longitude:</b>{data.longitude}</div>
-            <div><b>IPv4:</b> {data.IPv4}</div>
+            {Object.values(data).map((value, index) => {
+            return (
+            <div key={index}>
+                
+                <h2 style={{marginTop: '0', marginBottom: '1rem'}}>
+                    {value}
+                </h2>
+            </div>
+            );
+        })}
             <div>🤓</div>
 
         </div>
