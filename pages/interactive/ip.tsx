@@ -1,4 +1,4 @@
-import styles from './sudoku.module.css'
+import styles from './ip.module.css'
 import { randSVG } from '../../lib/random_background';
 import React, { useEffect, useState } from 'react';
 import { Bolts } from '../../components/misc/bolts'; 
@@ -9,7 +9,6 @@ const setOnceSVG = randSVG()
 
 
 export default function Ip() {
-
 
     //creating IP state
     const [data, setData] = useState('');
@@ -28,20 +27,32 @@ export default function Ip() {
 
     }, [])
 
-
-
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
 
+        {/* header */}
+        <div className={styles.header}>
+          <Bolts/>
+          <h1>
+            Your location
+          </h1>
+          <p className={styles.undergraph}>
+            lists your Location and IP
+            
+          </p>
+        </div>
+
         <div className={styles.box}>
             
-            <div>{data.country_name}</div>
-            <div>{data.state}</div>
-            <div>{data.city}</div>
-            <div>{data.postal}</div>
-            <div>latitude: {data.latitude}, longitude:{data.longitude}</div>
-            <div>IPv4: {data.IPv4}</div>
+            <div><b>Country:</b> {data.country_name}</div>
+            <div><b>State:</b> {data.state}</div>
+            <div><b>City:</b> {data.city}</div>
+            <div><b>Zip:</b> {data.postal}</div>
+            <div><b>Latitude:</b> {data.latitude}</div>
+            <div><b>Longitude:</b>{data.longitude}</div>
+            <div><b>IPv4:</b> {data.IPv4}</div>
+            <div>🤓</div>
 
         </div>
       </div>
