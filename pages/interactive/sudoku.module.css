@@ -82,3 +82,48 @@
     border-radius: 1rem;
     border-width: 0.25rem;
 }
+
+.game {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    text-align: center;
+    border: solid;
+    border-color: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.val {
+    width: 10%;
+    height: 10%;
+    padding: 20px;
+    margin-left: 1rem;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+}
+
+.line {
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+}
+
+.line2 {
+    height: 100%;
+    width: 3px;
+    position: absolute;
+    background-color: white;
+}

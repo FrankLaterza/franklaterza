@@ -1,4 +1,4 @@
-import styles from './interactive.module.css'
+import styles from './wheel.module.css'
 import { randSVG } from '../../lib/random_background';
 import React, { useRef, useState } from "react";
 import { Bolts } from '../../components/misc/bolts'; 
