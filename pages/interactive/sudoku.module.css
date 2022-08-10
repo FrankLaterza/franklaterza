@@ -66,10 +66,9 @@
 
 .box {
     margin-top: 4rem;
-    position: relative;
     display: flex;
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     gap: 0.5rem;
     flex-direction: column;
     flex-direction: reverse;
@@ -84,14 +83,15 @@
 }
 
 .game {
-    position: relative;
-    display: flex;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap-reverse;
-    gap: 2rem;
     text-align: center;
     border: solid;
+    border-width: 0.5rem;
     border-color: white;
 }
 
@@ -102,28 +102,15 @@
 }
 
 .val {
-    width: 10%;
-    height: 10%;
-    padding: 20px;
-    margin-left: 1rem;
-    border: none;
+    width: 100%;
+    height: 0;
+    padding-bottom: calc((100% / 18) - 0.0px);
+    padding-top: calc((100% / 18) - 0.0px);
+    border: solid;
+    border-width: 1px;
     background: transparent;
     color: white;
     font-size: 2rem;
     text-align: center;
     display: flex;
-}
-
-.line {
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    background-color: white;
-}
-
-.line2 {
-    height: 100%;
-    width: 3px;
-    position: absolute;
-    background-color: white;
 }

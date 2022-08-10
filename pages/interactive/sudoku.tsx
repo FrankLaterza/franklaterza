@@ -60,9 +60,9 @@ export default function Interactive() {
   function handleChange(e: any, row: number, col: number){
 
     const {value}  = e.target;
-    console.log(value);
     let newBoard : number[][] = [...board];
-    newBoard[row][col] = parseInt(value);
+    newBoard[row][col] = (value === '') ? 0 : parseInt(value);
+
     console.log(newBoard)
     setBoard(newBoard);
     
@@ -89,24 +89,25 @@ export default function Interactive() {
         {width}
         <div className={styles.box}>
             {/* <Bolts/> */}
-            <div className={styles.game} style={{width: `${width}`}}>
+            <div className={styles.game}>
             {/* display board */}
             {/* <Lines/>  */}
             {boardInit.map((row, rowIndex) =>
                 <div className={styles.row} key={rowIndex}> 
                     {row.map((num, numIndex) =>
                         <input className={styles.val} key={numIndex}
+                        maxLength={1}
                         name='val' type='text'
-                        value={num}
+                        value={(num === 0) ? '' : num}
                         onChange={(e) => handleChange(e, rowIndex, numIndex)}
                         />)
                       }
-                      <div className={styles.line}>
-                      </div>
+                      {/* <div className={styles.line}>
+                      </div> */}
 
                 </div>)
             }
-
+            
             <div className={styles.parentGrid}>
             </div>
             
