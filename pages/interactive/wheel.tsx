@@ -15,7 +15,7 @@ import { Bolts } from '../../components/misc/bolts';
 // fix 
 const colorList = ['red', 'blue', 'green', 'gold']
 
-function Wheel ({list, setWinner, lastRotation}: any) {
+function Wheel({list, setWinner, lastRotation}: any) {
   
   // gets half the agngle
   const angle = 360/list.length;
@@ -67,7 +67,7 @@ function Wheel ({list, setWinner, lastRotation}: any) {
 
 const setOnceSVG = randSVG()
 
-export default function Interactive() {
+export default function WheelMod() {
 
   let lastRotation = useRef(0);
 

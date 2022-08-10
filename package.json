@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "12.2.0",

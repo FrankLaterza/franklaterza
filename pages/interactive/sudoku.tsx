@@ -43,15 +43,7 @@ function useWindowSize() {
   return size;
 }
 
-export default function Interactive() {
-
-  function Lines(){
-    return(
-      <div>      
-      </div>
-    
-    )
-  }
+export default function Sudoku() {
 
     
   const [board, setBoard] = useState(
