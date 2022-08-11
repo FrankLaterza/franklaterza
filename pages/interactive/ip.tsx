@@ -47,7 +47,6 @@ export default function Ip() {
             {Object.values(data).map((value, index) => {
             return (
             <div key={index}>
-                
                 <h2 style={{marginTop: '0', marginBottom: '1rem'}}>
                     {value}
                 </h2>

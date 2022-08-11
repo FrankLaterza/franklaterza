@@ -3,7 +3,7 @@ import { randSVG } from '../../lib/random_background';
 import React, { useLayoutEffect, useState } from 'react';
 import { Bolts } from '../../components/misc/bolts'; 
 import { stdin, stdout } from 'node:process';
-
+import { solveSudoku } from '../../lib/sudoku'
 const setOnceSVG = randSVG()
 
 // let puz = [...Array(9)].map(e => Array(9));
@@ -13,41 +13,23 @@ const setOnceSVG = randSVG()
 const width = 2
 const height = 2
 
-let boardInit = [
-    [0, 0, 0, 0, 0, 0, 7, 2, 0],
-    [9, 0, 0, 0, 4, 0, 0, 0, 1],
-    [8, 0, 0, 7, 0, 0, 0, 4, 0],
-    [0, 5, 0, 0, 3, 0, 0, 0, 8],
-    [0, 6, 0, 1, 0, 0, 5, 0, 2],
-    [0, 2, 0, 0, 7, 0, 0, 0, 0],
-    [3, 0, 0, 0, 1, 0, 0, 0, 5],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 8, 0, 0, 0, 6, 0, 0, 4],
-];
-
-function printArray(arr: any){
-    for (let i = 0; i < arr.length; i++)
-        console.log(arr[i]);
-}
-
-function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-  return size;
-}
+let boardInit = 
+  [ [ 3, 0, 6, 5, 0, 8, 4, 0, 0 ],
+    [ 5, 2, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 8, 7, 0, 0, 0, 0, 3, 1 ],
+    [ 0, 0, 3, 0, 1, 0, 0, 8, 0 ],
+    [ 9, 0, 0, 8, 6, 3, 0, 0, 5 ],
+    [ 0, 5, 0, 0, 9, 0, 6, 0, 0 ],
+    [ 1, 3, 0, 0, 0, 0, 2, 5, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 7, 4 ],
+    [ 0, 0, 5, 2, 0, 6, 3, 0, 0 ] ];
 
 export default function Sudoku() {
 
-    
+
   const [board, setBoard] = useState(
     boardInit
+
   )
   function handleChange(e: any, row: number, col: number){
 
@@ -60,13 +42,13 @@ export default function Sudoku() {
     
   }
 
-
-  const [width, height] = useWindowSize();
+  const handleClick = (e: any, setBoard: any) => {
+    solveSudoku(board, setBoard);
+  };
 
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
       <div className={styles.main}>
-
         {/* header */}
         <div className={styles.header}>
           <Bolts/>
@@ -78,35 +60,100 @@ export default function Sudoku() {
           </p>
         </div>
         {/* game */}
-        {width}
         <div className={styles.box}>
             {/* <Bolts/> */}
             <div className={styles.game}>
             {/* display board */}
             {/* <Lines/>  */}
             {boardInit.map((row, rowIndex) =>
-                <div className={styles.row} key={rowIndex}> 
-                    {row.map((num, numIndex) =>
-                        <input className={styles.val} key={numIndex}
-                        maxLength={1}
-                        name='val' type='text'
-                        value={(num === 0) ? '' : num}
-                        onChange={(e) => handleChange(e, rowIndex, numIndex)}
-                        />)
-                      }
-                      {/* <div className={styles.line}>
-                      </div> */}
-
+                <div key={rowIndex} className={styles.row} 
+                style={((rowIndex % 3 === 0) && rowIndex != 0) ? 
+                  {borderTopWidth: '2px'} : 
+                  {borderTopWidth: '0px'}}
+                >
+                  {row.map((num, numIndex) =>
+                      <input className={styles.val} key={numIndex}
+                      style={((numIndex % 3 === 0) && numIndex != 0) ? 
+                        {borderLeftWidth: '2px'} : 
+                        {borderLeftWidth: '0px'}}
+                      maxLength={1}
+                      name='val' type='text'
+                      value={(num === 0) ? '' : board[rowIndex][numIndex]}
+                      // value={ board[rowIndex][numIndex] }
+                      onChange={(e) => handleChange(e, rowIndex, numIndex)}
+                      />
+                      )
+                  }
                 </div>)
             }
-            
+
             <div className={styles.parentGrid}>
             </div>
-            
           </div>
 
+          <div className={styles.buttons}>
+            <button onClick={(e) => handleClick(e, setBoard)}>Solve</button>
+            <button>Generate</button>
+            
+          </div>
         </div>
       </div>
     </div>
   );
+}
+
+
+/* A Backtracking program in
+Javascript to solve Sudoku problem */
+ 
+function isSafe(board: number[][], row: number, col: number, num: number){
+     
+  // Row has the unique (row-clash)
+  for(let d = 0; d < board.length; d++)
+  {
+       
+      // Check if the number we are trying to
+      // place is already present in
+      // that row, return false;
+      if (board[row][d] == num)
+      {
+          return false;
+      }
+  }
+
+  // Column has the unique numbers (column-clash)
+  for(let r = 0; r < board.length; r++)
+  {
+        
+      // Check if the number
+      // we are trying to
+      // place is already present in
+      // that column, return false;
+      if (board[r][col] == num)
+      {
+          return false;
+      }
+  }
+
+  // Corresponding square has
+  // unique number (box-clash)
+  let sqrt = Math.floor(Math.sqrt(board.length));
+  let boxRowStart = row - row % sqrt;
+  let boxColStart = col - col % sqrt;
+
+  for(let r = boxRowStart;
+          r < boxRowStart + sqrt; r++)
+  {
+      for(let d = boxColStart;
+              d < boxColStart + sqrt; d++)
+      {
+          if (board[r][d] == num)
+          {
+              return false;
+          }
+      }
+  }
+
+  // If there is no clash, it's safe
+  return true;
 }
