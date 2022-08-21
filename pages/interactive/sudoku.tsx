@@ -3,7 +3,7 @@ import { randSVG } from '../../lib/random_background';
 import React, { useLayoutEffect, useState } from 'react';
 import { Bolts } from '../../components/misc/bolts'; 
 import { stdin, stdout } from 'node:process';
-import { solveSudoku } from '../../lib/sudoku'
+import { solveSudoku, updateDOM } from '../../lib/sudoku'
 const setOnceSVG = randSVG()
 
 // let puz = [...Array(9)].map(e => Array(9));
@@ -43,6 +43,8 @@ export default function Sudoku() {
   }
 
   const handleClick = (e: any, setBoard: any) => {
+    console.log('solve');
+    // updateDOM(0);
     solveSudoku(board, setBoard);
   };
 
@@ -68,13 +70,15 @@ export default function Sudoku() {
             {boardInit.map((row, rowIndex) =>
                 <div key={rowIndex} className={styles.row} 
                 style={((rowIndex % 3 === 0) && rowIndex != 0) ? 
-                  {borderTopWidth: '2px'} : 
+                  {borderTopWidth: '0px'} : 
                   {borderTopWidth: '0px'}}
                 >
                   {row.map((num, numIndex) =>
-                      <input className={styles.val} key={numIndex}
+                      <input id={`${rowIndex},${numIndex}`} 
+                      className={styles.val} 
+                      key={numIndex}
                       style={((numIndex % 3 === 0) && numIndex != 0) ? 
-                        {borderLeftWidth: '2px'} : 
+                        {borderLeftWidth: '0px'} : 
                         {borderLeftWidth: '0px'}}
                       maxLength={1}
                       name='val' type='text'
@@ -100,60 +104,4 @@ export default function Sudoku() {
       </div>
     </div>
   );
-}
-
-
-/* A Backtracking program in
-Javascript to solve Sudoku problem */
- 
-function isSafe(board: number[][], row: number, col: number, num: number){
-     
-  // Row has the unique (row-clash)
-  for(let d = 0; d < board.length; d++)
-  {
-       
-      // Check if the number we are trying to
-      // place is already present in
-      // that row, return false;
-      if (board[row][d] == num)
-      {
-          return false;
-      }
-  }
-
-  // Column has the unique numbers (column-clash)
-  for(let r = 0; r < board.length; r++)
-  {
-        
-      // Check if the number
-      // we are trying to
-      // place is already present in
-      // that column, return false;
-      if (board[r][col] == num)
-      {
-          return false;
-      }
-  }
-
-  // Corresponding square has
-  // unique number (box-clash)
-  let sqrt = Math.floor(Math.sqrt(board.length));
-  let boxRowStart = row - row % sqrt;
-  let boxColStart = col - col % sqrt;
-
-  for(let r = boxRowStart;
-          r < boxRowStart + sqrt; r++)
-  {
-      for(let d = boxColStart;
-              d < boxColStart + sqrt; d++)
-      {
-          if (board[r][d] == num)
-          {
-              return false;
-          }
-      }
-  }
-
-  // If there is no clash, it's safe
-  return true;
 }
