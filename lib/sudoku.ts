@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 
 /* A Backtracking program in
 Javascript to solve Sudoku problem */
+
+import { NOTFOUND } from "dns";
+import Router from 'next/router'
+
  
 function isSafe(board: number[][], row: number, col: number, num: number){
      
@@ -67,14 +71,14 @@ function sleep(milliseconds: number) {
  export function solveSudoku(board: number[][], setBoard: any){
 
 
-    // board = [...board];
+    board = [...board];
     let row = -1;
     let col = -1;
     let isEmpty = true;
     for(let i = 0; i < 9; i++)
     {
         for(let j = 0; j < 9; j++)
-        {
+        {   
             if (board[i][j] == 0)
             {
                 row = i;
@@ -95,8 +99,8 @@ function sleep(milliseconds: number) {
     // No empty space left
     if (isEmpty)
     {
-        // console.log(board)
-        // setBoard(board);
+        console.log(board)
+        setBoard(board);
 
         return true;
     }
@@ -109,49 +113,43 @@ function sleep(milliseconds: number) {
         if (isSafe(board, row, col, num))
         {
 
-            
-            board = [...board];
             board[row][col] = num;
-            setBoard(board);
-            console.log(board)
-            sleep(100);
-            
+
             if (solveSudoku(board, setBoard))
             {
                 
                 // print(board, n);
                 return true;
-            }
-            else
-            {
-                
+            } else {
                 // Replace it
+                // roxot?.setAttribute('value', String(0));
                 board[row][col] = 0;
             }
         }
+
+
+        // // update the number
+        // if(num != 9){
+        //     num++;
+        //     window.requestAnimationFrame(updateNum)
+            
+        // }
+        
         
     }
+
+
+
+    // updateNum();
+
+
+    
+
+
+
+
 
     // setBoard(board);
     return false;
 }
 
-export function count(setBoard: any){
-
-    let updateState: number[][] = [[]]
-        const boardInit =
-        [ [ 1, 0, 6, 5, 0, 8, 4, 0, 0 ],
-        [ 5, 2, 0, 0, 0, 0, 0, 0, 0 ],
-        [ 0, 8, 7, 0, 0, 0, 0, 3, 1 ],
-        [ 0, 0, 3, 0, 1, 0, 0, 8, 0 ],
-        [ 9, 0, 0, 8, 6, 3, 0, 0, 5 ],
-        [ 0, 5, 0, 0, 9, 0, 6, 0, 0 ],
-        [ 1, 3, 0, 0, 0, 0, 2, 5, 0 ],
-        [ 0, 0, 0, 0, 0, 0, 0, 7, 4 ],
-        [ 0, 0, 5, 2, 0, 6, 3, 0, 0 ] ]
-
-    for(let i = 0; i < 5; i++){
-        setBoard({...boardInit})
-        sleep(300)
-    }
-}
