@@ -3,7 +3,7 @@ import { randSVG } from '../../lib/random_background';
 import React, { useLayoutEffect, useState } from 'react';
 import { Bolts } from '../../components/misc/bolts'; 
 import { stdin, stdout } from 'node:process';
-import { solveSudoku } from '../../lib/sudoku'
+import { solveSudoku, count } from '../../lib/sudoku'
 const setOnceSVG = randSVG()
 
 // let puz = [...Array(9)].map(e => Array(9));
@@ -43,7 +43,7 @@ export default function Sudoku() {
   }
 
   const handleClick = (e: any, setBoard: any) => {
-    solveSudoku(board, setBoard);
+    count(setBoard);
   };
 
   return (

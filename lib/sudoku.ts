@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+
 /* A Backtracking program in
 Javascript to solve Sudoku problem */
  
@@ -65,7 +67,7 @@ function sleep(milliseconds: number) {
  export function solveSudoku(board: number[][], setBoard: any){
 
 
-    board = [...board];
+    // board = [...board];
     let row = -1;
     let col = -1;
     let isEmpty = true;
@@ -93,8 +95,8 @@ function sleep(milliseconds: number) {
     // No empty space left
     if (isEmpty)
     {
-        console.log(board)
-        setBoard(board);
+        // console.log(board)
+        // setBoard(board);
 
         return true;
     }
@@ -107,8 +109,13 @@ function sleep(milliseconds: number) {
         if (isSafe(board, row, col, num))
         {
 
+            
+            board = [...board];
             board[row][col] = num;
-
+            setBoard(board);
+            console.log(board)
+            sleep(100);
+            
             if (solveSudoku(board, setBoard))
             {
                 
@@ -129,3 +136,22 @@ function sleep(milliseconds: number) {
     return false;
 }
 
+export function count(setBoard: any){
+
+    let updateState: number[][] = [[]]
+        const boardInit =
+        [ [ 1, 0, 6, 5, 0, 8, 4, 0, 0 ],
+        [ 5, 2, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 8, 7, 0, 0, 0, 0, 3, 1 ],
+        [ 0, 0, 3, 0, 1, 0, 0, 8, 0 ],
+        [ 9, 0, 0, 8, 6, 3, 0, 0, 5 ],
+        [ 0, 5, 0, 0, 9, 0, 6, 0, 0 ],
+        [ 1, 3, 0, 0, 0, 0, 2, 5, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 7, 4 ],
+        [ 0, 0, 5, 2, 0, 6, 3, 0, 0 ] ]
+
+    for(let i = 0; i < 5; i++){
+        setBoard({...boardInit})
+        sleep(300)
+    }
+}
