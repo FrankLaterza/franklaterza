@@ -66,12 +66,15 @@ function sleep(milliseconds: number) {
         break;
       }
     }
-  }
-  
- export function solveSudoku(board: number[][], setBoard: any){
+}
 
 
-    board = [...board];
+
+// global var that stores the steps
+let steps: any = [];
+
+export function solveSudoku(board: number[][]){
+
     let row = -1;
     let col = -1;
     let isEmpty = true;
@@ -99,57 +102,61 @@ function sleep(milliseconds: number) {
     // No empty space left
     if (isEmpty)
     {
-        console.log(board)
-        setBoard(board);
-
+        console.log(steps);
         return true;
     }
     
-
     // Else for each-row backtrack
-    for(let num = 1; num <= 9; num++)
-    {
+    for(let num = 1; num <= 9; num++){
 
-        if (isSafe(board, row, col, num))
-        {
+        if (isSafe(board, row, col, num)){
 
             board[row][col] = num;
+            steps.push({row: row, col: col, num: num});
+            
+            if (solveSudoku(board)){
 
-            if (solveSudoku(board, setBoard))
-            {
                 
-                // print(board, n);
                 return true;
+                
             } else {
-                // Replace it
-                // roxot?.setAttribute('value', String(0));
+                
                 board[row][col] = 0;
+             
             }
         }
-
-
-        // // update the number
-        // if(num != 9){
-        //     num++;
-        //     window.requestAnimationFrame(updateNum)
-            
-        // }
-        
-        
     }
-
-
 
     // updateNum();
 
-
-    
-
-
-
-
-
     // setBoard(board);
     return false;
+}
+
+
+export function showSteps(board: any, setBoard: any){
+    
+    let count = 0;
+    console.log(board)
+    // let i = setInterval(() => {
+
+
+    //     // console.log(steps[count].row, steps[count].col);
+    //     board[steps[count].row][steps[count].col] = steps[count].num;
+    //     setBoard([...board])
+    //     console.log(board)
+        
+
+        
+    //     count++;
+        
+    //     if(count === steps.length){
+    //         clearInterval(i);
+    //     }
+
+    // },1000)
+
+
+
 }
 

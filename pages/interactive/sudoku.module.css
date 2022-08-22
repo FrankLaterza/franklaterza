@@ -116,18 +116,18 @@
 }
 
 .val {
-    width: 100%;
+    width: calc(100%);
     height: 0;
-    padding-top: calc( (100% / 18) - 0px );
-    padding-bottom: calc( (100% / 18) );
+    padding-top: calc((100% / 18) - 0.04rem);
+    padding-bottom: calc((100% / 18) - 0.04rem);
     padding-right: 0;
     padding-left: 0;
     position: relative;
-    border: none;
-    border-width: 0.5px; 
+    border: solid;
+    border-width: 0.02rem;
     background: transparent;
     color: white;
-    font-size: 5rem;
+    font-size: 1.5rem;
     text-align: center;
     display: flex;
 }

@@ -3,7 +3,7 @@ import { randSVG } from '../../lib/random_background';
 import React, { useLayoutEffect, useState } from 'react';
 import { Bolts } from '../../components/misc/bolts'; 
 import { stdin, stdout } from 'node:process';
-import { solveSudoku } from '../../lib/sudoku'
+import { solveSudoku, showSteps } from '../../lib/sudoku'
 const setOnceSVG = randSVG()
 
 // let puz = [...Array(9)].map(e => Array(9));
@@ -29,7 +29,6 @@ export default function Sudoku() {
 
   const [board, setBoard] = useState(
     boardInit
-
   )
   function handleChange(e: any, row: number, col: number){
 
@@ -43,7 +42,12 @@ export default function Sudoku() {
   }
 
   const handleClick = (e: any, setBoard: any) => {
-    solveSudoku(board, setBoard);
+    console.log(board)
+    setTimeout(function (){console.log('wait')}, 1000);
+    // solveSudoku(board)
+    console.log(board)
+    // showSteps(boardStart, setBoard);
+
   };
 
   return (
@@ -67,17 +71,17 @@ export default function Sudoku() {
             {/* <Lines/>  */}
             {boardInit.map((row, rowIndex) =>
                 <div key={rowIndex} className={styles.row} 
-                style={((rowIndex % 3 === 0) && rowIndex != 0) ? 
-                  {borderTopWidth: '0px'} : 
-                  {borderTopWidth: '0px'}}
+                // style={((rowIndex % 3 === 0) && rowIndex != 0) ? 
+                //   {borderTopWidth: '0px'} : 
+                //   {borderTopWidth: '0px'}}
                 >
                   {row.map((num, numIndex) =>
                       <input id={`${rowIndex},${numIndex}`} 
                       className={styles.val} 
                       key={numIndex}
-                      style={((numIndex % 3 === 0) && numIndex != 0) ? 
-                        {borderLeftWidth: '0px'} : 
-                        {borderLeftWidth: '0px'}}
+                      // style={((numIndex % 3 === 0) && numIndex != 0) ? 
+                      //   {borderLeftWidth: '0px'} : 
+                      //   {borderLeftWidth: '0px'}}
                       maxLength={1}
                       name='val' type='text'
                       value={(num === 0) ? '' : board[rowIndex][numIndex]}
