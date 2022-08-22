@@ -120,8 +120,8 @@ export function solveSudoku(board: number[][]){
                 return true;
                 
             } else {
-                
                 board[row][col] = 0;
+                steps.push({row: row, col: col, num: 0});
              
             }
         }
@@ -134,27 +134,22 @@ export function solveSudoku(board: number[][]){
 }
 
 
-export function showSteps(board: any, setBoard: any){
+export function showSteps(board: any, setBoard: any, sliderVal: any, isSolved: any, setSolveState: any){
     
     let count = 0;
-    console.log(board)
-    // let i = setInterval(() => {
+    // console.log(board)
+    console.log('ran');
+    let i = setInterval(() => {
+        board = [...board];
+        board[steps[count].row][steps[count].col] = steps[count].num;
+        setBoard(board);
+        count++;
+        if(count === steps.length){
+            clearInterval(i);
+            setSolveState(isSolved)
+        }
 
-
-    //     // console.log(steps[count].row, steps[count].col);
-    //     board[steps[count].row][steps[count].col] = steps[count].num;
-    //     setBoard([...board])
-    //     console.log(board)
-        
-
-        
-    //     count++;
-        
-    //     if(count === steps.length){
-    //         clearInterval(i);
-    //     }
-
-    // },1000)
+    }, sliderVal.values)
 
 
 

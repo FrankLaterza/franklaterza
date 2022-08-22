@@ -1,6 +1,7 @@
 import styles from './sudoku.module.css'
 import { randSVG } from '../../lib/random_background';
 import React, { useLayoutEffect, useState } from 'react';
+import { Slider } from '../../components/misc/slider'
 import { Bolts } from '../../components/misc/bolts'; 
 import { stdin, stdout } from 'node:process';
 import { solveSudoku, showSteps } from '../../lib/sudoku'
@@ -26,7 +27,6 @@ let boardInit =
 
 export default function Sudoku() {
 
-
   const [board, setBoard] = useState(
     boardInit
   )
@@ -41,14 +41,29 @@ export default function Sudoku() {
     
   }
 
-  const handleClick = (e: any, setBoard: any) => {
-    console.log(board)
-    setTimeout(function (){console.log('wait')}, 1000);
-    // solveSudoku(board)
-    console.log(board)
-    // showSteps(boardStart, setBoard);
+  const handleClick = (board: any, setBoard: any, sliderVal: any) => {
+    // remove the ref
+    const startBoard = JSON.parse(JSON.stringify(board));
+    // solve the board
+    const isSolved = (solveSudoku(startBoard)) ? 'solved' : 'unsolvable';    
+    showSteps(board, setBoard, sliderVal, isSolved, setSolveState);
+    
+
 
   };
+
+
+  // hook for the slider
+  const [sliderVal, setSliderVal] = useState(
+    {values: [500]}
+  )
+
+  // hook for solve state
+
+  const [solveState, setSolveState] = useState(
+    'unsolved'
+  )
+
 
   return (
     <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
@@ -98,10 +113,20 @@ export default function Sudoku() {
           </div>
 
           <div className={styles.buttons}>
-            <button onClick={(e) => handleClick(e, setBoard)}>Solve</button>
+            <button onClick={(e) => handleClick(board, setBoard, sliderVal)}>Solve</button>
             <button>Generate</button>
             
           </div>
+
+            <Slider sliderVal={sliderVal} setSliderVal={setSliderVal}/>
+            <div>
+              {sliderVal.values}
+            </div>
+
+
+            <div>
+              {solveState}
+            </div>
         </div>
       </div>
     </div>
