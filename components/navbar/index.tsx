@@ -37,7 +37,7 @@ function NavBar( ){
                 </div>
                 <div className={styles.contact}>
                         <Navlink name='Links' link='/links'/>
-                    </div>
+                </div>
             </div>
     }
     else{
@@ -53,6 +53,10 @@ function NavBar( ){
                     {/* renderes the hamburger */}
                     {hamburger}
                 <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas>
+                
+            <div className={styles.header}>
+                    Hello world
+            </div>
             </div>
         </div>
     );

@@ -22,6 +22,7 @@
 
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
+
   width: 50%;
   max-width: 1000px;
   gap: 4rem;
@@ -49,22 +50,15 @@
 }
 
 .header {
-  border: solid;
+  position: absolute;
+  top: 100px;
   color: black;
   background-color: rgb(197, 202, 255);
-  border-radius: 1rem;  
-  border-width: 0.25rem;
-  width: 80%;
-  padding: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-top: 2rem;
+  width: 100%;
   display: flex;
-  width: fit-content;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
 }
 
 .undergraph {

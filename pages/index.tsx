@@ -18,11 +18,11 @@ const Home: NextPage = () => {
   return (
 
 
-    <div className={styles.container} style={{backgroundImage: `url("${randSVG()}")`}} >
+    <div className={styles.container} >
       {/* main body */}
       <div className={styles.main}>
         {/* header */}
-        <div className={styles.header}>
+        {/* <div className={styles.header}>
           <Bolts/>
           <h1>
             Hey There, <br/>
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             Welcome to my portfolio website where I keep 
             all my projects!
           </p>
-        </div>
+        </div> */}
         {/* about me */}
         <div className={styles.aboutMe}> 
 
