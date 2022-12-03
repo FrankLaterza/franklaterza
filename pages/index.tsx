@@ -18,21 +18,23 @@ const Home: NextPage = () => {
   return (
 
 
+
     <div className={styles.container} >
+
+      {/* header */}
+      <div className={styles.header}>
+        <h1>
+          Hey There, <br/>
+          I am Frank Laterza!
+        </h1>
+        <p className={styles.undergraph}>
+          Welcome to my portfolio website where I keep 
+          all my projects
+        </p>
+      </div>
       {/* main body */}
       <div className={styles.main}>
-        {/* header */}
-        {/* <div className={styles.header}>
-          <Bolts/>
-          <h1>
-            Hey There, <br/>
-            I am Frank Laterza!
-          </h1>
-          <p className={styles.undergraph}>
-            Welcome to my portfolio website where I keep 
-            all my projects!
-          </p>
-        </div> */}
+
         {/* about me */}
         <div className={styles.aboutMe}> 
 
@@ -50,19 +52,17 @@ const Home: NextPage = () => {
             <Image src={Squiggle} width= {600} height={200}/>
           </div> */}
           <div className={styles.aboutMeText}>
-            <Bolts/>
             <h1>Who?</h1>
             <p>
             I am a 2nd-year computer engineering student at the 
             University of Central Florida. I have a passion for 
-            mathematics and computer science 
+            mathematics and computer science!
             </p>
           </div>
         </div>
 
         {/* body */}
         <div className={styles.body}>
-          <Bolts/>
           <h1>What I Do</h1>
           <p>
             My skills range from 3d modeling, PCB design, 

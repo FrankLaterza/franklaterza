@@ -19,7 +19,6 @@ function useWindowSize() {
 
 
 function NavBar( ){
-
     // detects screen size
     const [width, height] = useWindowSize();
     let hamburger;
@@ -49,15 +48,15 @@ function NavBar( ){
         <div className={styles.bar}> 
             {/* get meta tags */}
             {/* main */}
-            <div className={styles.barLine} >
-                    {/* renderes the hamburger */}
-                    {hamburger}
-                <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas>
+
+                {/* renderes the hamburger */}
+
+                {/* <canvas style={{backgroundColor: 'white', width: "100vw", height: "0.5rem" }}></canvas> */}
                 
-            <div className={styles.header}>
-                    Hello world
-            </div>
-            </div>
+                <div className={styles.header}>
+                    {hamburger}                    
+                </div>
+
         </div>
     );
 }

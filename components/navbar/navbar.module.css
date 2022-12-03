@@ -14,7 +14,7 @@
 
 .header {
     color: black;
-    background-color: rgb(197, 202, 255);
+    background-color: rgb(57, 57, 57);
     width: 100%;
     height: 100px;
     display: flex;
@@ -29,7 +29,6 @@
     width: 100%;
     max-width: 1080px;
     height: 4rem;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +37,6 @@
 
 .navBar {
     display: flex;
-    position: absolute;
     flex-direction: row;
     justify-content: center;
     align-items: center;
