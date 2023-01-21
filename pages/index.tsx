@@ -41,9 +41,9 @@ const Home: NextPage = () => {
             <h1>Who?</h1>
             <p>
               My name is Frank! I am a 2nd-year computer engineering student at
-              the University of Central Florida. I'm passionate about
+              the University of Central Florida. I amm passionate about
               programming and DIY electronics. My skills involve 3D modeling,
-              PCB design, programming, and more. I'm always looking for new
+              PCB design, programming, and more. I am always looking for new
               opportunities!
             </p>
           </div>
