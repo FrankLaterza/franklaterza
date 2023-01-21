@@ -6,6 +6,7 @@ import {MdClose} from "react-icons/md";
 import {FiMenu} from "react-icons/fi";
 import {BiHome, BiLink, BiAtom, BiBrain} from "react-icons/bi";
 import chibi from "/public/images/me/frank_logo.png";
+import Link from "next/link";
 
 function Hamburger() {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -20,15 +21,17 @@ function Hamburger() {
   return (
     <div className={styles.main}>
       {/* name */}
-      <div className={styles.name}>
-        <Image
-          style={{borderRadius: "20px"}}
-          src={chibi}
-          width={40}
-          height={40}
-        />
-        Frank
-      </div>
+      <Link href={"/"}>
+        <a className={styles.name} style={{cursor: "pointer"}}>
+          <Image
+            style={{borderRadius: "20px"}}
+            src={chibi}
+            width={40}
+            height={40}
+          />
+          Frank
+        </a>
+      </Link>
       <nav className={styles.burger}>
         <button onClick={handleToggle}>
           {navbarOpen ? (

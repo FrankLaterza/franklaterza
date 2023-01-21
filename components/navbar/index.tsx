@@ -27,15 +27,18 @@ function NavBar() {
     hamburger = (
       <div className={styles.main}>
         {/* name */}
-        <div className={styles.name}>
-          <Image
-            style={{borderRadius: "20px"}}
-            src={chibi}
-            width={40}
-            height={40}
-          />
-          Frank
-        </div>
+        <Link href={"/"}>
+          <a className={styles.name} style={{cursor: "pointer"}}>
+            <Image
+              style={{borderRadius: "20px"}}
+              src={chibi}
+              width={40}
+              height={40}
+            />
+            Frank
+          </a>
+        </Link>
+
         {/* nav items */}
         <div className={styles.navBar}>
           <Navlink name="About Me" link="/" icon={<BiHome />} />

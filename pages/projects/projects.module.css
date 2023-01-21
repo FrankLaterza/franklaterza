@@ -36,10 +36,10 @@
   align-items: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .main {
     /* background-color: rgba(33, 34, 36, 0.75); */
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     align-items: center;
     justify-content: center;
@@ -84,7 +84,7 @@
 
 @media (max-width: 700px) {
   .postMain {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -107,7 +107,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .postBlurbBtn {
     align-items: center;
     text-align: center;
@@ -117,7 +117,7 @@
 }
 
 .postBlurbBtn:hover {
-  border-style: solid;
+  border-style: solid; 
   border-color: #ca3e47;
 }
 
@@ -130,7 +130,7 @@
   gap: 1rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .postBlurbTop {
     flex-direction: column;
   }
