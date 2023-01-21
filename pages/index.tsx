@@ -41,9 +41,8 @@ const Home: NextPage = () => {
             <h1>Who?</h1>
             <p>
               I am a 2nd-year computer engineering student at the University of
-              Central Florida. I have a passion for mathematics and computer
-              science! I am constantly driven by my passion for technology and
-              innovation. My passion drives me to work hard and excel in my
+              Central Florida. I am constantly driven by my passion for technology and
+              innovation. This drives me to work hard and excel in my
               studies, and I am determined to make the most of my education and
               put my skills to use in the real world.
             </p>
