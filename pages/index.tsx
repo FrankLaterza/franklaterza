@@ -60,10 +60,10 @@ const Home: NextPage = () => {
             also an interactive page that can keep you entertained if you ever get board
           </p>
         </div>
-        <div className={styles.why}>
+        {/* <div className={styles.why}>
           <h1>why?</h1>
           <p>Because why not!</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
