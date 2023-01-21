@@ -55,8 +55,7 @@ export default function Projects({posts}: Props) {
         <div className={styles.headerImage}>
           <h1>Projects!</h1>
           <p className={styles.undergraph}>
-            Welcome to the projects page! These are all my projects listed by
-            date. Click on a thumbnail to explore
+            Welcome to the projects page! These are some of my projects. Click on a thumbnail to explore!
           </p>
         </div>
       </div>

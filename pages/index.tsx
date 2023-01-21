@@ -41,8 +41,8 @@ const Home: NextPage = () => {
             <h1>Who?</h1>
             <p>
               My name is Frank! I am a 2nd-year computer engineering student at
-              the University of Central Florida. I amm passionate about
-              programming and DIY electronics. My skills involve 3D modeling,
+              the University of Central Florida. I am passionate about
+              computer science and DIY electronics. My skills involve 3D modeling,
               PCB design, programming, and more. I am always looking for new
               opportunities!
             </p>
@@ -53,10 +53,10 @@ const Home: NextPage = () => {
         <div className={styles.what}>
           <h1>What?</h1>
           <p>
-            This is my website where I keep all my projects. I build this site
+            This is my website where I keep all my projects. I built this site
             from scratch with Typescript and NextJs. Check out the projects page
             to see some of my projects! There is also an interactive page that
-            can keep you entertained.
+            will keep you entertained.
           </p>
         </div>
         {/* <div className={styles.why}>
