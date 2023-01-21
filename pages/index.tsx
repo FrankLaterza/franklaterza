@@ -32,19 +32,19 @@ const Home: NextPage = () => {
             <Image
               style={{borderRadius: "0.25rem"}}
               src={ME}
-              width={400}
-              height={420}
+              width={300}
+              height={320}
             />
           </div>
           {/* about me text */}
           <div className={styles.aboutMeText}>
             <h1>Who?</h1>
             <p>
-              I am a 2nd-year computer engineering student at the University of
-              Central Florida. I am constantly driven by my passion for technology and
-              innovation. This drives me to work hard and excel in my
-              studies, and I am determined to make the most of my education and
-              put my skills to use in the real world.
+              My name is Frank! I am a 2nd-year computer engineering student at
+              the University of Central Florida. I'm passionate about
+              programming and DIY electronics. My skills involve 3D modeling,
+              PCB design, programming, and more. I'm always looking for new
+              opportunities!
             </p>
           </div>
         </div>
@@ -53,10 +53,10 @@ const Home: NextPage = () => {
         <div className={styles.what}>
           <h1>What?</h1>
           <p>
-            This is my website where I keep all my projects. I build it from
-            scratch with Typescript and NextJs. Check out the projects page to
-            see some of my projects that I also started from scratch. There is
-            also an interactive page that can keep you entertained if you ever get board
+            This is my website where I keep all my projects. I build this site
+            from scratch with Typescript and NextJs. Check out the projects page
+            to see some of my projects! There is also an interactive page that
+            can keep you entertained.
           </p>
         </div>
         {/* <div className={styles.why}>

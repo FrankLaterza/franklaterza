@@ -1,7 +1,7 @@
 ---
 title: "Single GPU Passthrough"
 
-about: "any example of how to use the google drive api with node"
+about: "A tutorial on single GPU passthrough with pop os 22.04"
 
 socialImage: /images/projects/linux_peng.png
 
@@ -14,7 +14,7 @@ tags:
 # Single GPU Passthrough
 Welcome to my guide on setting up a virtual machine with GPU passthrough with only a single graphics card. This guide was made along side this youtube tutorial [here](https://youtu.be/UOk5Mzu53lI). If you get stuck anywhere along the way please check out this guide [here](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home) for more information. What are you waiting for? Switch to linux!!
 ### My specs 
-Amd cpu
+Amd cpu 
 
 Nvidia graphics card
 

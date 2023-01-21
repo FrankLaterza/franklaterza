@@ -1,7 +1,7 @@
 ---
 title: "Weblock"
 
-about: "Non abrasive automatic door lock for my apartment. Designed in Fusion 360, Coded in C++ and Javascript, and soldered with love"
+about: "Non abrasive automatic door lock for my apartment. Designed in Fusion 360, coded in C++ and Javascript, and soldered with love"
 
 socialImage: /images/projects/door_lock.png
 

@@ -13,6 +13,7 @@ import {Bolts} from "../../components/misc/bolts";
 // fix
 const colorList = ["red", "blue", "green", "gold"];
 
+// add types you idiot
 function Wheel({list, setWinner, lastRotation}: any) {
   // gets half the agngle
   const angle = 360 / list.length;
@@ -27,7 +28,7 @@ function Wheel({list, setWinner, lastRotation}: any) {
     const randRotation = Math.floor(Math.random() * (max - min + 1)) + min;
     const offset = lastRotation.current % 360;
     lastRotation.current = lastRotation.current + randRotation;
-    console.log(lastRotation.current, randRotation);
+    // console.log(lastRotation.current, randRotation);
     event.currentTarget.style.transform = `rotate(-${lastRotation.current}deg)`;
     const winnerIndex =
       Math.floor((randRotation + angleHalf + offset) / angle) % list.length;
@@ -61,7 +62,6 @@ function Wheel({list, setWinner, lastRotation}: any) {
   );
 }
 
-const setOnceSVG = randSVG();
 
 export default function WheelMod() {
   let lastRotation = useRef(0);
@@ -93,6 +93,7 @@ export default function WheelMod() {
 
   const [winner, setWinner] = useState("");
 
+  // waits for wheel to update winner
   function handleWinner(winnerIndex: number) {
     setTimeout(() => {
       setWinnerColor(colorList[winnerIndex % 4]);
@@ -160,12 +161,12 @@ export default function WheelMod() {
           </div>
           <div className={styles.winner}>
             {/* <b>Color: </b> <span style={{color: `${colorList[winner % colorList.length]}`}}>{colorList[winner % colorList.length]}</span> <br/> */}
-            <h2>
+            <div>
               <b>
                 Winner: <br />
               </b>{" "}
               <span style={{color: `${winnerColor}`}}>{winner}</span>
-            </h2>
+            </div>
           </div>
         </div>
       </div>

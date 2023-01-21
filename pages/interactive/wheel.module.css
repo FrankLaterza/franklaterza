@@ -80,6 +80,7 @@
   flex-direction: reverse;
   justify-content: center;
   text-align: center;
+  align-items: center;
   color: white;
   border-radius: 1rem;
   border-width: 0.25rem;
@@ -89,17 +90,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap-reverse;
   gap: 2rem;
   text-align: center;
 }
 
 .choiceBox {
+  width: 300px;
+  height: fit-content;
   display: flex;
-  width: 230px;
   flex-direction: column;
   align-items: center;
+  background-color:#313131;
+  border-radius: 2rem;
+  border: solid;
+  border-color: white;
+  border-width: 0.3rem;
   text-align: center;
+  padding-bottom: 1.5rem;
 }
 
 .choice {
@@ -154,6 +163,12 @@
 }
 
 .winner {
+  margin-top: 1rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: #525252;
   display: flex;
   align-items: center;
   justify-content: center;
