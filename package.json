@@ -15,7 +15,7 @@
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
+    "react-icons": "^4.7.1",
     "react-markdown": "^8.0.3",
     "react-range": "^1.8.14",
     "react-syntax-highlighter": "^15.5.0",
@@ -24,11 +24,26 @@
   },
   "devDependencies": {
     "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
+    "@types/react": "^18.0.14",
     "@types/react-dom": "18.0.5",
     "@types/react-syntax-highlighter": "^15.5.3",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
     "typescript": "4.7.4"
-  }
+  },
+  "description": "created in NEXT.JS",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankLaterza/franklaterza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrankLaterza/franklaterza/issues"
+  },
+  "homepage": "https://github.com/FrankLaterza/franklaterza#readme"
 }

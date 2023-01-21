@@ -1,82 +1,72 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import type {NextPage} from "next";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 //import styles from '../styles/shapes.css';
-import ME from '/public/images/me/prof_bush.jpg';
-import { NavBar } from '../components/navbar';
-import { randSVG } from '../lib/random_background'
-import { AiFillCloseCircle } from "react-icons/ai"
-import { AiFillMinusCircle } from "react-icons/ai" 
-import { AiFillPlusCircle } from "react-icons/ai"
-import Squiggle from '/public/images/squiggle.png'
-import { Bolts } from '../components/misc/bolts'; 
-
-
+import ME from "/public/images/me/prof_bush.jpg";
+import {NavBar} from "../components/navbar";
+import {AiFillCloseCircle} from "react-icons/ai";
+import {AiFillMinusCircle} from "react-icons/ai";
+import {AiFillPlusCircle} from "react-icons/ai";
 
 const Home: NextPage = () => {
   return (
-
-
-
-    <div className={styles.container} >
-
+    <div className={styles.container}>
       {/* header */}
       <div className={styles.header}>
-        <h1>
-          Hey There, <br/>
-          I am Frank Laterza!
-        </h1>
-        <p className={styles.undergraph}>
-          Welcome to my portfolio website where I keep 
-          all my projects
-        </p>
+        <div className={styles.headerImage}>
+          <h1>
+            Hey There, <br />I am Frank Laterza!
+          </h1>
+          <p className={styles.undergraph}>
+            Welcome to my portfolio website where I keep all my projects!
+          </p>
+        </div>
       </div>
       {/* main body */}
       <div className={styles.main}>
-
         {/* about me */}
-        <div className={styles.aboutMe}> 
-
+        <div className={styles.aboutMe}>
           {/* image */}
           <div className={styles.image}>
-            <div className={styles.iconsImage}>
-            <AiFillCloseCircle style={{ color: 'rgb(217, 68, 68)', width: "1rem", height: "1rem" }}/>
-            <AiFillMinusCircle style={{ color: 'rgb(217, 130, 68)', width: "1rem", height: "1rem" }}/>
-            <AiFillPlusCircle style={{ color: 'rgb(88, 217, 68)', width: "1rem", height: "1rem" }}/>
-            </div>
-            <Image style={{borderRadius: '0.25rem'}} src={ME} width= {300} height={320}/>
-            
+            <Image
+              style={{borderRadius: "0.25rem"}}
+              src={ME}
+              width={400}
+              height={420}
+            />
           </div>
-          {/* <div className={styles.squiggle} > 
-            <Image src={Squiggle} width= {600} height={200}/>
-          </div> */}
+          {/* about me text */}
           <div className={styles.aboutMeText}>
             <h1>Who?</h1>
             <p>
-            I am a 2nd-year computer engineering student at the 
-            University of Central Florida. I have a passion for 
-            mathematics and computer science!
+              I am a 2nd-year computer engineering student at the University of
+              Central Florida. I have a passion for mathematics and computer
+              science! I am constantly driven by my passion for technology and
+              innovation. My passion drives me to work hard and excel in my
+              studies, and I am determined to make the most of my education and
+              put my skills to use in the real world.
             </p>
           </div>
         </div>
 
         {/* body */}
-        <div className={styles.body}>
-          <h1>What I Do</h1>
+        <div className={styles.what}>
+          <h1>What?</h1>
           <p>
-            My skills range from 3d modeling, PCB design, 
-            and computer programming. I currently work as a 
-            sub contractor with a small company called 
-            Sparrow Design. 
+            This is my website where I keep all my projects. I build it from
+            scratch with Typescript and NextJs. Check out the projects page to
+            see some of my projects that I also started from scratch. There is
+            also an interactive page that can keep you entertained if you ever get board
           </p>
         </div>
-
+        <div className={styles.why}>
+          <h1>why?</h1>
+          <p>Because why not!</p>
+        </div>
       </div>
-
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

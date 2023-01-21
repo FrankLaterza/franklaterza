@@ -1,132 +1,117 @@
-import styles from './sudoku.module.css'
-import { randSVG } from '../../lib/random_background';
-import React, { useLayoutEffect, useState } from 'react';
-import { Slider } from '../../components/misc/slider'
-import { Bolts } from '../../components/misc/bolts'; 
-import { stdin, stdout } from 'node:process';
-import { solveSudoku, showSteps } from '../../lib/sudoku'
-const setOnceSVG = randSVG()
+import styles from "./sudoku.module.css";
+import {randSVG} from "../../lib/random_background";
+import React, {useLayoutEffect, useState} from "react";
+import {Slider} from "../../components/misc/slider";
+import {Bolts} from "../../components/misc/bolts";
+import {stdin, stdout} from "node:process";
+import {solveSudoku, showSteps} from "../../lib/sudoku";
+const setOnceSVG = randSVG();
 
 // let puz = [...Array(9)].map(e => Array(9));
 
-
 // width and height child of boxes
-const width = 2
-const height = 2
+const width = 2;
+const height = 2;
 
-let boardInit = 
-  [ [ 3, 0, 6, 5, 0, 8, 4, 0, 0 ],
-    [ 5, 2, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 8, 7, 0, 0, 0, 0, 3, 1 ],
-    [ 0, 0, 3, 0, 1, 0, 0, 8, 0 ],
-    [ 9, 0, 0, 8, 6, 3, 0, 0, 5 ],
-    [ 0, 5, 0, 0, 9, 0, 6, 0, 0 ],
-    [ 1, 3, 0, 0, 0, 0, 2, 5, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 7, 4 ],
-    [ 0, 0, 5, 2, 0, 6, 3, 0, 0 ] ];
+let boardInit = [
+  [3, 0, 6, 5, 0, 8, 4, 0, 0],
+  [5, 2, 0, 0, 0, 0, 0, 0, 0],
+  [0, 8, 7, 0, 0, 0, 0, 3, 1],
+  [0, 0, 3, 0, 1, 0, 0, 8, 0],
+  [9, 0, 0, 8, 6, 3, 0, 0, 5],
+  [0, 5, 0, 0, 9, 0, 6, 0, 0],
+  [1, 3, 0, 0, 0, 0, 2, 5, 0],
+  [0, 0, 0, 0, 0, 0, 0, 7, 4],
+  [0, 0, 5, 2, 0, 6, 3, 0, 0],
+];
 
 export default function Sudoku() {
+  const [board, setBoard] = useState(boardInit);
+  function handleChange(e: any, row: number, col: number) {
+    const {value} = e.target;
+    let newBoard: number[][] = [...board];
+    newBoard[row][col] = value === "" ? 0 : parseInt(value);
 
-  const [board, setBoard] = useState(
-    boardInit
-  )
-  function handleChange(e: any, row: number, col: number){
-
-    const {value}  = e.target;
-    let newBoard : number[][] = [...board];
-    newBoard[row][col] = (value === '') ? 0 : parseInt(value);
-
-    console.log(newBoard)
+    console.log(newBoard);
     setBoard(newBoard);
-    
   }
 
   const handleClick = (board: any, setBoard: any, sliderVal: any) => {
     // remove the ref
     const startBoard = JSON.parse(JSON.stringify(board));
     // solve the board
-    const isSolved = (solveSudoku(startBoard)) ? 'solved' : 'unsolvable';    
+    const isSolved = solveSudoku(startBoard) ? "solved" : "unsolvable";
     showSteps(board, setBoard, sliderVal, isSolved, setSolveState);
-    
-
-
   };
 
-
   // hook for the slider
-  const [sliderVal, setSliderVal] = useState(
-    {values: [500]}
-  )
+  const [sliderVal, setSliderVal] = useState({values: [500]});
 
   // hook for solve state
 
-  const [solveState, setSolveState] = useState(
-    'unsolved'
-  )
-
+  const [solveState, setSolveState] = useState("unsolved");
 
   return (
-    <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
+    <div
+      className={styles.container}
+      style={{backgroundImage: `url("${setOnceSVG}")`}}
+    >
       <div className={styles.main}>
         {/* header */}
         <div className={styles.header}>
-          <Bolts/>
-          <h1>
-            Sudoku Solver
-          </h1>
+          <Bolts />
+          <h1>Sudoku Solver</h1>
           <p className={styles.undergraph}>
             generate a rondom puzzle to be solved or enter your own puzzle
           </p>
         </div>
         {/* game */}
         <div className={styles.box}>
-            {/* <Bolts/> */}
-            <div className={styles.game}>
+          {/* <Bolts/> */}
+          <div className={styles.game}>
             {/* display board */}
             {/* <Lines/>  */}
-            {boardInit.map((row, rowIndex) =>
-                <div key={rowIndex} className={styles.row} 
-                // style={((rowIndex % 3 === 0) && rowIndex != 0) ? 
-                //   {borderTopWidth: '0px'} : 
+            {boardInit.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className={styles.row}
+                // style={((rowIndex % 3 === 0) && rowIndex != 0) ?
+                //   {borderTopWidth: '0px'} :
                 //   {borderTopWidth: '0px'}}
-                >
-                  {row.map((num, numIndex) =>
-                      <input id={`${rowIndex},${numIndex}`} 
-                      className={styles.val} 
-                      key={numIndex}
-                      // style={((numIndex % 3 === 0) && numIndex != 0) ? 
-                      //   {borderLeftWidth: '0px'} : 
-                      //   {borderLeftWidth: '0px'}}
-                      maxLength={1}
-                      name='val' type='text'
-                      value={(num === 0) ? '' : board[rowIndex][numIndex]}
-                      // value={ board[rowIndex][numIndex] }
-                      onChange={(e) => handleChange(e, rowIndex, numIndex)}
-                      />
-                      )
-                  }
-                </div>)
-            }
+              >
+                {row.map((num, numIndex) => (
+                  <input
+                    id={`${rowIndex},${numIndex}`}
+                    className={styles.val}
+                    key={numIndex}
+                    // style={((numIndex % 3 === 0) && numIndex != 0) ?
+                    //   {borderLeftWidth: '0px'} :
+                    //   {borderLeftWidth: '0px'}}
+                    maxLength={1}
+                    name="val"
+                    type="text"
+                    value={num === 0 ? "" : board[rowIndex][numIndex]}
+                    // value={ board[rowIndex][numIndex] }
+                    onChange={(e) => handleChange(e, rowIndex, numIndex)}
+                  />
+                ))}
+              </div>
+            ))}
 
-            <div className={styles.parentGrid}>
-            </div>
+            <div className={styles.parentGrid}></div>
           </div>
 
           <div className={styles.buttons}>
-            <button onClick={(e) => handleClick(board, setBoard, sliderVal)}>Solve</button>
+            <button onClick={(e) => handleClick(board, setBoard, sliderVal)}>
+              Solve
+            </button>
             <button>Generate</button>
-            
           </div>
 
-            <Slider sliderVal={sliderVal} setSliderVal={setSliderVal}/>
-            <div>
-              {sliderVal.values}
-            </div>
+          <Slider sliderVal={sliderVal} setSliderVal={setSliderVal} />
+          <div>{sliderVal.values}</div>
 
-
-            <div>
-              {solveState}
-            </div>
+          <div>{solveState}</div>
         </div>
       </div>
     </div>

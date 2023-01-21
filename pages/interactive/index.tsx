@@ -1,17 +1,11 @@
-import styles from './interactive.module.css'
-import { randSVG } from '../../lib/random_background';
-import React, { useRef, useState } from "react";
-import { Bolts } from '../../components/misc/bolts'; 
-
-const setOnceSVG = randSVG()
+import styles from "./interactive.module.css";
+import React, {useRef, useState} from "react";
+import {Bolts} from "../../components/misc/bolts";
 
 export default function Interactive() {
-
   return (
-    <div className={styles.container} style={{backgroundImage: `url("${setOnceSVG}")` }} >
-      <div className={styles.main}>
-        welcome to the interactive page
-      </div>
+    <div className={styles.container}>
+      <div className={styles.main}>nothing to see here 😳</div>
     </div>
   );
 }
