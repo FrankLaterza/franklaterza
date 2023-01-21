@@ -57,7 +57,7 @@ function NavBar() {
   }
 
   return (
-    // bar acrossed
+    // bar arossed
     <div className={styles.bar}>
       <div className={styles.header}>{hamburger}</div>
     </div>
