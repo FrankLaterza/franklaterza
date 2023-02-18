@@ -1,7 +1,5 @@
 import styles from "./wheel.module.css";
-import {randSVG} from "../../lib/random_background";
 import React, {useRef, useState} from "react";
-import {Bolts} from "../../components/misc/bolts";
 
 // const [winner, setWinner] = useState([''])
 
@@ -62,7 +60,6 @@ function Wheel({list, setWinner, lastRotation}: any) {
   );
 }
 
-
 export default function WheelMod() {
   let lastRotation = useRef(0);
 
@@ -106,9 +103,7 @@ export default function WheelMod() {
       {/* header */}
       <div className={styles.header}>
         <div className={styles.headerImage}>
-          <h1>
-            Spin The Wheel!
-          </h1>
+          <h1>Spin The Wheel!</h1>
           <p className={styles.undergraph}>
             Guaranteed to help your most indecisive tendencies.
           </p>

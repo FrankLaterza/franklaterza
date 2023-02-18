@@ -1,14 +1,14 @@
 import styles from "./navbar.module.css";
 import {Hamburger} from "./hamburger";
 import Link from "next/link";
-import React, {Component, useLayoutEffect, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import Image from "next/image";
 import chibi from "/public/images/me/frank_logo.png";
 import {BiHome, BiLink, BiAtom, BiBrain} from "react-icons/bi";
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
+  useEffect(() => {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight]);
     }
