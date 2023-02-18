@@ -26,13 +26,13 @@ ChartJs.register(
   Filler
 );
 
-interface dataInterface {
-  labels: number[];
-  datasets: {
-    // label: string;
-    data: number[];
-  }[];
-}
+// interface dataInterface {
+//   labels: number[];
+//   datasets: {
+//     // label: string;
+//     data: number[];
+//   }[];
+// }
 
 // const data = {
 //   labels: [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -69,8 +69,8 @@ const options: any = {
   },
 };
 
-function LineGraph(props: {data: dataInterface}) {
-  return <Line data={props.data} width={100} height={40} options={options} />;
+function LineGraph(props: {data: any}) {
+  return <Line data={props.data} width={100} height={125} options={options} />;
 }
 
 export {LineGraph};

@@ -1,6 +1,6 @@
 import styles from "./pid.module.css";
 import React, {useEffect, useRef, useState} from "react";
-import {LineGraph} from "../../components/pid/lineGraph";
+import {LineGraph} from "../../components/graph/lineGraph";
 import {userAgentFromString} from "next/server";
 import {Slider} from "../../components/misc/slider";
 // import {KnobComp} from "../../components/pid/knob";
@@ -18,6 +18,7 @@ let currentAccel = 0;
 let intergralSum: number = 0;
 // the bounds
 let bounds = 30;
+let sliderLog: number[] = [0];
 
 export default function PID() {
   // the tager position
@@ -106,6 +107,13 @@ export default function PID() {
     labels: [0],
     datasets: [
       {
+        label: "Position",
+        borderColor: "blue",
+        data: [0],
+      },
+      {
+        label: "Target",
+        borderColor: "green",
         data: [0],
       },
     ],
@@ -145,12 +153,12 @@ export default function PID() {
     intergralSum += targetSlider.values[0] - currentPos;
     return intergralSum;
   }
-  // waits for wheel to update winner
+  // calculates pid
   useEffect(() => {
     // when the user isn't touching the knob
     if (!holding) {
       // frames
-      console.log(knobAngle);
+      // console.log(knobAngle);
       const interval = setInterval(() => {
         // get the proportinal
         let proportion = proportional(knobAngle);
@@ -162,21 +170,15 @@ export default function PID() {
         let ki: number[] = iSlider.values;
         let newData = kp[0] * proportion - kd[0] * derived + ki[0] * integrated;
 
-        // print data
-        // console.log(
-        //   "p: ",
-        //   kp * proportion,
-        //   "d:",
-        //   kd * derived,
-        //   "i:",
-        //   ki * integrated
-        // );
-        // update the yummy data and stuff
         let dataTmp = positionData.datasets[0].data;
+        sliderLog.push(targetSlider.values[0]);
 
         // if its not filled then push
         if (dataTmp.length > 300) {
           dataTmp.shift();
+        }
+        if (sliderLog.length > 300) {
+          sliderLog.shift();
         }
         // put on new data
         dataTmp.push(newData);
@@ -197,6 +199,13 @@ export default function PID() {
           datasets: [
             {
               data: dataTmp,
+              label: "Position",
+              borderColor: "blue",
+            },
+            {
+              data: sliderLog,
+              label: "Target",
+              borderColor: "green",
             },
           ],
         });
