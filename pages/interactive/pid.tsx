@@ -150,7 +150,7 @@ export default function PID() {
     // when the user isn't touching the knob
     if (!holding) {
       // frames
-      console.log(knobAngle)
+      console.log(knobAngle);
       const interval = setInterval(() => {
         // get the proportinal
         let proportion = proportional(knobAngle);
@@ -278,12 +278,6 @@ export default function PID() {
             <div>holding: {holding}</div> */}
           </div>
           <div className={styles.graphBox}>
-            <div className={styles.graph}>
-              <LineGraph data={positionData} />
-            </div>
-            <div className={styles.graph}>
-              <LineGraph data={positionData} />
-            </div>
             <div className={styles.graph}>
               <LineGraph data={positionData} />
             </div>
