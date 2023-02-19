@@ -1,4 +1,3 @@
-
 /* 
 --main: #313131;
 --light: #414141;
@@ -6,11 +5,10 @@
 --highlight: #CA3E47; 
 */
 
-
 .container {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -18,14 +16,8 @@
   font-size: 1.5rem;
   background-color: #313131;
   color: white;
-  cursor:default;
-  
+  cursor: default;
 }
-
-.container h1 {
-  margin: 0rem; 
-}
-
 
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
@@ -52,13 +44,12 @@
     flex-direction: column;
     align-items: center;
   }
-
 }
 
 .header {
   top: 100px;
   color: white;
-  background-image: linear-gradient(20deg, rgb(11, 4, 77) , rgb(82, 21, 21));
+  background-image: linear-gradient(20deg, rgb(11, 4, 77), rgb(82, 21, 21));
   width: 100%;
 }
 
@@ -70,7 +61,7 @@
   text-align: center;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='87' height='50.232' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M0 54.424l14.5-8.373c4.813 2.767 9.705 5.573 14.5 8.37l14.5-8.373V29.303M0 4.193v16.744l-14.5 8.373L0 37.68l14.5-8.374V12.562l29-16.746m43.5 58.6l-14.5-8.37v-33.49c-4.795-2.797-9.687-5.603-14.5-8.37m43.5 25.111L87 37.67c-4.795-2.797-24.187-13.973-29-16.74l-14.5 8.373-14.5-8.37v-33.489m72.5 8.365L87 4.183l-14.5-8.37M87 4.183v16.745L58 37.673v16.744m0-66.976V4.185L43.5 12.56c-4.795-2.797-24.187-13.973-29-16.74L0 4.192l-14.5-8.37m29 33.484c4.813 2.767 9.705 5.573 14.5 8.37V54.42'  stroke-linecap='square' stroke-width='1' stroke='hsla(259, 59%, 59%, 0.26)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='87' height='50.232' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M0 54.424l14.5-8.373c4.813 2.767 9.705 5.573 14.5 8.37l14.5-8.373V29.303M0 4.193v16.744l-14.5 8.373L0 37.68l14.5-8.374V12.562l29-16.746m43.5 58.6l-14.5-8.37v-33.49c-4.795-2.797-9.687-5.603-14.5-8.37m43.5 25.111L87 37.67c-4.795-2.797-24.187-13.973-29-16.74l-14.5 8.373-14.5-8.37v-33.489m72.5 8.365L87 4.183l-14.5-8.37M87 4.183v16.745L58 37.673v16.744m0-66.976V4.185L43.5 12.56c-4.795-2.797-24.187-13.973-29-16.74L0 4.192l-14.5-8.37m29 33.484c4.813 2.767 9.705 5.573 14.5 8.37V54.42'  stroke-linecap='square' stroke-width='1' stroke='hsla(259, 59%, 59%, 0.26)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
 }
 
 .undergraph {
@@ -92,7 +83,7 @@
   padding: 2rem;
   padding-top: 2rem;
   gap: 1rem;
-  border-radius: 1rem;  
+  border-radius: 1rem;
 }
 
 .aboutMeText {
@@ -101,13 +92,13 @@
   font-size: 1.5rem;
   /* backdrop-filter: blur(5px); */
   color: white;
-  border-radius: 1rem;  
+  border-radius: 1rem;
   border-width: 0.25rem;
   text-align: left;
 }
 
 @media (max-width: 1500px) {
-  .aboutMeText { 
+  .aboutMeText {
     width: fit-content;
     padding: 0.5rem;
   }
@@ -117,20 +108,19 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-  border: solid;
+  border: none;
+  /* border: solid;
   border-width: 0.4rem;
   border-color: #CA3E47;  
-  background-color: #CA3E47;  
+  background-color: #CA3E47;   */
   border-radius: 0.7rem;
   position: relative;
 }
 
-
-
 .what {
   width: 100%;
   color: white;
-  border-radius: 1rem;  
+  border-radius: 1rem;
   border-width: 0.25rem;
   max-width: 1000px;
   font-size: 1.5rem;
@@ -148,7 +138,7 @@
 .why {
   width: 100%;
   color: white;
-  border-radius: 1rem;  
+  border-radius: 1rem;
   border-width: 0.25rem;
   max-width: 1000px;
   font-size: 1.5rem;
@@ -163,8 +153,6 @@
   text-overflow: clip;
   margin-bottom: 3rem;
 }
-
-
 
 /* --rich-black-fogra-39: #111213ff;
 

@@ -54,7 +54,7 @@ function Hamburger() {
           <Navlink name="Projects" link="/projects" icon={<BiBrain />} />
           <Navlink
             name="Interactive"
-            link="/interactive/wheel"
+            link="/interactive/pid"
             icon={<BiAtom />}
           />
           <Navlink name="Links" link="/links" icon={<BiLink />} />

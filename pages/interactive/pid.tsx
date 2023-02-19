@@ -3,6 +3,9 @@ import React, {useEffect, useRef, useState} from "react";
 import {LineGraph} from "../../components/graph/lineGraph";
 import {userAgentFromString} from "next/server";
 import {Slider} from "../../components/misc/slider";
+import Image from "next/image";
+import cat from "/public/images/misc/cat.png";
+import yarn from "/public/images/misc/yarn.png";
 // import {KnobComp} from "../../components/pid/knob";
 // import {Knob} from "../../components/pid/knob";
 
@@ -19,6 +22,9 @@ let intergralSum: number = 0;
 // the bounds
 let bounds = 30;
 let sliderLog: number[] = [0];
+
+const catImageSize = 100;
+const yarnImageSize = 50;
 
 export default function PID() {
   // the tager position
@@ -61,46 +67,8 @@ export default function PID() {
     }
   };
 
-  // distnce from knob
-  const [mouseFromKnob, setMouseFromKnob] = useState({x: 0, y: 0});
-  const [knobAngle, setKnobAngle] = useState(1);
-  // control the knob
-  useEffect(() => {
-    if (holding) {
-      // reset some values :)
-      currentAccel = 0;
-      intergralSum = 0;
-      const handleMouseMove = (event: any) => {
-        // this is the id of the circle
-        const element: any = document.getElementById("knobber");
-        // console.log(element);
-        const rect = element.getBoundingClientRect();
-        // get the middle
-        const elementX = Math.floor(rect.left + rect.width / 2);
-        const elementY = Math.floor(rect.top + rect.height / 2);
-        // get the mouse
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-        // get the distance
-        const dx = mouseX - elementX;
-        const dy = mouseY - elementY;
-        // const newDistance = Math.sqrt(dx * dx + dy * dy);
-
-        setMouseFromKnob({x: dx, y: dy});
-        if (dx < 0) {
-          setKnobAngle(Math.floor((Math.atan(dy / dx) * 180) / Math.PI) + 270);
-        } else {
-          setKnobAngle(Math.floor((Math.atan(dy / dx) * 180) / Math.PI) + 90);
-        }
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    }
-  }, [holding]);
+  // follow position hook
+  const [followPos, setFollowPos] = useState(1);
 
   // set init states
   const [positionData, setPositionData] = useState({
@@ -109,19 +77,19 @@ export default function PID() {
       {
         label: "Position",
         borderColor: "blue",
-        data: [0],
+        data: [500],
       },
       {
         label: "Target",
         borderColor: "green",
-        data: [0],
+        data: [500],
       },
     ],
   });
 
   // slider hook
   const [targetSlider, setTargetSlider] = useState({
-    values: [90],
+    values: [500],
   });
   const [pSlider, setPSlider] = useState({
     values: [1],
@@ -156,62 +124,60 @@ export default function PID() {
   // calculates pid
   useEffect(() => {
     // when the user isn't touching the knob
-    if (!holding) {
-      // frames
-      // console.log(knobAngle);
-      const interval = setInterval(() => {
-        // get the proportinal
-        let proportion = proportional(knobAngle);
-        let derived = derivative(knobAngle);
-        let integrated = intergral(knobAngle);
-        // the magic
-        let kp: number[] = pSlider.values;
-        let kd: number[] = dSlider.values;
-        let ki: number[] = iSlider.values;
-        let newData = kp[0] * proportion - kd[0] * derived + ki[0] * integrated;
+    // frames
+    // console.log(knobAngle);
+    const interval = setInterval(() => {
+      // get the proportinal
 
-        let dataTmp = positionData.datasets[0].data;
-        sliderLog.push(targetSlider.values[0]);
+      let proportion = proportional(followPos);
+      let derived = derivative(followPos);
+      let integrated = intergral(followPos);
+      // the magic
+      let kp: number[] = pSlider.values;
+      let kd: number[] = dSlider.values;
+      let ki: number[] = iSlider.values;
+      let newData = kp[0] * proportion - kd[0] * derived + ki[0] * integrated;
 
-        // if its not filled then push
-        if (dataTmp.length > 300) {
-          dataTmp.shift();
-        }
-        if (sliderLog.length > 300) {
-          sliderLog.shift();
-        }
-        // put on new data
-        dataTmp.push(newData);
-        setKnobAngle(newData);
+      let dataTmp = positionData.datasets[0].data;
+      sliderLog.push(targetSlider.values[0]);
 
-        // save the last position
-        lastPos = knobAngle;
+      // if its not filled then push
+      if (dataTmp.length > 300) {
+        dataTmp.shift();
+      }
+      if (sliderLog.length > 300) {
+        sliderLog.shift();
+      }
+      // put on new data
+      dataTmp.push(newData);
+      setFollowPos(newData);
 
-        let labelsTmp = positionData.labels;
-        if (labelsTmp.length > 300) {
-          labelsTmp.shift();
-        }
-        iterations += 1;
-        labelsTmp.push(iterations);
+      // save the last position
+      lastPos = followPos;
 
-        setPositionData({
-          labels: labelsTmp,
-          datasets: [
-            {
-              data: dataTmp,
-              label: "Position",
-              borderColor: "blue",
-            },
-            {
-              data: sliderLog,
-              label: "Target",
-              borderColor: "green",
-            },
-          ],
-        });
-      }, 5);
-      return () => clearInterval(interval);
-    }
+      let labelsTmp = positionData.labels;
+      if (labelsTmp.length > 300) {
+        labelsTmp.shift();
+      }
+      iterations += 1;
+      labelsTmp.push(iterations);
+      setPositionData({
+        labels: labelsTmp,
+        datasets: [
+          {
+            data: dataTmp,
+            label: "Position",
+            borderColor: "blue",
+          },
+          {
+            data: sliderLog,
+            label: "Target",
+            borderColor: "green",
+          },
+        ],
+      });
+    }, 5);
+    return () => clearInterval(interval);
   });
 
   // the goods
@@ -220,37 +186,57 @@ export default function PID() {
       {/* header */}
       <div className={styles.header}>
         <div className={styles.headerImage}>
-          <h1>Spin The Wheel!</h1>
+          <h1>PID controller</h1>
           <p className={styles.undergraph}>
-            Guaranteed to help your most indecisive tendencies.
+            Tweak the values and move the yarn!
           </p>
         </div>
       </div>
       <div className={styles.main}>
+        <div className={styles.demoBox}>
+          <div className={styles.line}>
+            <Slider
+              sliderVal={targetSlider}
+              setSliderVal={setTargetSlider}
+              step={1}
+              min={1}
+              max={1000}
+            />
+          </div>
+
+          <div
+            style={{
+              left: `calc(${targetSlider.values[0] / 10}% - ${
+                yarnImageSize / 2
+              }px`,
+            }}
+            className={styles.follow}
+          >
+            <Image
+              src={yarn}
+              id="case"
+              width={yarnImageSize}
+              height={yarnImageSize}
+            />
+          </div>
+          <div
+            style={{
+              left: `calc(${followPos / 10}% - ${catImageSize / 2}px`,
+            }}
+            className={styles.chase}
+          >
+            <Image
+              src={cat}
+              id="case"
+              width={catImageSize}
+              height={catImageSize}
+            />
+          </div>
+        </div>
         <div className={styles.split}>
           <div className={styles.interactiveBox}>
             {/* <Knob /> */}
             {/* <div>{positionData.datasets[0].data}</div> */}
-            <div
-              id="knobber"
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              className={styles.knobUnderlay}
-              style={{transform: `rotate(${knobAngle}deg)`}}
-            >
-              <div className={styles.knob}></div>
-              <div className={styles.arrow}></div>
-            </div>
-            <div className={styles.sliders}>
-              <h3>set target {targetSlider.values}</h3>
-              <Slider
-                sliderVal={targetSlider}
-                setSliderVal={setTargetSlider}
-                step={1}
-                min={1}
-                max={360}
-              />
-            </div>
             <div className={styles.sliders}>
               <h3>Set p: {pSlider.values}</h3>
               <Slider
@@ -284,7 +270,7 @@ export default function PID() {
             {/* <div>x: {mouseFromKnob.x}</div>
             <div>y: {mouseFromKnob.y}</div>
             <div>angle: {knobAngle}</div>
-            <div>holding: {holding}</div> */}
+          <div>holding: {holding}</div> */}
           </div>
           <div className={styles.graphBox}>
             <div className={styles.graph}>
@@ -292,6 +278,19 @@ export default function PID() {
             </div>
           </div>
         </div>
+        {/* <h1>How the System works</h1>
+        <h6>
+
+          
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </h6> */}
       </div>
     </div>
   );

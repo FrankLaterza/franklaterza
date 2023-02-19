@@ -47,7 +47,7 @@ const options: any = {
   scales: {
     y: {
       min: 0,
-      max: 400,
+      max: 1000,
     },
   },
   animation: false,
@@ -70,7 +70,7 @@ const options: any = {
 };
 
 function LineGraph(props: {data: any}) {
-  return <Line data={props.data} width={100} height={125} options={options} />;
+  return <Line data={props.data} width={100} height={100} options={options} />;
 }
 
 export {LineGraph};
