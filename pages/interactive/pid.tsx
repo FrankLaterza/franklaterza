@@ -217,7 +217,7 @@ export default function PID() {
                             Notice that the proportional gain (P) value is set
                             very high in this example. This high proportional
                             control amplifies the error signal and results in an
-                            oscillating motion because it's providing more
+                            oscillating motion because it&apos;s providing more
                             direct feedback into the system. Move the integral
                             (I) slider around to see how it oscillates even
                             faster, as the I term is responsible for
@@ -368,14 +368,14 @@ export default function PID() {
                     "Welcome to this interactive demonstration of the PID
                     control algorithm! Move the yarn around and watch as the cat
                     attempts to catch it. But have you ever wondered how the cat
-                    manages to track the yarn so smoothly? That's where the PID
+                    manages to track the yarn so smoothly? That&apos;s where the PID
                     control system comes in!
                 </p>
                 <p>
                     The PID control system is made up of three components: P, I,
-                    and D. P stands for "proportional," and it's responsible for
+                    and D. P stands for "proportional," and it&apos;s responsible for
                     determining how much the cat should move based on the
-                    difference between its current position and the yarn's
+                    difference between its current position and the yarn&apos;s
                     position. The I stands for "integral," and it takes into
                     account how long the cat has been trying to catch the yarn.
                     The longer the cat chases, the stronger the integral
@@ -385,8 +385,8 @@ export default function PID() {
                 <p>
                     Together, P, I, and D work to ensure that the cat tracks the
                     yarn as smoothly and efficiently as possible. As you can see
-                    on the graph, the blue line represents the cat's position,
-                    while the green line represents the yarn's position. Thanks
+                    on the graph, the blue line represents the cat&apos;s position,
+                    while the green line represents the yarn&apos;s position. Thanks
                     to the PID control system, the cat is able to move in a way
                     that closely follows the yarn, making it much more likely to
                     catch it. Have fun!"
