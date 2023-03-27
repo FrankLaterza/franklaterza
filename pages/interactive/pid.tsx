@@ -1,5 +1,5 @@
 import styles from "./pid.module.css";
-import React, {useEffect, useRef, useState, useLayoutEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {LineGraph} from "../../components/graph/lineGraph";
 import {userAgentFromString} from "next/server";
 import {Slider} from "../../components/misc/slider";
@@ -12,6 +12,7 @@ import {
     TbHexagonNumber2,
     TbHexagonNumber3,
 } from "react-icons/tb";
+import { Selector } from "../../components/selector";
 
 // import {KnobComp} from "../../components/pid/knob";
 // import {Knob} from "../../components/pid/knob";
@@ -159,95 +160,6 @@ export default function PID() {
         return () => clearInterval(interval);
     });
 
-    // selector for blurb
-    const [selector, setSelector] = useState<number>(16.66);
-    const [blurb, setBlurb] = useState<number>(1);
-
-    function reset(p: number, i: number, d: number) {
-        setPSlider({values: [p]});
-        setISlider({values: [i]});
-        setDSlider({values: [d]});
-        // the last position
-        currentAccel = 0;
-        intergralSum = 0;
-    }
-
-    function handleSelector(button: number) {
-        setBlurb(button);
-        if (button === 1) {
-            setSelector(16.66);
-            reset(0.99, 0.001, 3);
-        }
-        if (button === 2) {
-            setSelector(50);
-            reset(0.1, 0.01, 4);
-        }
-        if (button === 3) {
-            setSelector(100 - 16.66);
-            reset(0.2, 0.04, 4);
-        }
-    }
-
-    function blurbCycle() {
-        switch (blurb) {
-            case 1:
-                return (
-                    <>
-                        <h2 className={styles.blurbTitle}>Underdamped</h2>
-                        <p className={styles.blurbBody}>
-                            Underdamped control can result in overshooting of
-                            the target, which leads to an oscillating motion.
-                            Notice that the proportional gain (P) value is set
-                            very high in this example. This high proportional
-                            control amplifies the error signal and results in an
-                            oscillating motion because it&apos;s providing more
-                            direct feedback into the system. Move the integral
-                            (I) slider around to see how it oscillates even
-                            faster, as the I term is responsible for
-                            accumulating error over time.
-                        </p>
-                    </>
-                );
-            case 2:
-                return (
-                    <>
-                        <h2 className={styles.blurbTitle}>Overdamped</h2>
-                        <p>
-                            Overdamped control is designed to prioritize
-                            stability over speed, resulting in a slower approach
-                            to its target. As a result, it will undershoot its
-                            target and the response curve will rise smoothly to
-                            the setpoint without oscillating. In this particular
-                            example, the P value is set to a low value while the
-                            D value contributes to the slow approach. An
-                            overdamped system is a great choice for applications
-                            where stability is crucial, as it ensures a smooth
-                            and steady response without any unpredictable
-                            oscillations.
-                        </p>
-                    </>
-                );
-            case 3:
-                return (
-                    <>
-                        <h2 className={styles.blurbTitle}>Critally Damped</h2>
-                        <p>
-                            Critically damped control is the perfect balance
-                            between underdamped and overdamped control. All
-                            values are carefully tuned to ensure that the system
-                            reaches its destination in a controlled and timely
-                            manner. Observe how the system speeds up when the
-                            target is far away and slows down when it
-                            approaches, demonstrating the precise nature of the
-                            PID control system.
-                        </p>
-                    </>
-                );
-            default:
-                return null; // Return a default value if the state is not any of the expected values
-        }
-    }
-
     // hook to get the offest of the selector button size (changes with screen size)
     const [blurbButtonSize, setBlurbButtonSize] = useState(0);
   
@@ -261,6 +173,22 @@ export default function PID() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
       }, [blurbButtonSize]);
+
+
+    const blurbs = [
+        {
+            title: "Underdamped",
+            text: "Underdamped control can result in overshooting of the target, which leads to an oscillating motion. Notice that the proportional gain (P) value is set very high in this example. This high proportional control amplifies the error signal and results in an oscillating motion because it's providing more direct feedback into the system. Move the integral (I) slider around to see how it oscillates even faster, as the I term is responsible for accumulating error over time.",
+        },
+        {
+            title: "Overdamped",
+            text: "Overdamped control is designed to prioritize stability over speed, resulting in a slower approach to its target. As a result, it will undershoot its target and the response curve will rise smoothly to the setpoint without oscillating. In this particular example, the P value is set to a low value while the D value contributes to the slow approach. An overdamped system is a great choice for applications where stability is crucial, as it ensures a smooth and steady response without any unpredictable oscillations.",
+        },
+        {
+            title: "Critally Damped",
+            text: "Critically damped control is the perfect balance between underdamped and overdamped control. All values are carefully tuned to ensure that the system reaches its destination in a controlled and timely manner. Observe how the system speeds up when the target is far away and slows down when it approaches, demonstrating the precise nature of the PID control system.",
+        },
+    ];
 
     // the goods
     return (
@@ -361,64 +289,7 @@ export default function PID() {
                 <div className={styles.blogImage}>
                     <Image src={pid} width={800} height={80} />
                 </div>
-                <p>
-                    Welcome to this interactive demonstration of the PID control
-                    algorithm! Move the yarn around and watch as the cat
-                    attempts to catch it. But have you ever wondered how the cat
-                    manages to track the yarn so smoothly? That&apos;s where the
-                    PID control system comes in!
-                </p>
-                <p>
-                    The PID control system is made up of three components: P, I,
-                    and D. P stands for &quot;proportional,&quot; and it&apos;s
-                    responsible for determining how much the cat should move
-                    based on the difference between its current position and the
-                    yarn&apos;s position. The I stands for &quot;integral,&quot;
-                    and it takes into account how long the cat has been trying
-                    to catch the yarn. The longer the cat chases, the stronger
-                    the integral component becomes. Finally, the D stands for
-                    &quot;derivative,&quot; and it measures how quickly the cat
-                    is approaching the yarn.
-                </p>
-                <p>
-                    Together, P, I, and D work to ensure that the cat tracks the
-                    yarn as smoothly and efficiently as possible. As you can see
-                    on the graph, the blue line represents the cat&apos;s
-                    position, while the green line represents the yarn&apos;s
-                    position. Thanks to the PID control system, the cat is able
-                    to move in a way that closely follows the yarn, making it
-                    much more likely to catch it. Have fun!
-                </p>
-                <div className={styles.blurbBar}>
-                    <div
-                        id={"selector"}
-                        className={styles.blurbSelector}
-                        style={{
-                            left: `calc(${selector}% - ${
-                                blurbButtonSize / 2
-                            }px)`,
-                        }}
-                    ></div>
-                    <div
-                        className={styles.blurbButton}
-                        onClick={() => handleSelector(1)}
-                    >
-                        <TbHexagonNumber1 className={styles.TbHexagon} />
-                    </div>
-                    <div
-                        className={styles.blurbButton}
-                        onClick={() => handleSelector(2)}
-                    >
-                        <TbHexagonNumber2 className={styles.TbHexagon} />
-                    </div>
-                    <div
-                        className={styles.blurbButton}
-                        onClick={() => handleSelector(3)}
-                    >
-                        <TbHexagonNumber3 className={styles.TbHexagon} />
-                    </div>
-                </div>
-                <div className={styles.blurbBox}>{blurbCycle()}</div>
+                <Selector blurbs={blurbs}/>
             </div>
         </div>
     );

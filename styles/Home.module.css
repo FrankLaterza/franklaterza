@@ -19,6 +19,11 @@
   cursor: default;
 }
 
+.container h1 {
+  margin: 0rem;
+}
+
+
 .main {
   /* background-color: rgba(33, 34, 36, 0.75); */
   background-color: #414141;
@@ -72,22 +77,22 @@
 }
 
 .aboutMe {
+  width: 80%;
   display: flex;
-  align-items: center;
-  justify-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: left;
-  padding: 2rem;
+
   padding-top: 2rem;
-  gap: 1rem;
+  gap: 2rem;
   border-radius: 1rem;
 }
 
 .aboutMeText {
   width: 50%;
-  padding: 1rem;
+
   font-size: 1.5rem;
   /* backdrop-filter: blur(5px); */
   color: white;
@@ -127,6 +132,7 @@
 }
 
 .what {
+  margin-top: 2rem;
   width: 80%;
   color: white;
   border-radius: 1rem;
@@ -169,15 +175,3 @@
   text-overflow: clip;
   margin-bottom: 3rem;
 }
-
-/* --rich-black-fogra-39: #111213ff;
-
---eerie-black: #212224ff;
-
---quick-silver: #a1a1a1ff;
-
---white: #ffffffff;
-
---blue-crayola: #2f71e8ff;
-
---cyan-process: #29b9f0ff; */

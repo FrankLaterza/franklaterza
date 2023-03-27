@@ -1,14 +1,9 @@
 import Link from "next/link";
 import styles from "./projects.module.css";
-import {NavBar} from "../../components/navbar";
 import {GetStaticProps} from "next";
 import fs from "fs";
 import Image from "next/image";
 import matter from "gray-matter";
-//import { getAllPostsWithFrontMatter } from '../../lib/utils'
-import {randSVG} from "../../lib/random_background";
-import {Bolts} from "../../components/misc/bolts";
-import {connected} from "process";
 
 interface Props {
   posts: {

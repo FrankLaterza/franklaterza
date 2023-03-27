@@ -285,7 +285,7 @@ div.sliders h3 {
   justify-content: center;
   background: rgb(77, 77, 77);
 }
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .blurbButton {
     width: 16%;
     height: 0;
@@ -304,7 +304,7 @@ div.sliders h3 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .blurbSelector {
     width: 16%;
     height: 0;
