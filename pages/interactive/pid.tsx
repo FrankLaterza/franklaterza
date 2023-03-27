@@ -1,5 +1,5 @@
 import styles from "./pid.module.css";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState, useLayoutEffect} from "react";
 import {LineGraph} from "../../components/graph/lineGraph";
 import {userAgentFromString} from "next/server";
 import {Slider} from "../../components/misc/slider";
@@ -33,7 +33,7 @@ let sliderLog: number[] = [0];
 const catImageSize = 100;
 const yarnImageSize = 50;
 
-const blurbButtonSize = 10;
+// const blurbButtonSize = 10;
 const blurbNums = 3;
 
 export default function PID() {
@@ -70,13 +70,13 @@ export default function PID() {
         values: [500],
     });
     const [pSlider, setPSlider] = useState({
-        values: [1],
-    });
-    const [dSlider, setDSlider] = useState({
-        values: [0.1],
+        values: [0.99],
     });
     const [iSlider, setISlider] = useState({
         values: [0.001],
+    });
+    const [dSlider, setDSlider] = useState({
+        values: [0.1],
     });
 
     // returns the max output of the proportinal control
@@ -90,14 +90,14 @@ export default function PID() {
         }
         return currentPos + currentAccel;
     }
-    // the derivative
-    function derivative(currentPos: number) {
-        return currentPos / lastPos;
-    }
-    // gets values over time
+    // gets values over time (integral)
     function intergral(currentPos: number) {
         intergralSum += targetSlider.values[0] - currentPos;
         return intergralSum;
+    }
+    // the derivative
+    function derivative(currentPos: number) {
+        return currentPos / lastPos;
     }
     // calculates pid
     useEffect(() => {
@@ -248,6 +248,20 @@ export default function PID() {
         }
     }
 
+    // hook to get the offest of the selector button size (changes with screen size)
+    const [blurbButtonSize, setBlurbButtonSize] = useState(0);
+  
+    useEffect(() => {
+        function handleResize() {
+            setBlurbButtonSize(
+            document.getElementById("selector")?.clientWidth ?? blurbButtonSize
+          );
+        }
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+      }, [blurbButtonSize]);
+
     // the goods
     return (
         <div className={styles.container}>
@@ -348,44 +362,47 @@ export default function PID() {
                     <Image src={pid} width={800} height={80} />
                 </div>
                 <p>
-                    Welcome to this interactive demonstration of the PID
-                    control algorithm! Move the yarn around and watch as the cat
+                    Welcome to this interactive demonstration of the PID control
+                    algorithm! Move the yarn around and watch as the cat
                     attempts to catch it. But have you ever wondered how the cat
-                    manages to track the yarn so smoothly? That&apos;s where the PID
-                    control system comes in!
+                    manages to track the yarn so smoothly? That&apos;s where the
+                    PID control system comes in!
                 </p>
                 <p>
                     The PID control system is made up of three components: P, I,
-                    and D. P stands for &quot;proportional,&quot; and it&apos;s responsible for
-                    determining how much the cat should move based on the
-                    difference between its current position and the yarn&apos;s
-                    position. The I stands for &quot;integral,&quot; and it takes into
-                    account how long the cat has been trying to catch the yarn.
-                    The longer the cat chases, the stronger the integral
-                    component becomes. Finally, the D stands for &quot;derivative,&quot;
-                    and it measures how quickly the cat is approaching the yarn.
+                    and D. P stands for &quot;proportional,&quot; and it&apos;s
+                    responsible for determining how much the cat should move
+                    based on the difference between its current position and the
+                    yarn&apos;s position. The I stands for &quot;integral,&quot;
+                    and it takes into account how long the cat has been trying
+                    to catch the yarn. The longer the cat chases, the stronger
+                    the integral component becomes. Finally, the D stands for
+                    &quot;derivative,&quot; and it measures how quickly the cat
+                    is approaching the yarn.
                 </p>
                 <p>
                     Together, P, I, and D work to ensure that the cat tracks the
                     yarn as smoothly and efficiently as possible. As you can see
-                    on the graph, the blue line represents the cat&apos;s position,
-                    while the green line represents the yarn&apos;s position. Thanks
-                    to the PID control system, the cat is able to move in a way
-                    that closely follows the yarn, making it much more likely to
-                    catch it. Have fun!
+                    on the graph, the blue line represents the cat&apos;s
+                    position, while the green line represents the yarn&apos;s
+                    position. Thanks to the PID control system, the cat is able
+                    to move in a way that closely follows the yarn, making it
+                    much more likely to catch it. Have fun!
                 </p>
                 <div className={styles.blurbBar}>
                     <div
+                        id={"selector"}
                         className={styles.blurbSelector}
                         style={{
-                            left: `${selector - blurbButtonSize / 2}% `,
+                            left: `calc(${selector}% - ${
+                                blurbButtonSize / 2
+                            }px)`,
                         }}
                     ></div>
                     <div
                         className={styles.blurbButton}
                         onClick={() => handleSelector(1)}
                     >
-                        {" "}
                         <TbHexagonNumber1 className={styles.TbHexagon} />
                     </div>
                     <div

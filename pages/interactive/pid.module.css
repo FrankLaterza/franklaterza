@@ -295,7 +295,7 @@ div.sliders h3 {
 }
 
 .blurbSelector{
-  transition: 0.2s ease;
+  transition: 0.1s ease;
   position: absolute;
   width: 10%;
   height: 0;
