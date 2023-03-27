@@ -45,23 +45,6 @@ export default function PID() {
     //   kd = 3,
     //   ki = 0.0005;
 
-    // this will see if the mouse is in bounds
-    const handleMouseMove = (event: any) => {
-        const element = event.target;
-        const elementBounds = element.getBoundingClientRect();
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        if (
-            mouseX < elementBounds.left ||
-            mouseX > elementBounds.right ||
-            mouseY < elementBounds.top ||
-            mouseY > elementBounds.bottom
-        ) {
-            setHolding(false);
-        }
-    };
-
     // follow position hook
     const [followPos, setFollowPos] = useState(1);
 
@@ -365,7 +348,7 @@ export default function PID() {
                     <Image src={pid} width={800} height={80} />
                 </div>
                 <p>
-                    "Welcome to this interactive demonstration of the PID
+                    Welcome to this interactive demonstration of the PID
                     control algorithm! Move the yarn around and watch as the cat
                     attempts to catch it. But have you ever wondered how the cat
                     manages to track the yarn so smoothly? That&apos;s where the PID
@@ -373,13 +356,13 @@ export default function PID() {
                 </p>
                 <p>
                     The PID control system is made up of three components: P, I,
-                    and D. P stands for "proportional," and it&apos;s responsible for
+                    and D. P stands for &quot;proportional,&quot; and it&apos;s responsible for
                     determining how much the cat should move based on the
                     difference between its current position and the yarn&apos;s
-                    position. The I stands for "integral," and it takes into
+                    position. The I stands for &quot;integral,&quot; and it takes into
                     account how long the cat has been trying to catch the yarn.
                     The longer the cat chases, the stronger the integral
-                    component becomes. Finally, the D stands for "derivative,"
+                    component becomes. Finally, the D stands for &quot;derivative,&quot;
                     and it measures how quickly the cat is approaching the yarn.
                 </p>
                 <p>
@@ -389,7 +372,7 @@ export default function PID() {
                     while the green line represents the yarn&apos;s position. Thanks
                     to the PID control system, the cat is able to move in a way
                     that closely follows the yarn, making it much more likely to
-                    catch it. Have fun!"
+                    catch it. Have fun!
                 </p>
                 <div className={styles.blurbBar}>
                     <div
