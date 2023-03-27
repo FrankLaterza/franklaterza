@@ -42,9 +42,9 @@
   width: 80%;
   text-align: left;
 }
-.main h6 {
-  margin-top: 0rem;
-  margin-bottom: 1rem;
+.main p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
   width: 80%;
   text-align: left;
 }
@@ -236,4 +236,98 @@ div.sliders h3 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: rgb(253, 253, 253);
+}
+
+.blurbBody {
+  font-size: 1.2rem;
+  width: 80%;
+  text-align: left;
+}
+
+.blurbTitle {
+  margin: 0;
+  margin-top: 2rem;
+  width: 80%;
+  text-align: left;
+}
+
+.blogTitle{
+  padding: 0.5rem;
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+}
+
+.blogImage{
+  padding: 0.5rem;
+}
+
+.blurbBar{
+  position: relative;
+  width: 80%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(77, 77, 77);
+  margin-top: 2rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.blurbButton{
+  width: 10%;
+  height: 0;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(77, 77, 77);
+}
+@media (max-width: 700px) {
+  .blurbButton {
+    width: 16%;
+    height: 0;
+    padding-top: 8%;
+    padding-bottom: 8%;
+  }
+}
+
+.blurbSelector{
+  transition: 0.2s ease;
+  position: absolute;
+  width: 10%;
+  height: 0;
+  padding-bottom: 8%;
+  background: rgb(53, 53, 53);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+@media (max-width: 700px) {
+  .blurbSelector {
+    width: 16%;
+    height: 0;
+    padding-bottom: 16%;
+  }
+}
+
+.TbHexagon {
+  color: rgb(98, 148, 255);
+  width: 100%;
+  height: 30px;
+}
+
+.blurbBox{
+  width: 80%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(53, 53, 53);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 2rem;
+  margin-bottom: 5rem;
 }
