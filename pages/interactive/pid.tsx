@@ -1,17 +1,16 @@
 import styles from "./pid.module.css";
 import React, {useEffect, useState} from "react";
 import {LineGraph} from "../../components/graph/lineGraph";
-import {userAgentFromString} from "next/server";
 import {Slider} from "../../components/misc/slider";
 import Image from "next/image";
 import cat from "/public/images/misc/cat.png";
 import yarn from "/public/images/misc/yarn.png";
 import pid from "/public/images/misc/pid.svg";
 import {
-    TbHexagonNumber1,
-    TbHexagonNumber2,
-    TbHexagonNumber3,
-} from "react-icons/tb";
+    FiArrowDownCircle,
+    FiArrowUpCircle,
+    FiMinusCircle,
+} from "react-icons/fi";
 import { Selector } from "../../components/selector";
 
 // import {KnobComp} from "../../components/pid/knob";
@@ -147,12 +146,12 @@ export default function PID() {
                     {
                         data: dataTmp,
                         label: "Position",
-                        borderColor: "blue",
+                        borderColor: "orange",
                     },
                     {
                         data: sliderLog,
                         label: "Target",
-                        borderColor: "green",
+                        borderColor: "blue",
                     },
                 ],
             });
@@ -179,14 +178,20 @@ export default function PID() {
         {
             title: "Underdamped",
             text: "Underdamped control can result in overshooting of the target, which leads to an oscillating motion. Notice that the proportional gain (P) value is set very high in this example. This high proportional control amplifies the error signal and results in an oscillating motion because it's providing more direct feedback into the system. Move the integral (I) slider around to see how it oscillates even faster, as the I term is responsible for accumulating error over time.",
+            image: undefined,
+            icon: <FiArrowDownCircle />
         },
         {
             title: "Overdamped",
             text: "Overdamped control is designed to prioritize stability over speed, resulting in a slower approach to its target. As a result, it will undershoot its target and the response curve will rise smoothly to the setpoint without oscillating. In this particular example, the P value is set to a low value while the D value contributes to the slow approach. An overdamped system is a great choice for applications where stability is crucial, as it ensures a smooth and steady response without any unpredictable oscillations.",
+            image: undefined,
+            icon: <FiArrowUpCircle />
         },
         {
             title: "Critally Damped",
             text: "Critically damped control is the perfect balance between underdamped and overdamped control. All values are carefully tuned to ensure that the system reaches its destination in a controlled and timely manner. Observe how the system speeds up when the target is far away and slows down when it approaches, demonstrating the precise nature of the PID control system.",
+            image: undefined,
+            icon: <FiMinusCircle />
         },
     ];
 

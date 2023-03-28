@@ -1,16 +1,11 @@
 import React, {useEffect, useState} from "react";
 import styles from "./selector.module.css";
 import Image from "next/image";
-import {
-    TbHexagonNumber1,
-    TbHexagonNumber2,
-    TbHexagonNumber3,
-} from "react-icons/tb";
-
 type Blurb = {
     title: string;
     text: string;
     image: any;
+    icon: any;
 };
 
 type BlurbListProps = {
@@ -36,25 +31,29 @@ function Selector({blurbs}: BlurbListProps) {
 
     function blurbCycle() {
         return (
-          <div className={styles.blurbMain}>
-            <h2 className={styles.blurbTitle}>{blurbs[blurb - 1].title}</h2>
-            <div className={styles.blurbBody}>
-              {blurbs[blurb - 1].image ? (
-                <div className={styles.image}>
-                  <Image
-                    style={{ borderRadius: "0.25rem" }}
-                    src={blurbs[blurb - 1].image}
-                    width={420}
-                    height={420}
-                  />
-                </div>
-              ) : null}
-              <p className={styles.blurbText}>{blurbs[blurb - 1].text}</p>
+            <div className={styles.blurbMain}>
+                <h2 className={styles.blurbTitle}>{blurbs[blurb - 1].title}</h2>
+
+                {blurbs[blurb - 1].image ? (
+                    <div className={styles.blurbBody}>
+                        <div className={styles.image}>
+                            <Image
+                                style={{borderRadius: "0.25rem"}}
+                                src={blurbs[blurb - 1].image}
+                                width={420}
+                                height={420}
+                            />
+                        </div>
+                        <p className={styles.blurbText}>
+                            {blurbs[blurb - 1].text}
+                        </p>
+                    </div>
+                ) : (
+                    <p className={styles.blurbText}>{blurbs[blurb - 1].text}</p>
+                )}
             </div>
-          </div>
         );
-      }
-    
+    }
 
     // hook to get the offest of the selector button size (changes with screen size)
     const [blurbButtonSize, setBlurbButtonSize] = useState(0);
@@ -85,19 +84,19 @@ function Selector({blurbs}: BlurbListProps) {
                     className={styles.blurbButton}
                     onClick={() => handleSelector(1)}
                 >
-                    <TbHexagonNumber1 className={styles.TbHexagon} />
+                    <div className={styles.TbHexagon}>{blurbs[0].icon}</div>
                 </div>
                 <div
                     className={styles.blurbButton}
                     onClick={() => handleSelector(2)}
                 >
-                    <TbHexagonNumber2 className={styles.TbHexagon} />
+                    <div className={styles.TbHexagon}>{blurbs[1].icon}</div>
                 </div>
                 <div
                     className={styles.blurbButton}
                     onClick={() => handleSelector(3)}
                 >
-                    <TbHexagonNumber3 className={styles.TbHexagon} />
+                    <div className={styles.TbHexagon}>{blurbs[2].icon}</div>
                 </div>
             </div>
             <div className={styles.blurbBox}>{blurbCycle()}</div>
