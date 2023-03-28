@@ -21,24 +21,29 @@ import {
 const Home: NextPage = () => {
     // pass some tsx for the blrub for the blurb cycle
 
+
+
     const blurbs = [
         {
             title: "CAD",
             text: "As a 3D printing enthusiast, I have immersed myself in the world of 3D modeling using industry-standard software such as Fusion 360 and SolidWorks. Through my dedication to this craft, I have become highly proficient in creating detailed and precise 3D models. My expertise in 3D modeling has been invaluable both in my personal projects and in my professional work, where I have been able to create complex designs and prototypes with greater ease and efficiency.",
             image: sus,
-            icon: <FaDraftingCompass />
+            icon: <FaDraftingCompass />,
+            hook: undefined
         },
         {
             title: "PCB",
             text: "PCB design has been a game-changer for my DIY projects, enabling me to create more efficient and robust circuits. I thoroughly enjoy using Eagle CAD to design PCBs and export Gerber files for rapid prototyping. My experience in PCB design has helped me to refine my skills, and I take pride in producing high-quality designs that meet my needs. Whether it's designing custom PCBs for my personal projects or working in the feild, I am always excited to tackle new challenges and create innovative solutions.",
             image: pcb,
-            icon: <FaMicrochip />
+            icon: <FaMicrochip />,
+            hook: undefined
         },
         {
             title: "Software",
             text: "Programming is more than just a hobby for me, it's a passion. I enjoy creating and tinkering with various software tools and languages. In fact, I even built this website using TypeScript and Next.js, which was a fun and challenging experience. Through self-teaching, I've become proficient in a variety of programming skills that have proven to be incredibly valuable in my professional work. For me, programming is the key that unlocks countless possibilities and opens doors to new and exciting projects.",
             image: nerd,
-            icon: <FaCode />
+            icon: <FaCode />,
+            hook: undefined
         },
     ];
 

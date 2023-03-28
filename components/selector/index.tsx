@@ -6,6 +6,7 @@ type Blurb = {
     text: string;
     image: any;
     icon: any;
+    hook: any;
 };
 
 type BlurbListProps = {
@@ -13,18 +14,6 @@ type BlurbListProps = {
 };
 
 function Selector({blurbs}: BlurbListProps) {
-    function handleSelector(button: number) {
-        setBlurb(button);
-        if (button === 1) {
-            setSelector(16.66);
-        }
-        if (button === 2) {
-            setSelector(50);
-        }
-        if (button === 3) {
-            setSelector(100 - 16.66);
-        }
-    }
 
     const [selector, setSelector] = useState<number>(16.66);
     const [blurb, setBlurb] = useState<number>(1);
@@ -53,6 +42,21 @@ function Selector({blurbs}: BlurbListProps) {
                 )}
             </div>
         );
+    }
+
+    function handleSelector(button: number) {
+        // set props hook
+        blurbs[blurb - 1].hook(button);
+        setBlurb(button);
+        if (button === 1) {
+            setSelector(16.66);
+        }
+        if (button === 2) {
+            setSelector(50);
+        }
+        if (button === 3) {
+            setSelector(100 - 16.66);
+        }
     }
 
     // hook to get the offest of the selector button size (changes with screen size)

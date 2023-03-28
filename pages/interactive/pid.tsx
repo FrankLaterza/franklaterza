@@ -11,7 +11,7 @@ import {
     FiArrowUpCircle,
     FiMinusCircle,
 } from "react-icons/fi";
-import { Selector } from "../../components/selector";
+import {Selector} from "../../components/selector";
 
 // import {KnobComp} from "../../components/pid/knob";
 // import {Knob} from "../../components/pid/knob";
@@ -161,37 +161,63 @@ export default function PID() {
 
     // hook to get the offest of the selector button size (changes with screen size)
     const [blurbButtonSize, setBlurbButtonSize] = useState(0);
-  
+
     useEffect(() => {
         function handleResize() {
             setBlurbButtonSize(
-            document.getElementById("selector")?.clientWidth ?? blurbButtonSize
-          );
+                document.getElementById("selector")?.clientWidth ??
+                    blurbButtonSize
+            );
         }
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-      }, [blurbButtonSize]);
+    }, [blurbButtonSize]);
 
+
+    function setPID(p: number, i: number, d: number) {
+      setPSlider({values: [p]});
+      setISlider({values: [i]});
+      setDSlider({values: [d]});
+      // the last position
+      currentAccel = 0;
+      intergralSum = 0;
+  }
+
+    const [blurb, setBlurb] = useState<number>(1);
+    useEffect(() => {
+        if (blurb === 1) {
+            setPID(0.99, 0.001, 3);
+        }
+        if (blurb === 2) {
+            setPID(0.1, 0.01, 4);
+        }
+        if (blurb === 3) {
+            setPID(0.2, 0.04, 4);
+        }
+      }, [blurb]);
 
     const blurbs = [
         {
             title: "Underdamped",
             text: "Underdamped control can result in overshooting of the target, which leads to an oscillating motion. Notice that the proportional gain (P) value is set very high in this example. This high proportional control amplifies the error signal and results in an oscillating motion because it's providing more direct feedback into the system. Move the integral (I) slider around to see how it oscillates even faster, as the I term is responsible for accumulating error over time.",
             image: undefined,
-            icon: <FiArrowDownCircle />
+            icon: <FiArrowDownCircle />,
+            hook: setBlurb,
         },
         {
             title: "Overdamped",
             text: "Overdamped control is designed to prioritize stability over speed, resulting in a slower approach to its target. As a result, it will undershoot its target and the response curve will rise smoothly to the setpoint without oscillating. In this particular example, the P value is set to a low value while the D value contributes to the slow approach. An overdamped system is a great choice for applications where stability is crucial, as it ensures a smooth and steady response without any unpredictable oscillations.",
             image: undefined,
-            icon: <FiArrowUpCircle />
+            icon: <FiArrowUpCircle />,
+            hook: setBlurb,
         },
         {
             title: "Critally Damped",
             text: "Critically damped control is the perfect balance between underdamped and overdamped control. All values are carefully tuned to ensure that the system reaches its destination in a controlled and timely manner. Observe how the system speeds up when the target is far away and slows down when it approaches, demonstrating the precise nature of the PID control system.",
             image: undefined,
-            icon: <FiMinusCircle />
+            icon: <FiMinusCircle />,
+            hook: setBlurb,
         },
     ];
 
@@ -294,7 +320,7 @@ export default function PID() {
                 <div className={styles.blogImage}>
                     <Image src={pid} width={800} height={80} />
                 </div>
-                <Selector blurbs={blurbs}/>
+                <Selector blurbs={blurbs} />
             </div>
         </div>
     );
