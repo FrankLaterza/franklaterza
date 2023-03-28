@@ -14,7 +14,6 @@ type BlurbListProps = {
 };
 
 function Selector({blurbs}: BlurbListProps) {
-
     const [selector, setSelector] = useState<number>(16.66);
     const [blurb, setBlurb] = useState<number>(1);
 
@@ -46,7 +45,10 @@ function Selector({blurbs}: BlurbListProps) {
 
     function handleSelector(button: number) {
         // set props hook
-        blurbs[blurb - 1].hook(button);
+
+        if (blurbs[blurb - 1].hook !== undefined) {
+            blurbs[blurb - 1].hook(button);
+        }
         setBlurb(button);
         if (button === 1) {
             setSelector(16.66);
