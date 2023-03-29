@@ -27,7 +27,7 @@
   /* background-color: rgba(33, 34, 36, 0.75); */
   background-color: #414141;
   width: 60%;
-  max-width: 1000px;
+  max-width: 1500px;
   /* width: clac(50% + 4rem) !important; */
   display: flex;
   align-items: center;
@@ -47,6 +47,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+.mainSlug {
+  /* background-color: rgba(33, 34, 36, 0.75); */
+  background-color: #414141;
+  width: 50%;
+  max-width: 1500px;
+  /* width: clac(50% + 4rem) !important; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .mainSlug {
+    /* background-color: rgba(33, 34, 36, 0.75); */
+    width: 100%;
   }
 }
 
@@ -76,9 +96,14 @@
 }
 
 .postMain {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
-  flex-direction: column;
-  width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  /* flex-direction: column; */
+  width: 90%;
   position: relative;
 }
 
@@ -164,12 +189,11 @@
   border-radius: 0.7rem;
   background-color: #CA3E47;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .markDown {
   width: 100%;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -204,6 +228,32 @@
   font-size: 1rem;
 }
 
+.codeBlock p{
+  gap: 1rem;
+}
+
+
+.codeBlock p a{
+  color: rgb(51,102,204);
+}
+.codeBlock p a:hover{
+  color: rgb(131, 37, 214);
+}
+
+.codeBlock p:has(img){
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.codeBlock p img:only-child{
+  width: 60%;
+}
+
+.codeBlock p img{
+  width: 40%;
+}
+
 @media (max-width: 600px) {
   .codeBlock {
     width: 100%;
@@ -212,16 +262,27 @@
   }
 }
 
-/* --rich-black-fogra-39: #111213ff;
 
---good grey rgb(38, 37, 43);
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border-radius: 2rem;
+  box-shadow: none;
+  background-color: none;
+  height: fit-content; 
+}
 
---eerie-black: #212224ff;
+@media (max-width: 1100px) {
+  .content {
+    width: 45%;
+  }
+}
 
---quick-silver: #a1a1a1ff;
 
---white: #ffffffff;
-
---blue-crayola: #2f71e8ff;
-
---cyan-process: #29b9f0ff; */
+@media (max-width: 700px) {
+  .content {
+    width: 90%;
+  }
+}

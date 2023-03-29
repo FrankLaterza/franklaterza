@@ -56,7 +56,7 @@ const CodeBlock = {
 export default function PostPage({frontmatter, content}: any) {
   return (
     <div className={styles.container}>
-      <div className={styles.main}>
+      <div className={styles.mainSlug}>
         <div className={styles.markDown}>
           <Link href={`/projects`}>
             <div className={styles.backBtn}>Back</div>

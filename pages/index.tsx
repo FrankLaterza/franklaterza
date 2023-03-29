@@ -1,27 +1,37 @@
-import type {NextPage} from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 //import styles from '../styles/shapes.css';
 import ME from "/public/images/me/prof_bush.jpg";
-import sus from "/public/images/projects/model.gif";
+import sus from "/public/images/projects/coffee_filler.gif";
 import pcb from "/public/images/projects/pcb.png";
 import nerd from "/public/images/me/nerd.png";
-import React, {useEffect, useState} from "react";
-import {Selector} from "../components/selector";
-import { BiPieChart } from "react-icons/bi";
+import lock from "/public/images/projects/door_lock.png";
+import moo from "/public/images/projects/moo.png";
+import penguin from "/public/images/projects/linux_peng.png";
+import light from "/public/images/projects/light_switch.png";
+import cow from  "/public/images/projects/cow.png";
+import React, { useEffect, useState } from "react";
+import { Selector } from "../components/selector";
+import { ContentCardPreview } from "../components/contentCard";
 import {
     FaDraftingCompass,
     FaMicrochip,
     FaCode,
 } from "react-icons/fa";
+// i don't get it...
+import { CCard, CCardBody, CCardTitle, CCardImage, CButton, CCardText } from '@coreui/react';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 
 
+// import required modules
+import { EffectCards } from "swiper";
 
-const Home: NextPage = () => {
+function Home() {
     // pass some tsx for the blrub for the blurb cycle
-
-
 
     const blurbs = [
         {
@@ -68,7 +78,7 @@ const Home: NextPage = () => {
                     {/* image */}
                     <div className={styles.image}>
                         <Image
-                            style={{borderRadius: "0.25rem"}}
+                            style={{ borderRadius: "0.25rem" }}
                             src={ME}
                             width={300}
                             height={320}
@@ -76,7 +86,6 @@ const Home: NextPage = () => {
                     </div>
                     {/* about me text */}
                     <div className={styles.aboutMeText}>
-                        <h1 className={styles.aboutMeHead}>Who?</h1>
                         <p className={styles.aboutMeBody}>
                             My name is Frank! I am a 3nd-year computer
                             engineering student at the University of Central
@@ -89,7 +98,6 @@ const Home: NextPage = () => {
                 </div>
                 {/* body */}
                 <div className={styles.what}>
-                    <h1 className={styles.whatHead}>What?</h1>
                     <p className={styles.whatBody}>
                         This is my website where I keep all my projects. I built
                         this site from scratch with Typescript and NextJs. Check
@@ -99,6 +107,56 @@ const Home: NextPage = () => {
                     </p>
                 </div>
 
+                {/* content cards */}
+
+                <Swiper
+                    effect={"cards"}
+                    grabCursor={true}
+                    initialSlide={2}
+                    modules={[EffectCards]}
+                    className={styles.swiper}>
+                    <SwiperSlide className={styles.slider}>
+                        <ContentCardPreview
+                            title={"VM GPU passthrough"}
+                            text={"Tutorial on single GPU passthrough on Pop!_OS "}
+                            image={penguin}
+                            link={"https://www.youtube.com/watch?v=MrA9jW6iCuo  "}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.slider}>
+                        <ContentCardPreview
+                            
+                            title={"IoT Light Switch"}
+                            text={"Controlling my light switch with an app"}
+                            image={light}
+                            link={"/projects/light-switch"}
+                        />
+
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.slider}>
+                        <ContentCardPreview
+                            
+                            title={"Weblock"}
+                            text={"My custom solution to an automatic door lock"}
+                            image={lock}
+                            link={"/projects/web-lock"}
+                        />
+
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.slider}>
+                        <ContentCardPreview
+                            
+                            title={"Cow Coding"}
+                            text={"The best coding language to be invented"}
+                            image={moo}
+                            link={"https://www.youtube.com/watch?v=XPVedHlGutg"}
+                        />
+
+                    </SwiperSlide>
+                </Swiper>
+
+
+                {/* some things abt me */}
                 <Selector blurbs={blurbs} />
             </div>
         </div>
