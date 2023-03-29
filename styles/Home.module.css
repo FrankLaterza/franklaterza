@@ -17,6 +17,7 @@
   background-color: #313131;
   color: white;
   cursor: default;
+  overflow: hidden;
 }
 
 .container h1 {
@@ -200,6 +201,11 @@
   }
 }
 
+@media (max-width: 700px) {
+  .swiper {
+    width: 80%;
+  }
+}
 
 .slider{
   border-radius: 2rem;

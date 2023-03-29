@@ -85,7 +85,7 @@ function Home() {
                         />
                     </div>
                     {/* about me text */}
-                    <div className={styles.aboutMeText}>
+                    <div className={styles.aboutMeText}> 
                         <p className={styles.aboutMeBody}>
                             My name is Frank! I am a 3nd-year computer
                             engineering student at the University of Central
