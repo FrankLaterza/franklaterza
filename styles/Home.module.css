@@ -218,6 +218,7 @@
   box-shadow: none;
   background-color: none;
   height: fit-content; 
+  transition: ease 2s;
 }
 
 @media (max-width: 1500px) {

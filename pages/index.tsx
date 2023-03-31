@@ -31,7 +31,7 @@ import 'swiper/swiper-bundle.css';
 // ilikemen
 
 // import required modules
-import { EffectCards } from "swiper";
+import { EffectCards, Autoplay } from "swiper";
 
 function Home() {
     // pass some tsx for the blrub for the blurb cycle
@@ -125,9 +125,13 @@ function Home() {
                 <Swiper
                     effect={"cards"}
                     grabCursor={true}
-                    initialSlide={2}
-                    modules={[EffectCards]}
-                    className={styles.swiper}>
+                    initialSlide={1}
+                    modules={[EffectCards, Autoplay]}
+                    className={styles.swiper}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: true,
+                    }}>
                     <SwiperSlide className={styles.slider}>
                         <ContentCardPreview
                             title={"VM GPU passthrough"}
