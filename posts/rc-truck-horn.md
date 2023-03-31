@@ -1,7 +1,7 @@
 ---
 title: "RC Truck Horn"
 
-about: "Strap a train horn on an rc car"
+about: "Mounted a train horn to an RC car with FPV. Youtuber took it to the dog park."
 
 socialImage: /images/projects/truck.png
 

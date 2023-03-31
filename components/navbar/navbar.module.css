@@ -64,11 +64,14 @@
   color: white;
   background: none;
   border: none;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  text-align: center;   
   gap: 0.2rem;
 }
+
 .navLink:hover {
   /* background-color: #18dcff; */
   color: #ca3e47;
@@ -111,8 +114,8 @@
   z-index: 99;
 }
 
-.menuNav.showMenu {
-  max-height: 30%;
+.showMenu {
+  max-height: 25%;
   transition: max-height 200ms ease-in;
   display: flex;
   border: none;

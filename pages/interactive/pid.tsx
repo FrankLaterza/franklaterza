@@ -1,7 +1,7 @@
 import styles from "./pid.module.css";
-import React, {useEffect, useState} from "react";
-import {LineGraph} from "../../components/graph/lineGraph";
-import {Slider} from "../../components/misc/slider";
+import React, { useEffect, useState } from "react";
+import { LineGraph } from "../../components/graph/lineGraph";
+import { Slider } from "../../components/misc/slider";
 import Image from "next/image";
 import cat from "/public/images/misc/cat.png";
 import yarn from "/public/images/misc/yarn.png";
@@ -11,7 +11,7 @@ import {
     FiArrowUpCircle,
     FiMinusCircle,
 } from "react-icons/fi";
-import {Selector} from "../../components/selector";
+import { Selector } from "../../components/selector";
 
 // import {KnobComp} from "../../components/pid/knob";
 // import {Knob} from "../../components/pid/knob";
@@ -166,7 +166,7 @@ export default function PID() {
         function handleResize() {
             setBlurbButtonSize(
                 document.getElementById("selector")?.clientWidth ??
-                    blurbButtonSize
+                blurbButtonSize
             );
         }
         handleResize();
@@ -176,13 +176,13 @@ export default function PID() {
 
 
     function setPID(p: number, i: number, d: number) {
-      setPSlider({values: [p]});
-      setISlider({values: [i]});
-      setDSlider({values: [d]});
-      // the last position
-      currentAccel = 0;
-      intergralSum = 0;
-  }
+        setPSlider({ values: [p] });
+        setISlider({ values: [i] });
+        setDSlider({ values: [d] });
+        // the last position
+        currentAccel = 0;
+        intergralSum = 0;
+    }
 
     const [blurb, setBlurb] = useState<number>(1);
     useEffect(() => {
@@ -195,31 +195,7 @@ export default function PID() {
         if (blurb === 3) {
             setPID(0.2, 0.04, 4);
         }
-      }, [blurb]);
-
-    const blurbs = [
-        {
-            title: "Underdamped",
-            text: "Underdamped control can result in overshooting of the target, which leads to an oscillating motion. Notice that the proportional gain (P) value is set very high in this example. This high proportional control amplifies the error signal and results in an oscillating motion because it's providing more direct feedback into the system. Move the integral (I) slider around to see how it oscillates even faster, as the I term is responsible for accumulating error over time.",
-            image: undefined,
-            icon: <FiArrowDownCircle />,
-            hook: setBlurb,
-        },
-        {
-            title: "Overdamped",
-            text: "Overdamped control is designed to prioritize stability over speed, resulting in a slower approach to its target. As a result, it will undershoot its target and the response curve will rise smoothly to the setpoint without oscillating. In this particular example, the P value is set to a low value while the D value contributes to the slow approach. An overdamped system is a great choice for applications where stability is crucial, as it ensures a smooth and steady response without any unpredictable oscillations.",
-            image: undefined,
-            icon: <FiArrowUpCircle />,
-            hook: setBlurb,
-        },
-        {
-            title: "Critally Damped",
-            text: "Critically damped control is the perfect balance between underdamped and overdamped control. All values are carefully tuned to ensure that the system reaches its destination in a controlled and timely manner. Observe how the system speeds up when the target is far away and slows down when it approaches, demonstrating the precise nature of the PID control system.",
-            image: undefined,
-            icon: <FiMinusCircle />,
-            hook: setBlurb,
-        },
-    ];
+    }, [blurb]);
 
     // the goods
     return (
@@ -245,34 +221,14 @@ export default function PID() {
                         />
                     </div>
                     <div
-                        style={{
-                            left: `calc(${targetSlider.values[0] / 10}% - ${
-                                yarnImageSize / 2
-                            }px`,
-                        }}
-                        className={styles.follow}
-                    >
-                        <Image
-                            src={yarn}
-                            id="case"
-                            width={yarnImageSize}
-                            height={yarnImageSize}
-                        />
+                        style={{ left: `calc(${targetSlider.values[0] / 10}% - ${yarnImageSize / 2}px`, }}
+                        className={styles.follow}>
+                        <Image src={yarn} id="case" width={yarnImageSize} height={yarnImageSize} />
                     </div>
                     <div
-                        style={{
-                            left: `calc(${followPos / 10}% - ${
-                                catImageSize / 2
-                            }px`,
-                        }}
-                        className={styles.chase}
-                    >
-                        <Image
-                            src={cat}
-                            id="case"
-                            width={catImageSize}
-                            height={catImageSize}
-                        />
+                        style={{ left: `calc(${followPos / 10}% - ${catImageSize / 2}px`, }}
+                        className={styles.chase}>
+                        <Image src={cat} id="case" width={catImageSize} height={catImageSize} />
                     </div>
                 </div>
                 <div className={styles.split}>
@@ -320,7 +276,29 @@ export default function PID() {
                 <div className={styles.blogImage}>
                     <Image src={pid} width={800} height={80} />
                 </div>
-                <Selector blurbs={blurbs} />
+                <Selector blurbs={[
+                    {
+                        title: "Underdamped",
+                        text: "Underdamped control can result in overshooting of the target, which leads to an oscillating motion. Notice that the proportional gain (P) value is set very high in this example. This high proportional control amplifies the error signal and results in an oscillating motion because it's providing more direct feedback into the system. Move the integral (I) slider around to see how it oscillates even faster, as the I term is responsible for accumulating error over time.",
+                        image: undefined,
+                        icon: <FiArrowDownCircle />,
+                        hook: setBlurb,
+                    },
+                    {
+                        title: "Overdamped",
+                        text: "Overdamped control is designed to prioritize stability over speed, resulting in a slower approach to its target. As a result, it will undershoot its target and the response curve will rise smoothly to the setpoint without oscillating. In this particular example, the P value is set to a low value while the D value contributes to the slow approach. An overdamped system is a great choice for applications where stability is crucial, as it ensures a smooth and steady response without any unpredictable oscillations.",
+                        image: undefined,
+                        icon: <FiArrowUpCircle />,
+                        hook: setBlurb,
+                    },
+                    {
+                        title: "Critally Damped",
+                        text: "Critically damped control is the perfect balance between underdamped and overdamped control. All values are carefully tuned to ensure that the system reaches its destination in a controlled and timely manner. Observe how the system speeds up when the target is far away and slows down when it approaches, demonstrating the precise nature of the PID control system.",
+                        image: undefined,
+                        icon: <FiMinusCircle />,
+                        hook: setBlurb,
+                    },
+                ]} />
             </div>
         </div>
     );
