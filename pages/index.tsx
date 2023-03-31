@@ -100,7 +100,7 @@ function Home() {
                     {/* about me text */}
                     <div className={styles.aboutMeText}>
                         <p className={styles.aboutMeBody}>
-                            My name is Frank! I am a 3nd-year computer
+                            My name is Frank! I am a 3rd-year computer
                             engineering student at the University of Central
                             Florida. I am passionate about computer science and
                             DIY electronics. My skills involve 3D modeling, PCB
