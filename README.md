@@ -3,7 +3,7 @@
 🛰️ Embedded systems engineer (intern at ETA Space)<br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
-🌐 Web dev because typescript is cool<br>
+🌐 Typescript makes the web a better place<br>
 🚀 I like spaceships!<br>
 
 ## 🌐 Socials:
