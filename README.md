@@ -1,6 +1,6 @@
 # 👋 Hey, I'm Frank!
 
-🕸️ checkout my [website](https://www.franklaterza.com/) <br>
+🕸️ check out my [website](https://www.franklaterza.com/) <br>
 🛰️ Embedded systems engineer (intern at ETA Space)<br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
@@ -17,8 +17,6 @@
 # 📊 GitHub Stats:
 ![](https://github-readme-streak-stats.herokuapp.com/?user=FrankLaterza&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=FrankLaterza&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
-
-### 🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=FrankLaterza&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
 ---
