@@ -1,6 +1,6 @@
 # 👋 Hey, I'm Frank!
 
-🕸️ checkout my [website](https://www.franklaterza.com/)
+🕸️ checkout my [website](https://www.franklaterza.com/) <br>
 🛰️ Embedded systems engineer (intern at ETA Space)<br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
