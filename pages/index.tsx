@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 //import styles from '../styles/shapes.css';
-import ME from "/public/images/me/prof_bush.jpg";
+import ME from "/public/images/me/me.jpg";
 import sus from "/public/images/projects/coffee_filler.gif";
 import pcb from "/public/images/projects/pcb.png";
 import nerd from "/public/images/me/nerd.png";
@@ -94,7 +94,7 @@ function Home() {
                             style={{ borderRadius: "0.25rem" }}
                             src={ME}
                             width={300}
-                            height={320}
+                            height={300}
                         />
                     </div>
                     {/* about me text */}
