@@ -83,25 +83,26 @@ export default function PID() {
     // returns the max output of the proportinal control
     function proportional(currentPos: number) {
         let error = targetSlider.values[0] - currentPos;
-        // // if the error is greater than out max accel
-        if (error > 0) {
-            currentAccel += maxAccel;
-        } else {
-            currentAccel -= maxAccel;
-        }
+        let proportion = kp[0] * error;
+        currentAccel = proportion;
         return currentPos + currentAccel;
     }
+
     // gets values over time (integral)
     function intergral(currentPos: number) {
         intergralSum += targetSlider.values[0] - currentPos;
-        return intergralSum;
+        let integrated = ki[0] * intergralSum;
+        return integrated;
     }
+
     // the derivative
     function derivative(currentPos: number) {
-        //  last error - curent error
-        let derive = (targetSlider.values[0] - currentPos) -  lastErr;
+        let currentErr = targetSlider.values[0] - currentPos;
+        let derive = currentErr - lastErr;
+        lastErr = currentErr;  // Update lastErr for the next iteration
         return derive;
     }
+
     // calculates pid
     useEffect(() => {
         // when the user isn't touching the knob
@@ -113,13 +114,13 @@ export default function PID() {
             let proportion = proportional(followPos);
             let derived = derivative(followPos);
             let integrated = intergral(followPos);
-
+            
             // the magic
             let kp: number[] = pSlider.values;
             let kd: number[] = dSlider.values;
             let ki: number[] = iSlider.values;
             let newData =
-                kp[0] * proportion - kd[0] * derived + ki[0] * integrated;
+                kp[0] * proportion + kd[0] * derived + ki[0] * integrated;
 
             let dataTmp = positionData.datasets[0].data;
             sliderLog.push(targetSlider.values[0]);
