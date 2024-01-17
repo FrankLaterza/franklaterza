@@ -24,7 +24,6 @@ function generateRandomNumber(min: number, max: number): number {
 let iterations: number = 0;
 // the last position
 let lastPos = 1;
-let lastErr: number = 0;
 let currentAccel = 0;
 let intergralSum: number = 0;
 // the bounds
@@ -83,26 +82,23 @@ export default function PID() {
     // returns the max output of the proportinal control
     function proportional(currentPos: number) {
         let error = targetSlider.values[0] - currentPos;
-        let proportion = error;
-        currentAccel = proportion;
+        // // if the error is greater than out max accel
+        if (error > 0) {
+            currentAccel += maxAccel;
+        } else {
+            currentAccel -= maxAccel;
+        }
         return currentPos + currentAccel;
     }
-
     // gets values over time (integral)
     function intergral(currentPos: number) {
         intergralSum += targetSlider.values[0] - currentPos;
-        let integrated = intergralSum;
-        return integrated;
+        return intergralSum;
     }
-
     // the derivative
     function derivative(currentPos: number) {
-        let currentErr = targetSlider.values[0] - currentPos;
-        let derive = currentErr - lastErr;
-        lastErr = currentErr;  // Update lastErr for the next iteration
-        return derive;
+        return currentPos / lastPos;
     }
-
     // calculates pid
     useEffect(() => {
         // when the user isn't touching the knob
@@ -114,13 +110,12 @@ export default function PID() {
             let proportion = proportional(followPos);
             let derived = derivative(followPos);
             let integrated = intergral(followPos);
-            
             // the magic
             let kp: number[] = pSlider.values;
             let kd: number[] = dSlider.values;
             let ki: number[] = iSlider.values;
             let newData =
-                kp[0] * proportion + kd[0] * derived + ki[0] * integrated;
+                kp[0] * proportion - kd[0] * derived + ki[0] * integrated;
 
             let dataTmp = positionData.datasets[0].data;
             sliderLog.push(targetSlider.values[0]);
@@ -138,9 +133,6 @@ export default function PID() {
 
             // save the last position
             lastPos = followPos;
-            // save the last error
-            lastErr = targetSlider.values[0] - followPos;
-            
 
             let labelsTmp = positionData.labels;
             if (labelsTmp.length > 300) {
