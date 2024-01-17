@@ -138,7 +138,7 @@ export default function PID() {
             // save the last position
             lastPos = followPos;
             // save the last error
-            lastErr = targetSlider.values[0] - currentPos;
+            lastErr = targetSlider.values[0] - followPos;
             
 
             let labelsTmp = positionData.labels;
