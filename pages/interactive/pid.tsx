@@ -24,6 +24,7 @@ function generateRandomNumber(min: number, max: number): number {
 let iterations: number = 0;
 // the last position
 let lastPos = 1;
+let lastErr: number = 0;
 let currentAccel = 0;
 let intergralSum: number = 0;
 // the bounds
@@ -97,7 +98,9 @@ export default function PID() {
     }
     // the derivative
     function derivative(currentPos: number) {
-        return targetSlider.values[0] - currentPos;
+        //  last error - curent error
+        let derive = (targetSlider.values[0] - currentPos) -  lastErr;
+        return derive;
     }
     // calculates pid
     useEffect(() => {
@@ -110,6 +113,7 @@ export default function PID() {
             let proportion = proportional(followPos);
             let derived = derivative(followPos);
             let integrated = intergral(followPos);
+
             // the magic
             let kp: number[] = pSlider.values;
             let kd: number[] = dSlider.values;
@@ -133,6 +137,9 @@ export default function PID() {
 
             // save the last position
             lastPos = followPos;
+            // save the last error
+            lastErr = targetSlider.values[0] - currentPos;
+            
 
             let labelsTmp = positionData.labels;
             if (labelsTmp.length > 300) {
