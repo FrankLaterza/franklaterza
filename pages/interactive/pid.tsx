@@ -83,7 +83,7 @@ export default function PID() {
     // returns the max output of the proportinal control
     function proportional(currentPos: number) {
         let error = targetSlider.values[0] - currentPos;
-        let proportion = kp[0] * error;
+        let proportion = error;
         currentAccel = proportion;
         return currentPos + currentAccel;
     }
@@ -91,7 +91,7 @@ export default function PID() {
     // gets values over time (integral)
     function intergral(currentPos: number) {
         intergralSum += targetSlider.values[0] - currentPos;
-        let integrated = ki[0] * intergralSum;
+        let integrated = intergralSum;
         return integrated;
     }
 
