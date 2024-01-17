@@ -97,7 +97,7 @@ export default function PID() {
     }
     // the derivative
     function derivative(currentPos: number) {
-        return currentPos - lastPos;
+        return targetSlider.values[0] - currentPos;
     }
     // calculates pid
     useEffect(() => {
