@@ -1,7 +1,7 @@
 # 👋 Hey, I'm Frank!
 
+🛰️ Embedded software engineer. Developer for [LOXSAT](https://www.rocketlabusa.com/missions/upcoming-missions/loxsat1/)!<br>
 🕸️ Check out my [website](https://www.franklaterza.com/) <br>
-🛰️ Embedded systems engineer (intern at Micro Aerospace Solutions)<br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
 🌐 Typescript makes the web a better place<br>
