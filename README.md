@@ -1,6 +1,6 @@
 # 👋 Hey, I'm Frank!
 
-🛰️ I'm an embedded software engineer working on [LOXSAT](https://www.rocketlabusa.com/missions/upcoming-missions/loxsat1/)!<br>
+🛰️ I'm an GPU Firmware Engineer intern @ Nvidia!<br>
 🕸️ Check out my [website](https://www.franklaterza.com/) <br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
