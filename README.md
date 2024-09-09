@@ -1,6 +1,6 @@
 # 👋 Hey, I'm Frank!
 
-🛰️ I'm a GPU Firmware Engineer intern @ Nvidia!<br>
+🛰️ I'm a Software Engineer @ Eta Space!<br>
 🕸️ Check out my [website](https://www.franklaterza.com/) <br>
 🖥️ I like DIY electronics and code<br>
 🎒 3rd-year computer engineer at UCF<br>
