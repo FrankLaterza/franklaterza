@@ -2,7 +2,7 @@
 
 🛰️ I'm a Software Engineer @ [Eta Space](https://etaspace.com/)!<br>
 🖥️ I like DIY electronics and software<br>
-🎒 senior in computer engineer at UCF<br>
+🎒 Studying computer engineering at UCF<br>
 
 ---
 
